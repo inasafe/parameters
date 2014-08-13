@@ -14,4 +14,4 @@ class BooleanParameter(GenericParameter):
         :rtype : object
         """
         super(BooleanParameter, self).__init__()
-        self.set_expected_type(bool)
+        self.expected_type = bool

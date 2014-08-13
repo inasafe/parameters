@@ -19,17 +19,17 @@ class FloatParameter(GenericParameter):
             self.maximum_allowed_value = None
 
         def set_minimum_allowed_value(self, value):
-            """Define the minimum allowed value for the parameter.
+            """Define the minimum allowed _value for the parameter.
 
-            :param value: The minimum allowed value.
+            :param value: The minimum allowed _value.
             :type value: float
             """
             self.minimum_allowed_value = value
 
         def set_maximum_allowed_value(self, value):
-            """Define the maximum allowed value for the parameter.
+            """Define the maximum allowed _value for the parameter.
 
-            :param value: The maximum allowed value.
+            :param value: The maximum allowed _value.
             :type value: float
             """
             self.maximum_allowed_value = value

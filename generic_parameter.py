@@ -7,35 +7,67 @@ class GenericParameter(object):
 
     def __init__(self):
         """Constructor."""
-        self.guid = None
-        self.name = None
-        self.expected_type = None
-        self.required = None
-        self.help_text = None
-        self.description = None
-        self.value = None
+        self._guid = None
+        self._name = None
+        self._expected_type = None
+        self._required = None
+        self._help_text = None
+        self._description = None
+        self._value = None
+        # Defaults to _required
+        self._is_required = True
 
-    def set_guid(self, guid):
+    @property
+    def guid(self):
+        """Unique identifier property for a parameter.
+
+        :returns: A globally unique identifier for the parameter.
+        :rtype: str
+        """
+        return self._guid
+
+    @guid.setter
+    def guid(self, guid):
         """Assign a unique identifier to the parameter instance.
 
         :param guid: A globally unique identified (never translated).
         :type guid: str
 
-        Perhaps it should set the guid itself?
+        Perhaps it should set the _guid itself?
         """
-        self.guid = guid
+        self._guid = guid
 
-    def set_name(self, name):
+    @property
+    def name(self):
+        """Name property for the parameter.
+
+        :returns: The name for this parameter.
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
         """Set the name for the parameter.
 
-        :param name: The name for the parameters. This will be used in the UI,
+        :param name: The _name for the parameters. This will be used in the UI,
             and can be translated)
         :type name: str
         """
-        self.name = name
+        self._name = name
 
-    def set_expected_type(self, expected_type):
-        """Define what type of input is required.
+    @property
+    def expected_type(self):
+        """Property for the expected type for this parameter.
+
+        :returns: The expected type for this parameter.
+        :rtype: str
+        """
+        return self._expected_type
+
+    @expected_type.setter
+    def expected_type(self, expected_type):
+        """Define what type of input is _required.
 
         :param expected_type: ?????
         :type expected_type: ????
@@ -43,45 +75,84 @@ class GenericParameter(object):
         """
         # TODO some validation here...
         # I think validation should be in set_value
-        self.expected_type = expected_type
+        self._expected_type = expected_type
 
 
-    def set_is_required(self, required):
+    @property
+    def is_required(self):
+        """Property indicating whether the parameter is required.
+
+        :returns: bool
+        """
+        return self._is_required
+
+    @is_required.setter
+    def is_required(self, required):
         """Define if this is a required parameter or not.
 
-        :param required: A required to indicate if a parameter is required.
+        :param required: A _required to indicate if a parameter is _required.
         :type required: bool
         """
-        self.is_required = required
+        self._is_required = required
 
-    def set_help_text(self, help_text):
-        """Define the help help_text for this parameter.
+    @property
+    def help_text(self):
+        """Property containing help text for the parameter.
+
+        :returns: A short help sentance for the parameter.
+        :rtype: str
+        """
+        return self._help_text
+
+    @help_text.setter
+    def help_text(self, help_text):
+        """Define the help _help_text for this parameter.
 
         :param help_text: A short (i.e. one line) explanation of the parameter.
         :type help_text: str
         """
-        self.help_text = help_text
+        self._help_text = help_text
 
-    def set_description(self, description):
-        """Define the description for this parameter.
+    @property
+    def description(self):
+        """Property for the description of the parameter.
 
-        :param description: A detailed description of the parameter
+        :returns: A detailed description for the parameter.
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Define the _description for this parameter.
+
+        :param description: A detailed _description of the parameter
         :type description: str
         """
-        self.description = description
+        self._description = description
 
-    def set_value(self, value):
-        """Define the current value for the parameter.
+    @property
+    def value(self):
+        """Property for the parameter value.
 
-        :param value: The value of the parameter itself.
+        :returns: The parameter value. The return type depends on the
+            subclass of GenericParameter.
+        """
+        return self._value
+
+    @value.setter
+    def value(self, value):
+        """Define the current _value for the parameter.
+
+        :param value: The _value of the parameter itself.
         :type value: str, bool, integer, float, list, dict
         """
-        # Checking that the type of value is the same as the expected value
-        if type(value) is not self.expected_type:
+        # Checking that the type of _value is the same as the expected _value
+        if type(value) is not self._expected_type:
             message = (
-                'The type of the value [%s] does match with the expected '
+                'The type of the _value [%s] does match with the expected '
                 'type of the parameter [%s].' % (
-                    str(type(value), str(self.expected_type))))
+                    str(type(value)), str(self._expected_type)))
             raise TypeError(message)
 
-        self.value = value
+        self._value = value

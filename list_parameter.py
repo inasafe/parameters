@@ -55,17 +55,17 @@ class ListParameter(GenericParameter):
         self.element_type = element_type
 
     def set_value(self, value):
-        """Define the current value for the parameter.
+        """Define the current _value for the parameter.
 
         Need to check the type of each element.
 
-        :param value: The value of the parameter itself.
+        :param value: The _value of the parameter itself.
         :type value: str, bool, integer, float, list, dict
         """
-        # Checking that the type of value is the same as the expected value
+        # Checking that the type of _value is the same as the expected _value
         if type(value) is not self.expected_type:
             message = (
-                'The type of the value [%s] is not match with the expected '
+                'The type of the _value [%s] is not match with the expected '
                 'type of the parameter [%s].' % (
                     str(type(value), str(self.expected_type))))
             raise TypeError(message)
@@ -78,4 +78,4 @@ class ListParameter(GenericParameter):
                     str(type(value), str(self.element_type))))
                 raise TypeError(message)
 
-        self.value = value
+        self._value = value
