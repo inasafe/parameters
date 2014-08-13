@@ -14,4 +14,4 @@ class DictParameter(GenericParameter):
         :rtype : object
         """
         super(DictParameter, self).__init__()
-        self.set_expected_type(dict)
+        self.expected_type = dict

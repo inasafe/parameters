@@ -22,5 +22,8 @@ class TestBooleanParameter(TestCase):
 
         parameter.value = True
         self.assertEqual(True, parameter.value)
+        
+        with self.assertRaises(TypeError):
+            parameter.value = 'Test'
 
 
