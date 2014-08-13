@@ -1,6 +1,7 @@
-from unittest import TestCase
+# coding=utf-8
+"""Tests for float parameter."""
 
-__author__ = 'timlinux'
+from unittest import TestCase
 
 
 class TestFloatParameter(TestCase):

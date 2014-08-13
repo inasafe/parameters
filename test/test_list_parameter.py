@@ -1,6 +1,7 @@
-from unittest import TestCase
+# coding=utf-8
+"""Tests for list parameter."""
 
-__author__ = 'timlinux'
+from unittest import TestCase
 
 
 class TestListParameter(TestCase):

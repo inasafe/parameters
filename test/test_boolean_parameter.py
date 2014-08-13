@@ -1,6 +1,6 @@
+# coding=utf-8
+"""Tests for boolean parameter."""
 from unittest import TestCase
-
-__author__ = 'timlinux'
 
 
 class TestBooleanParameter(TestCase):

@@ -1,6 +1,7 @@
-from unittest import TestCase
+# coding=utf-8
+"""Tests for string parameter."""
 
-__author__ = 'timlinux'
+from unittest import TestCase
 
 
 class TestStringParameter(TestCase):

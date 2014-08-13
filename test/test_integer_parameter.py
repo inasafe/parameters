@@ -1,6 +1,7 @@
-from unittest import TestCase
+# coding=utf-8
+"""Tests for integer parameter."""
 
-__author__ = 'timlinux'
+from unittest import TestCase
 
 
 class TestIntegerParameter(TestCase):

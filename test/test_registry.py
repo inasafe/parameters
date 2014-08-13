@@ -1,6 +1,7 @@
-from unittest import TestCase
+# coding=utf-8
+"""Tests for parameter registry."""
 
-__author__ = 'timlinux'
+from unittest import TestCase
 
 
 class TestRegistry(TestCase):
