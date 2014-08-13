@@ -6,7 +6,7 @@ from generic_parameter import GenericParameter
 
 class StringParameter(GenericParameter):
         """A subclass of generic parameter that accepts string only.
-        
+
         .. versionadded:: 2.2
         """
 
