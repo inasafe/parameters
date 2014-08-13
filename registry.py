@@ -8,7 +8,6 @@ class Registry(object):
     We will use a singleton pattern to ensure that there is only
     one canonical registry. The registry can be used by parameters
     to register themselves and their GUID's.
-
     """
 
     _instance = None
