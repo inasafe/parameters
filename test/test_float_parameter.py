@@ -22,7 +22,6 @@ class TestFloatParameter(TestCase):
         with self.assertRaises(TypeError):
             parameter.value = 'Test'
 
-
         with self.assertRaises(ValueOutOfBounds):
             parameter.value = 3.0
 
