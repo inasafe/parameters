@@ -9,11 +9,15 @@ class ListParameter(GenericParameter):
     .. versionadded:: 2.2
     """
 
-    def __init__(self):
+    def __init__(self, guid=None):
         """Constructor.
-        :rtype : object
+
+        :param guid: Optional unique identifier for this parameter. If none
+            is specified one will be generated using python hash. This guid
+            will be used when storing parameters in the registry.
+        :type guid: str
         """
-        super(ListParameter, self).__init__()
+        super(ListParameter, self).__init__(guid)
         self.set_expected_type(list)
         self.minimum_count = None
         self.maximum_count = None

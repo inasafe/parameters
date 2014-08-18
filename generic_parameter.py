@@ -1,13 +1,21 @@
 # coding=utf-8
 """Generic Parameter."""
+import uuid
 
 
 class GenericParameter(object):
     """A generic base class for all parameters."""
 
-    def __init__(self):
-        """Constructor."""
-        self._guid = None
+    def __init__(self, guid=None):
+        """Constructor.
+
+        :param guid: Optional unique identifier for this parameter. If none
+            is specified one will be generated using python hash. This guid
+            will be used when storing parameters in the registry.
+        :type guid: str
+        """
+        if guid is None:
+            self._guid = uuid.uuid4()
         self._name = None
         self._expected_type = None
         self._required = None
@@ -131,6 +139,15 @@ class GenericParameter(object):
         """
         self._description = description
 
+    def _check_type(self, value):
+        # Checking that the type of _value is the same as the expected _value
+        if type(value) is not self._expected_type:
+            message = (
+                'The type of the _value [%s] does match with the expected '
+                'type of the parameter [%s].' % (
+                    str(type(value)), str(self._expected_type)))
+            raise TypeError(message)
+
     @property
     def value(self):
         """Property for the parameter value.
@@ -144,15 +161,14 @@ class GenericParameter(object):
     def value(self, value):
         """Define the current _value for the parameter.
 
+        .. note:: Subclasses may want to overload this function to do parameter
+            type specific checks.
+
         :param value: The _value of the parameter itself.
         :type value: str, bool, integer, float, list, dict
+
+        :raises: TypeError
         """
-        # Checking that the type of _value is the same as the expected _value
-        if type(value) is not self._expected_type:
-            message = (
-                'The type of the _value [%s] does match with the expected '
-                'type of the parameter [%s].' % (
-                    str(type(value)), str(self._expected_type)))
-            raise TypeError(message)
+        self._check_type(value)
 
         self._value = value

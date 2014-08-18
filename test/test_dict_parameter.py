@@ -14,9 +14,8 @@ class TestDictParameter(TestCase):
         .. versionadded:: 2.2
 
         """
-        parameter = DictParameter()
+        parameter = DictParameter(guid='1232141')
         parameter.name = 'Dict'
-        parameter.guid = '1234567'
         #parameter.set_expected_type(bool)
         parameter.help_text = 'A dict parameter'
         parameter.description = 'A test _description'

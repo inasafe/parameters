@@ -12,9 +12,8 @@ class TestBooleanParameter(TestCase):
         .. versionadded:: 2.2
 
         """
-        parameter = BooleanParameter()
+        parameter = BooleanParameter('1231231')
         parameter.name = 'Boolean'
-        parameter.guid = '1234567'
         #parameter.set_expected_type(bool)
         parameter.help_text = 'A boolean parameter'
         parameter.description = 'A test _description'
@@ -22,7 +21,7 @@ class TestBooleanParameter(TestCase):
 
         parameter.value = True
         self.assertEqual(True, parameter.value)
-        
+
         with self.assertRaises(TypeError):
             parameter.value = 'Test'
 
