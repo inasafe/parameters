@@ -23,13 +23,10 @@ def main():
     parameter.help_text = 'A boolean parameter'
     parameter.description = 'A test _description'
     parameter.is_required = True
-
     parameter.value = True
 
     boolean_parameter_widget = BooleanParameterWidget(parameter)
-
     boolean_parameter_widget.setGeometry(300, 300, 300, 150)
-
     boolean_parameter_widget.show()
 
     parameter = FloatParameter()
@@ -44,7 +41,6 @@ def main():
     parameter.value = 1.12
 
     widget = FloatParameterWidget(parameter)
-
     widget.setGeometry(300, 300, 300, 150)
     widget.show()
 
