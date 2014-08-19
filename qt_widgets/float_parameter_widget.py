@@ -39,11 +39,14 @@ class FloatParameterWidget(QWidget, object):
         self._description.setToolTip(self._parameter.description)
 
         # put to input layout
+        self._inner_input_row = QHBoxLayout()
+        self._inner_input_row.addWidget(self._input)
+        self._inner_input_row.addWidget(self._unit)
+
         self._input_row = QHBoxLayout()
         self._input_row.addStretch(1)
         self._input_row.addWidget(self._label)
-        self._input_row.addWidget(self._input)
-        self._input_row.addWidget(self._unit)
+        self._input_row.addLayout(self._inner_input_row)
         self._input_row.addWidget(self._description)
 
         # put to main layout

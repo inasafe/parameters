@@ -6,7 +6,7 @@ __date__ = '8/19/14'
 __copyright__ = 'imajimatika@gmail.com'
 __doc__ = ''
 
-from PyQt4.QtGui import QApplication
+from PyQt4.QtGui import QApplication, QWidget, QVBoxLayout
 
 import sys
 from boolean_parameter import BooleanParameter
@@ -18,30 +18,41 @@ from qt_widgets.float_parameter_widget import FloatParameterWidget
 def main():
     """Main function"""
     app = QApplication([])
-    parameter = BooleanParameter('1231231')
-    parameter.name = 'Boolean'
-    parameter.help_text = 'A boolean parameter'
-    parameter.description = 'A test _description'
-    parameter.is_required = True
-    parameter.value = True
+    boolean_parameter = BooleanParameter('1231231')
+    boolean_parameter.name = 'Boolean'
+    boolean_parameter.help_text = 'A boolean parameter'
+    boolean_parameter.description = 'A test _description'
+    boolean_parameter.is_required = True
+    boolean_parameter.value = True
 
-    boolean_parameter_widget = BooleanParameterWidget(parameter)
-    boolean_parameter_widget.setGeometry(300, 300, 300, 150)
-    boolean_parameter_widget.show()
+    boolean_parameter_widget = BooleanParameterWidget(boolean_parameter)
+    # boolean_parameter_widget.setGeometry(300, 300, 300, 150)
+    # boolean_parameter_widget.show()
 
-    parameter = FloatParameter()
-    parameter.name = 'Float Parameter'
-    parameter.is_required = True
-    parameter.precision = 3
-    parameter.minimum_allowed_value = 1.0
-    parameter.maximum_allowed_value = 2.0
-    parameter.help_text = 'Short help.'
-    parameter.description = 'Long description for parameter.'
-    parameter.unit = 'metres'
-    parameter.value = 1.12
+    float_parameter = FloatParameter()
+    float_parameter.name = 'Float Parameter'
+    float_parameter.is_required = True
+    float_parameter.precision = 3
+    float_parameter.minimum_allowed_value = 1.0
+    float_parameter.maximum_allowed_value = 2.0
+    float_parameter.help_text = 'Short help.'
+    float_parameter.description = 'Long description for parameter.'
+    float_parameter.unit = 'metres'
+    float_parameter.value = 1.12
 
-    widget = FloatParameterWidget(parameter)
-    widget.setGeometry(300, 300, 300, 150)
+    float_parameter_widget = FloatParameterWidget(float_parameter)
+    # float_parameter_widget.setGeometry(300, 300, 300, 150)
+    # float_parameter_widget.show()
+
+    layout = QVBoxLayout()
+    layout.addStretch(1)
+    layout.addWidget(boolean_parameter_widget)
+    layout.addWidget(float_parameter_widget)
+
+    widget = QWidget()
+    widget.setLayout(layout)
+
+    widget.setGeometry(300, 300, 300, 100)
     widget.show()
 
     sys.exit(app.exec_())
