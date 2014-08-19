@@ -25,11 +25,12 @@ class IntegerParameter(GenericParameter):
         :type guid: str
         """
         super(IntegerParameter, self).__init__(guid)
-        self.set_expected_type(int)
+        self.expected_type = int
         self._minimum_allowed_value = - sys.maxint - 1
         self._maximum_allowed_value = sys.maxint
+        self._unit = ''
 
-   @property
+    @property
     def minimum_allowed_value(self):
         """Property for the minimum allowed value for the parameter.
 
@@ -40,7 +41,7 @@ class IntegerParameter(GenericParameter):
 
     @minimum_allowed_value.setter
     def minimum_allowed_value(self, value):
-        """Getter for the minimum allowed value for the parameter.
+        """Setter for the minimum allowed value for the parameter.
 
         :param value: The minimum allowed value.
         :type value: float
@@ -70,7 +71,7 @@ class IntegerParameter(GenericParameter):
 
     @maximum_allowed_value.setter
     def maximum_allowed_value(self, value):
-        """Getter for the maximum allowed value for the parameter.
+        """Setter for the maximum allowed value for the parameter.
 
         :param value: The maximum allowed value.
         :type value: float
@@ -88,6 +89,25 @@ class IntegerParameter(GenericParameter):
             return
 
         raise InvalidMaximumError('Maximum must be greater than minimum')
+
+    @property
+    def unit(self):
+        """Property for the unit for the parameter.
+
+        :returns: The unit of the parameter.
+        :rtype: str
+        """
+        return self._unit
+
+    @unit.setter
+    def unit(self, unit):
+        """Setter for unit for the parameter.
+
+        :param unit: Unit for parameter
+        :type unit: str
+
+        """
+        self._unit = unit
 
     @GenericParameter.value.setter
     def value(self, value):
