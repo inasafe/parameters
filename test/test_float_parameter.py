@@ -34,7 +34,9 @@ class TestFloatParameter(TestCase):
         parameter = FloatParameter()
 
         with self.assertRaises(TypeError):
-            parameter.maximum_allowed_value = 1
+            parameter.maximum_allowed_value = 'One thousand'
+
+        parameter.minimum_allowed_value = 1
 
         parameter.minimum_allowed_value = 1.0
         # Also check that it raises an error if it exceeds max
@@ -48,7 +50,9 @@ class TestFloatParameter(TestCase):
         parameter = FloatParameter()
 
         with self.assertRaises(TypeError):
-            parameter.maximum_allowed_value = 1
+            parameter.maximum_allowed_value = 'One million'
+
+        parameter.maximum_allowed_value = 1000
 
         parameter.maximum_allowed_value = 11.0
         # Also check that it raises an error if it precedes min

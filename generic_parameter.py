@@ -141,7 +141,9 @@ class GenericParameter(object):
 
     def _check_type(self, value):
         # Checking that the type of _value is the same as the expected _value
-        if type(value) is not self._expected_type:
+        # or same as one type in list of type
+        if (type(value) is not self._expected_type and type(value) not in
+                self._expected_type):
             message = (
                 'The type of the _value [%s] does match with the expected '
                 'type of the parameter [%s].' % (
