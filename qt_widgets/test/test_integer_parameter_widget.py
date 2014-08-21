@@ -1,14 +1,16 @@
 # coding=utf-8
+"""Docstring for this test file."""
 __author__ = 'ismailsunni'
 __project_name = 'parameters'
-__filename = 'test_float_parameter_widget'
-__date__ = '8/19/14'
+__filename = 'test_integer_parameter_widget'
+__date__ = '8/21/14'
 __copyright__ = 'imajimatika@gmail.com'
 __doc__ = ''
 
 import unittest
-from float_parameter import FloatParameter
-from qt_widgets.float_parameter_widget import FloatParameterWidget
+
+from integer_parameter import IntegerParameter
+from qt_widgets.integer_parameter_widget import IntegerParameterWidget
 
 from PyQt4.QtGui import QApplication
 import sys
@@ -18,18 +20,17 @@ application = QApplication(sys.argv)
 
 class TestFloatParameterWidget(unittest.TestCase):
     def test_init(self):
-        parameter = FloatParameter()
-        parameter.name = 'Float Parameter'
+        parameter = IntegerParameter()
+        parameter.name = 'Integer  Parameter'
         parameter.is_required = True
-        parameter.precision = 3
-        parameter.minimum_allowed_value = 1.0
-        parameter.maximum_allowed_value = 2.0
+        parameter.minimum_allowed_value = 1
+        parameter.maximum_allowed_value = 5
         parameter.help_text = 'Short help.'
         parameter.description = 'Long description for parameter.'
-        parameter.unit = 'metres'
-        parameter.value = 1.12
+        parameter.unit = 'kilo'
+        parameter.value = 3
 
-        widget = FloatParameterWidget(parameter)
+        widget = IntegerParameterWidget(parameter)
 
         expected_value = parameter.name
         real_value = widget._label.text()
@@ -43,21 +44,21 @@ class TestFloatParameterWidget(unittest.TestCase):
 
         widget._input.setValue(1.5)
 
-        expected_value = 1.5
+        expected_value = 1
         real_value = widget.get_parameter().value
         message = 'Expected %s get %s' % (expected_value, real_value)
         self.assertEqual(expected_value, real_value, message)
 
         widget._input.setValue(1.55555)
 
-        expected_value = 1.556
+        expected_value = 1
         real_value = widget.get_parameter().value
         message = 'Expected %s get %s' % (expected_value, real_value)
         self.assertEqual(expected_value, real_value, message)
 
         widget._input.setValue(7)
 
-        expected_value = 2
+        expected_value = 5
         real_value = widget.get_parameter().value
         message = 'Expected %s get %s' % (expected_value, real_value)
         self.assertEqual(expected_value, real_value, message)

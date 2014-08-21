@@ -11,16 +11,18 @@ from PyQt4.QtGui import QApplication, QWidget, QVBoxLayout
 import sys
 from boolean_parameter import BooleanParameter
 from float_parameter import FloatParameter
+from integer_parameter import IntegerParameter
 from qt_widgets.boolean_parameter_widget import BooleanParameterWidget
 from qt_widgets.float_parameter_widget import FloatParameterWidget
+from qt_widgets.integer_parameter_widget import IntegerParameterWidget
 
 
 def main():
     """Main function"""
     app = QApplication([])
     boolean_parameter = BooleanParameter('1231231')
-    boolean_parameter.name = 'Boolean'
-    boolean_parameter.help_text = 'A boolean parameter'
+    boolean_parameter.name = 'Post processor'
+    boolean_parameter.help_text = 'This is post processor parameter.'
     boolean_parameter.description = (
         'A <b>test _description</b> that is very long so that you need to read '
         'it for one minute and you will be tired after read this description. '
@@ -31,28 +33,47 @@ def main():
     boolean_parameter.value = True
 
     boolean_parameter_widget = BooleanParameterWidget(boolean_parameter)
-    # boolean_parameter_widget.setGeometry(300, 300, 300, 150)
-    # boolean_parameter_widget.show()
 
     float_parameter = FloatParameter()
-    float_parameter.name = 'Float Parameter'
+    float_parameter.name = 'Flood Depth'
     float_parameter.is_required = True
     float_parameter.precision = 3
     float_parameter.minimum_allowed_value = 1.0
     float_parameter.maximum_allowed_value = 2.0
-    float_parameter.help_text = 'Short help.'
-    float_parameter.description = 'Long description for parameter.'
+    float_parameter.help_text = 'The depth of flood.'
+    float_parameter.description = (
+        'A <b>test _description</b> that is very long so that you need to read '
+        'it for one minute and you will be tired after read this description. '
+        'You are the best user so far. Even better if you read this '
+        'description loudly so that all of your friends will be able to hear '
+        'you')
     float_parameter.unit = 'metres'
     float_parameter.value = 1.12
 
     float_parameter_widget = FloatParameterWidget(float_parameter)
-    # float_parameter_widget.setGeometry(300, 300, 300, 150)
-    # float_parameter_widget.show()
+
+    integer_parameter = IntegerParameter()
+    integer_parameter.name = 'Paper'
+    integer_parameter.is_required = True
+    integer_parameter.minimum_allowed_value = 1
+    integer_parameter.maximum_allowed_value = 5
+    integer_parameter.help_text = 'Number of paper'
+    integer_parameter.description = (
+        'A <b>test _description</b> that is very long so that you need to read '
+        'it for one minute and you will be tired after read this description. '
+        'You are the best user so far. Even better if you read this '
+        'description loudly so that all of your friends will be able to hear '
+        'you')
+    integer_parameter.unit = 'Sheets'
+    integer_parameter.value = 3
+
+    integer_parameter_widget = IntegerParameterWidget(integer_parameter)
 
     layout = QVBoxLayout()
     layout.addStretch(1)
     layout.addWidget(boolean_parameter_widget)
     layout.addWidget(float_parameter_widget)
+    layout.addWidget(integer_parameter_widget)
 
     widget = QWidget()
     widget.setLayout(layout)

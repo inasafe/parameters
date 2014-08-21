@@ -48,6 +48,9 @@ class GenericParameterWidget(QWidget, object):
         # _inner_input_layout must be filled with widget in the child class
         self._inner_input_layout = QHBoxLayout()
 
+        # Tooltips
+        self.setToolTip(self._long_help)
+
         # Put elements into layouts
         self._input_layout.addWidget(self._label)
         self._input_layout.addLayout(self._inner_input_layout)
