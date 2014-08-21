@@ -8,7 +8,7 @@ from parameter_exceptions import (
 
 
 class TestFloatParameter(TestCase):
-
+    """Test class for FloatParameter."""
     def test_all(self):
         """Basic test of all properties."""
         parameter = FloatParameter()
@@ -28,7 +28,6 @@ class TestFloatParameter(TestCase):
         with self.assertRaises(ValueOutOfBounds):
             parameter.value = 0.5
 
-
     def test_set_minimum_allowed_value(self):
         """Test setter for minimum allowed value."""
         parameter = FloatParameter()
@@ -45,8 +44,10 @@ class TestFloatParameter(TestCase):
             parameter.minimum_allowed_value = 11.0
 
         # Also check that when we set a value it falls within [min, max]
+        parameter.value = 5
 
     def test_set_maximum_allowed_value(self):
+        """Test setter for maximum allowed value."""
         parameter = FloatParameter()
 
         with self.assertRaises(TypeError):
@@ -62,3 +63,4 @@ class TestFloatParameter(TestCase):
             parameter.maximum_allowed_value = 1.0
 
         # Also check that when we set a value it falls within [min, max]
+        parameter.value = 10.5

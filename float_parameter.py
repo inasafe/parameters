@@ -51,22 +51,3 @@ class FloatParameter(NumericParameter):
         """
         self._precision = precision
 
-    @GenericParameter.value.setter
-    def value(self, value):
-        """Define the current _value for the parameter.
-
-        .. note:: Overloads the setting in GenericParameter
-
-        :param value: The _value of the parameter itself.
-        :type value: str, bool, integer, float, list, dict
-
-        :raises: TypeError
-        """
-        self._check_type(value)
-        if self._minimum_allowed_value <= value <= self._maximum_allowed_value:
-            self._value = value
-        else:
-            raise ValueOutOfBounds(
-                'Value must be greater than %s and less than %s' % (
-                    self._minimum_allowed_value,
-                    self._maximum_allowed_value))
