@@ -6,12 +6,12 @@ __date__ = '8/19/14'
 __copyright__ = 'imajimatika@gmail.com'
 __doc__ = ''
 
+from PyQt4.QtGui import QDoubleSpinBox, QLabel, QSizePolicy
 
-from PyQt4.QtGui import (
-    QWidget, QHBoxLayout, QVBoxLayout, QLabel, QDoubleSpinBox)
+from qt_widgets.generic_parameter_widget import GenericParameterWidget
 
 
-class FloatParameterWidget(QWidget, object):
+class FloatParameterWidget(GenericParameterWidget):
     """Widget class for Float parameter."""
     def __init__(self, parameter, parent=None):
         """Constructor
@@ -22,39 +22,31 @@ class FloatParameterWidget(QWidget, object):
         :type parameter: FloatParameter
 
         """
-        QWidget.__init__(self, parent)
-        self._parameter = parameter
+        super(FloatParameterWidget, self).__init__(parameter, parent)
 
-        # create objects
-        self._label = QLabel(self._parameter.name)
-        self._label.setToolTip(self._parameter.description)
-        self._input = QDoubleSpinBox()
-        self._input.setDecimals(self._parameter.precision)
-        self._input.setValue(self._parameter.value)
-        self._input.setMinimum(self._parameter.minimum_allowed_value)
-        self._input.setMaximum(self._parameter.maximum_allowed_value)
-        self._input.setSingleStep(10 ** -self._parameter.precision)
-        self._unit = QLabel(self._parameter.unit)
-        self._description = QLabel(self._parameter.help_text)
-        self._description.setToolTip(self._parameter.description)
+        self._double_spin_box_input = QDoubleSpinBox()
+        self._double_spin_box_input.setDecimals(self._parameter.precision)
+        self._double_spin_box_input.setValue(self._parameter.value)
+        self._double_spin_box_input.setMinimum(
+            self._parameter.minimum_allowed_value)
+        self._double_spin_box_input.setMaximum(
+            self._parameter.maximum_allowed_value)
+        self._double_spin_box_input.setSingleStep(
+            10 ** -self._parameter.precision)
 
-        # put to input layout
-        self._inner_input_row = QHBoxLayout()
-        self._inner_input_row.addWidget(self._input)
-        self._inner_input_row.addWidget(self._unit)
+        self._label_unit = QLabel(self._parameter.unit)
 
-        self._input_row = QHBoxLayout()
-        self._input_row.addStretch(1)
-        self._input_row.addWidget(self._label)
-        self._input_row.addLayout(self._inner_input_row)
-        self._input_row.addWidget(self._description)
+        # Size policy
+        double_spin_box_size_policy = QSizePolicy(
+            QSizePolicy.Fixed, QSizePolicy.Fixed)
+        self._double_spin_box_input.setSizePolicy(double_spin_box_size_policy)
 
-        # put to main layout
-        self._layout = QVBoxLayout()
-        self._layout.addStretch(1)
-        self._layout.addLayout(self._input_row)
+        label_policy = QSizePolicy(
+            QSizePolicy.Minimum, QSizePolicy.Fixed)
+        self._label_unit.setSizePolicy(label_policy)
 
-        self.setLayout(self._layout)
+        self._inner_input_layout.addWidget(self._double_spin_box_input)
+        self._inner_input_layout.addWidget(self._label_unit)
 
     def get_parameter(self):
         """Obtain boolean parameter object from the current widget state.
@@ -62,5 +54,5 @@ class FloatParameterWidget(QWidget, object):
         :returns: A BooleanParameter from the current state of widget
 
         """
-        self._parameter.value = self._input.value()
+        self._parameter.value = self._double_spin_box_input.value()
         return self._parameter

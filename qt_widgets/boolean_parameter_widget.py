@@ -25,7 +25,7 @@ class BooleanParameterWidget(GenericParameterWidget):
         """
         super(BooleanParameterWidget, self).__init__(parameter, parent)
 
-        self._check_box_input = QCheckBox('Check if true')
+        self._check_box_input = QCheckBox()
         self._check_box_input.setChecked(self._parameter.value)
 
         self._inner_input_layout.addWidget(self._check_box_input)

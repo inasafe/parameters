@@ -37,28 +37,28 @@ class TestFloatParameterWidget(unittest.TestCase):
         self.assertEqual(expected_value, real_value, message)
 
         expected_value = parameter.value
-        real_value = widget._input.value()
+        real_value = widget._double_spin_box_input.value()
         message = 'Expected %s get %s' % (expected_value, real_value)
         self.assertEqual(expected_value, real_value, message)
 
-        widget._input.setValue(1.5)
+        widget._double_spin_box_input.setValue(1.5)
 
         expected_value = 1.5
-        real_value = widget._input.value()
+        real_value = widget._double_spin_box_input.value()
         message = 'Expected %s get %s' % (expected_value, real_value)
         self.assertEqual(expected_value, real_value, message)
 
-        widget._input.setValue(1.55555)
+        widget._double_spin_box_input.setValue(1.55555)
 
         expected_value = 1.556
-        real_value = widget._input.value()
+        real_value = widget._double_spin_box_input.value()
         message = 'Expected %s get %s' % (expected_value, real_value)
         self.assertEqual(expected_value, real_value, message)
 
-        widget._input.setValue(7)
+        widget._double_spin_box_input.setValue(7)
 
         expected_value = 2
-        real_value = widget._input.value()
+        real_value = widget._double_spin_box_input.value()
         message = 'Expected %s get %s' % (expected_value, real_value)
         self.assertEqual(expected_value, real_value, message)
 

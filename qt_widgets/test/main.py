@@ -52,12 +52,12 @@ def main():
     layout = QVBoxLayout()
     layout.addStretch(1)
     layout.addWidget(boolean_parameter_widget)
-    # layout.addWidget(float_parameter_widget)
+    layout.addWidget(float_parameter_widget)
 
     widget = QWidget()
     widget.setLayout(layout)
 
-    widget.setGeometry(300, 300, 300, 100)
+    widget.setGeometry(300, 300, 300, 300)
     widget.show()
 
     sys.exit(app.exec_())
