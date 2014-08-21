@@ -21,7 +21,12 @@ def main():
     boolean_parameter = BooleanParameter('1231231')
     boolean_parameter.name = 'Boolean'
     boolean_parameter.help_text = 'A boolean parameter'
-    boolean_parameter.description = 'A test _description'
+    boolean_parameter.description = (
+        'A <b>test _description</b> that is very long so that you need to read '
+        'it for one minute and you will be tired after read this description. '
+        'You are the best user so far. Even better if you read this '
+        'description loudly so that all of your friends will be able to hear '
+        'you')
     boolean_parameter.is_required = True
     boolean_parameter.value = True
 
@@ -47,7 +52,7 @@ def main():
     layout = QVBoxLayout()
     layout.addStretch(1)
     layout.addWidget(boolean_parameter_widget)
-    layout.addWidget(float_parameter_widget)
+    # layout.addWidget(float_parameter_widget)
 
     widget = QWidget()
     widget.setLayout(layout)

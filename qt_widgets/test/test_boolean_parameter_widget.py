@@ -35,15 +35,15 @@ class TestBooleanParameterWidget(unittest.TestCase):
         self.assertEqual(expected_value, real_value, message)
 
         expected_value = parameter.value
-        real_value = widget._input.isChecked()
+        real_value = widget._check_box_input.isChecked()
         message = 'Expected %s get %s' % (expected_value, real_value)
         self.assertEqual(expected_value, real_value, message)
 
         # change value
-        widget._input.setChecked(False)
+        widget._check_box_input.setChecked(False)
 
         expected_value = False
-        real_value = widget._input.isChecked()
+        real_value = widget._check_box_input.isChecked()
         message = 'Expected %s get %s' % (expected_value, real_value)
         self.assertEqual(expected_value, real_value, message)
 

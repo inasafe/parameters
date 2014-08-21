@@ -7,10 +7,12 @@ __copyright__ = 'imajimatika@gmail.com'
 __doc__ = ''
 
 
-from PyQt4.QtGui import QWidget, QHBoxLayout, QVBoxLayout, QLabel, QCheckBox
+from PyQt4.QtGui import QCheckBox
+
+from qt_widgets.generic_parameter_widget import GenericParameterWidget
 
 
-class BooleanParameterWidget(QWidget, object):
+class BooleanParameterWidget(GenericParameterWidget):
     """Widget class for boolean parameter."""
     def __init__(self, parameter, parent=None):
         """Constructor
@@ -21,30 +23,12 @@ class BooleanParameterWidget(QWidget, object):
         :type parameter: BooleanParameter
 
         """
-        QWidget.__init__(self, parent)
-        self._parameter = parameter
+        super(BooleanParameterWidget, self).__init__(parameter, parent)
 
-        # create objects
-        self._label = QLabel(self._parameter.name)
-        self._label.setToolTip(self._parameter.description)
-        self._input = QCheckBox()
-        self._input.setChecked(self._parameter.value)
-        self._description = QLabel(self._parameter.help_text)
-        self._description.setToolTip(self._parameter.description)
+        self._check_box_input = QCheckBox('Check if true')
+        self._check_box_input.setChecked(self._parameter.value)
 
-        # put to input layout
-        self._input_row = QHBoxLayout()
-        self._input_row.addStretch(1)
-        self._input_row.addWidget(self._label)
-        self._input_row.addWidget(self._input)
-        self._input_row.addWidget(self._description)
-
-        # put to main layout
-        self._layout = QVBoxLayout()
-        self._layout.addStretch(1)
-        self._layout.addLayout(self._input_row)
-
-        self.setLayout(self._layout)
+        self._inner_input_layout.addWidget(self._check_box_input)
 
     def get_parameter(self):
         """Obtain boolean parameter object from the current widget state.
@@ -52,5 +36,6 @@ class BooleanParameterWidget(QWidget, object):
         :returns: A BooleanParameter from the current state of widget
 
         """
-        self._parameter.value = self._input.isChecked()
+        self._parameter.value = self._check_box_input.value()
         return self._parameter
+
