@@ -8,7 +8,8 @@ __copyright__ = 'imajimatika@gmail.com'
 __doc__ = ''
 
 from PyQt4.QtGui import (
-    QWidget, QHBoxLayout, QVBoxLayout, QLabel, QPushButton, QTextBrowser)
+    QWidget, QHBoxLayout, QVBoxLayout, QLabel, QToolButton, QGridLayout, QStyle,
+    QStyleFactory)
 
 
 class GenericParameterWidget(QWidget, object):
@@ -28,35 +29,45 @@ class GenericParameterWidget(QWidget, object):
         # Create elements
         # Label (name)
         self._label = QLabel(self._parameter.name)
-        self._label.setToolTip(self._parameter.description)
 
-        # Help text (shorter one)
-        self._short_help = (
-            self._parameter.help_text + ' <a href=#>Show more.</a>')
-        self._long_help = (
-            self._parameter.description + ' <a href=#>Show less.</a>')
-        self._help = QTextBrowser()
-        self._help.setText(self._short_help)
-        self._help.setMinimumHeight(50)
-        self._help.sourceChanged.connect(self.switch_help)
-        self._help_less = True
+        # Label (help text)
+        self._help_text_label = QLabel(self._parameter.help_text)
+        self._help_text_label.setWordWrap(True)
 
+        # Label (description)
+        self._description_label = QLabel(self._parameter.description)
+        self._description_label.setWordWrap(True)
+        self._description_label.hide()
+
+        # Flag for show-status of description
+        self._hide_description = True
+
+        # Tool button for showing and hide detail description
+        self._switch_button = QToolButton()
+        self._switch_button.setArrowType(4)  # 2=down arrow, 4=right arrow
+        # noinspection PyUnresolvedReferences
+        self._switch_button.clicked.connect(self.show_hide_description)
+        self._switch_button.setToolTip('Click for detail description')
+        self._switch_button_stylesheet = 'border: none;'
+        self._switch_button.setStyleSheet(self._switch_button_stylesheet)
         # Layouts
         self._main_layout = QVBoxLayout()
         self._input_layout = QHBoxLayout()
-        self._help_layout = QHBoxLayout()
+        self._help_layout = QGridLayout()
         # _inner_input_layout must be filled with widget in the child class
         self._inner_input_layout = QHBoxLayout()
-
-        # Tooltips
-        self.setToolTip(self._long_help)
+        self._inner_help_layout = QVBoxLayout()
 
         # Put elements into layouts
         self._input_layout.addWidget(self._label)
         self._input_layout.addLayout(self._inner_input_layout)
 
+        self._help_layout.addWidget(self._switch_button, 0, 0)
+        self._help_layout.addWidget(self._help_text_label, 0, 1)
+        self._help_layout.addWidget(self._description_label, 1, 1)
+
         self._main_layout.addLayout(self._input_layout)
-        self._main_layout.addWidget(self._help)
+        self._main_layout.addLayout(self._help_layout)
 
         self.setLayout(self._main_layout)
 
@@ -70,11 +81,15 @@ class GenericParameterWidget(QWidget, object):
         """
         raise NotImplementedError('Must be implemented in child class')
 
-    def switch_help(self):
-        """Switch help from the long one to the short one, and vice versa."""
-        if self._help_less:
-            self._help.setText(self._long_help)
-            self._help_less = False
+    def show_hide_description(self):
+        """Show and hide long description."""
+        if self._hide_description:
+            self._hide_description = False
+            self._description_label.show()
+            self._switch_button.setArrowType(2)
+            self._switch_button.setToolTip('Click for hide detail description')
         else:
-            self._help.setText(self._short_help)
-            self._help_less = True
+            self._hide_description = True
+            self._description_label.hide()
+            self._switch_button.setArrowType(4)
+            self._switch_button.setToolTip('Click for detail description')

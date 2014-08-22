@@ -26,6 +26,8 @@ class BooleanParameterWidget(GenericParameterWidget):
         super(BooleanParameterWidget, self).__init__(parameter, parent)
 
         self._check_box_input = QCheckBox()
+        # Tooltips
+        self.setToolTip('Tick here to enable ' + self._parameter.name)
         self._check_box_input.setChecked(self._parameter.value)
 
         self._inner_input_layout.addWidget(self._check_box_input)

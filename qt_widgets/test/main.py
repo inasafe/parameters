@@ -15,6 +15,7 @@ from integer_parameter import IntegerParameter
 from qt_widgets.boolean_parameter_widget import BooleanParameterWidget
 from qt_widgets.float_parameter_widget import FloatParameterWidget
 from qt_widgets.integer_parameter_widget import IntegerParameterWidget
+from qt_widgets.parameter_container import ParameterContainer
 
 
 def main():
@@ -78,7 +79,14 @@ def main():
     widget = QWidget()
     widget.setLayout(layout)
 
-    widget.setGeometry(300, 300, 300, 300)
+    # parameters = [boolean_parameter, float_parameter]
+    # parameter_container = ParameterContainer(parameters)
+    #
+    # new_layout = QVBoxLayout()
+    # new_layout.addWidget(parameter_container)
+    widget.setLayout(layout)
+
+    widget.setGeometry(0, 0, 500, 500)
     widget.show()
 
     sys.exit(app.exec_())

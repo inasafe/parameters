@@ -1,4 +1,5 @@
 # coding=utf-8
+"""Docstring for this file."""
 __author__ = 'ismailsunni'
 __project_name = 'parameters'
 __filename = 'qt4_parameter_factory'
@@ -8,6 +9,7 @@ __doc__ = ''
 
 from qt_widgets.boolean_parameter_widget import BooleanParameterWidget
 from qt_widgets.float_parameter_widget import FloatParameterWidget
+from qt_widgets.integer_parameter_widget import IntegerParameterWidget
 
 
 class Qt4ParameterFactory(object):
@@ -34,5 +36,7 @@ class Qt4ParameterFactory(object):
             return BooleanParameterWidget(parameter)
         elif class_name == 'FloatParameter':
             return FloatParameterWidget(parameter)
+        elif class_name == 'IntegerParameterWidget':
+            return IntegerParameterWidget(parameter)
         else:
             raise TypeError

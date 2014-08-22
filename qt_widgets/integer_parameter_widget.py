@@ -31,6 +31,10 @@ class IntegerParameterWidget(NumericParameterWidget):
             self._parameter.minimum_allowed_value)
         self._input.setMaximum(
             self._parameter.maximum_allowed_value)
+        tool_tip = 'Choose a number between %d and %d' % (
+            self._parameter.minimum_allowed_value,
+            self._parameter.maximum_allowed_value)
+        self._input.setToolTip(tool_tip)
 
         self._input.setSizePolicy(self._spin_box_size_policy)
 
