@@ -10,9 +10,6 @@ from parameter_exceptions import (
 class NumericParameter(GenericParameter):
     """A subclass of generic parameter that accepts float or integer only.
 
-    .. note:: By default the min and max allowed values will be
-        the platform specific largest and smallest int numbers.
-
     .. versionadded:: 2.2
     """
 
@@ -82,7 +79,7 @@ class NumericParameter(GenericParameter):
         if self._maximum_allowed_value is None:
             self._maximum_allowed_value = value
             return
-        # Otherwise it must be less than maximum
+        # Otherwise it must be more than the minimum
         if value > self._minimum_allowed_value:
             self._maximum_allowed_value = value
             return
