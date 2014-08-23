@@ -8,7 +8,7 @@ __copyright__ = 'imajimatika@gmail.com'
 __doc__ = ''
 
 from PyQt4.QtGui import (
-    QWidget, QScrollArea, QVBoxLayout, QSpacerItem, QSizePolicy, QColor)
+    QWidget, QScrollArea, QVBoxLayout, QGridLayout, QSizePolicy, QColor)
 from qt4_parameter_factory import Qt4ParameterFactory
 
 
@@ -43,9 +43,9 @@ class ParameterContainer(QWidget, object):
         self.scroll_area.setWidget(self.widget)
 
         # Main layout of the container
-        self.main_layout = QVBoxLayout()
+        self.main_layout = QGridLayout()
         self.main_layout.addWidget(self.scroll_area)
-        self.main_layout.addStretch(1)
+        #self.main_layout.addStretch(1)
         self.setLayout(self.main_layout)
 
         self.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.MinimumExpanding)
@@ -57,7 +57,7 @@ class ParameterContainer(QWidget, object):
         i = 0
         for parameter in parameters:
             parameter_widget = qt4_parameter_factory.get_widget(parameter)
-            if i % 2 == 0:
+            if i % 2:
                 color = color_even
             else:
                 color = color_odd

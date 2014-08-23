@@ -6,7 +6,7 @@ __date__ = '8/19/14'
 __copyright__ = 'imajimatika@gmail.com'
 __doc__ = ''
 
-from PyQt4.QtGui import (QApplication, QWidget, QVBoxLayout)
+from PyQt4.QtGui import (QApplication, QWidget, QGridLayout)
 
 import sys
 from boolean_parameter import BooleanParameter
@@ -76,7 +76,7 @@ def main():
     # parameter_container.show()
 
     widget = QWidget()
-    layout = QVBoxLayout()
+    layout = QGridLayout()
     layout.addWidget(parameter_container)
     widget.setLayout(layout)
     widget.setGeometry(0, 0, 500, 500)
