@@ -14,8 +14,11 @@ class GenericParameter(object):
             will be used when storing parameters in the registry.
         :type guid: str
         """
+        self.guid = None
         if guid is None:
             self._guid = uuid.uuid4()
+        else:
+            self._guid = guid
         self._name = None
         self._expected_type = None
         self._required = None
@@ -176,5 +179,4 @@ class GenericParameter(object):
         :raises: TypeError
         """
         self._check_type(value)
-
         self._value = value

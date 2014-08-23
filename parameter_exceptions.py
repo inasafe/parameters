@@ -15,3 +15,8 @@ class InvalidMaximumError(Exception):
 class ValueOutOfBounds(Exception):
     """Error raised when a value is outside allowed range of min, max."""
     pass
+
+
+class CollectionLengthError(Exception):
+    """Error raised when a collection is too long or too short."""
+    pass

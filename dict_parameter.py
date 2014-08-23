@@ -1,9 +1,9 @@
 # coding=utf-8
 """Dictionary Parameter."""
-from generic_parameter import GenericParameter
+from collection_parameter import CollectionParameter
 
 
-class DictParameter(GenericParameter):
+class DictParameter(CollectionParameter):
     """A subclass of parameter that allows the user to select from a dict.
 
     .. versionadded:: 2.2
