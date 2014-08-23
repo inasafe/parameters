@@ -24,19 +24,31 @@ class Qt4ParameterFactory(object):
     def get_widget(parameter):
         """Create parameter widget from current
         :param parameter: Parameter object.
-        :type parameter: BooleanParameter, FloatParameter
+        :type parameter: BooleanParameter, FloatParameter, IntegerParameter
 
         :returns: Widget of given parameter.
         :rtype: BooleanParameterWidget, FloatParameterWidget
         """
-        parameter = parameter
         class_name = parameter.__class__.__name__
 
         if class_name == 'BooleanParameter':
             return BooleanParameterWidget(parameter)
         elif class_name == 'FloatParameter':
             return FloatParameterWidget(parameter)
-        elif class_name == 'IntegerParameterWidget':
+        elif class_name == 'IntegerParameter':
             return IntegerParameterWidget(parameter)
         else:
-            raise TypeError
+            raise TypeError(class_name)
+
+    @staticmethod
+    def get_parameter(widget):
+        """Obtain parameter object from parameter widget current state.
+
+        :param widget: An object of a ParameterWidget.
+        :type widget: GenericParameterWidget
+
+        :returns: Parameter object
+        :rtype: GenericParameter
+
+        """
+        return widget.get_parameter()

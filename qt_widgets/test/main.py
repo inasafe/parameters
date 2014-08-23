@@ -6,7 +6,7 @@ __date__ = '8/19/14'
 __copyright__ = 'imajimatika@gmail.com'
 __doc__ = ''
 
-from PyQt4.QtGui import QApplication, QWidget, QVBoxLayout
+from PyQt4.QtGui import (QApplication, QWidget, QVBoxLayout)
 
 import sys
 from boolean_parameter import BooleanParameter
@@ -33,8 +33,6 @@ def main():
     boolean_parameter.is_required = True
     boolean_parameter.value = True
 
-    boolean_parameter_widget = BooleanParameterWidget(boolean_parameter)
-
     float_parameter = FloatParameter()
     float_parameter.name = 'Flood Depth'
     float_parameter.is_required = True
@@ -51,8 +49,6 @@ def main():
     float_parameter.unit = 'metres'
     float_parameter.value = 1.12
 
-    float_parameter_widget = FloatParameterWidget(float_parameter)
-
     integer_parameter = IntegerParameter()
     integer_parameter.name = 'Paper'
     integer_parameter.is_required = True
@@ -68,26 +64,28 @@ def main():
     integer_parameter.unit = 'Sheets'
     integer_parameter.value = 3
 
-    integer_parameter_widget = IntegerParameterWidget(integer_parameter)
-
-    layout = QVBoxLayout()
-    layout.addStretch(1)
-    layout.addWidget(boolean_parameter_widget)
-    layout.addWidget(float_parameter_widget)
-    layout.addWidget(integer_parameter_widget)
+    parameters = [
+        integer_parameter,
+        boolean_parameter,
+        float_parameter,
+        float_parameter,
+        boolean_parameter,
+        integer_parameter]
+    parameter_container = ParameterContainer(parameters)
+    # parameter_container.setGeometry(0, 0, 500, 500)
+    # parameter_container.show()
 
     widget = QWidget()
+    layout = QVBoxLayout()
+    layout.addWidget(parameter_container)
     widget.setLayout(layout)
-
-    # parameters = [boolean_parameter, float_parameter]
-    # parameter_container = ParameterContainer(parameters)
-    #
-    # new_layout = QVBoxLayout()
-    # new_layout.addWidget(parameter_container)
-    widget.setLayout(layout)
-
     widget.setGeometry(0, 0, 500, 500)
+
     widget.show()
+
+    new_parameters = parameter_container.get_parameters()
+    for new_parameter in new_parameters:
+        print new_parameter.name, new_parameter.value
 
     sys.exit(app.exec_())
 

@@ -38,6 +38,6 @@ class BooleanParameterWidget(GenericParameterWidget):
         :returns: A BooleanParameter from the current state of widget
 
         """
-        self._parameter.value = self._check_box_input.value()
+        self._parameter.value = self._check_box_input.isChecked()
         return self._parameter
 

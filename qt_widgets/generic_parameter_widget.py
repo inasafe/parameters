@@ -8,8 +8,8 @@ __copyright__ = 'imajimatika@gmail.com'
 __doc__ = ''
 
 from PyQt4.QtGui import (
-    QWidget, QHBoxLayout, QVBoxLayout, QLabel, QToolButton, QGridLayout, QStyle,
-    QStyleFactory)
+    QWidget, QHBoxLayout, QVBoxLayout, QLabel, QToolButton, QGridLayout,
+    QSizePolicy)
 
 
 class GenericParameterWidget(QWidget, object):
@@ -58,6 +58,13 @@ class GenericParameterWidget(QWidget, object):
         self._inner_input_layout = QHBoxLayout()
         self._inner_help_layout = QVBoxLayout()
 
+        # spacing
+        self._main_layout.setSpacing(0)
+        self._input_layout.setSpacing(0)
+        self._help_layout.setSpacing(0)
+        self._inner_input_layout.setSpacing(0)
+        self._inner_help_layout.setSpacing(0)
+
         # Put elements into layouts
         self._input_layout.addWidget(self._label)
         self._input_layout.addLayout(self._inner_input_layout)
@@ -70,6 +77,8 @@ class GenericParameterWidget(QWidget, object):
         self._main_layout.addLayout(self._help_layout)
 
         self.setLayout(self._main_layout)
+
+        self.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.MinimumExpanding)
 
     def get_parameter(self):
         """Interface for returning parameter object.
