@@ -8,8 +8,8 @@ __doc__ = ''
 
 import sys
 
-from PyQt4.QtGui import (QApplication, QWidget, QVBoxLayout)
-from metadata import unit_feet_depth, unit_metres_depth, unit_mmi
+from PyQt4.QtGui import (QApplication, QWidget, QGridLayout)
+from metadata import unit_feet_depth, unit_metres_depth
 from boolean_parameter import BooleanParameter
 from float_parameter import FloatParameter
 from integer_parameter import IntegerParameter
@@ -83,7 +83,7 @@ def main():
     # parameter_container.show()
 
     widget = QWidget()
-    layout = QVBoxLayout()
+    layout = QGridLayout()
     layout.addWidget(parameter_container)
     widget.setLayout(layout)
     widget.setGeometry(0, 0, 500, 500)
