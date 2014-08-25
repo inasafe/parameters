@@ -39,6 +39,19 @@ class NumericParameterWidget(GenericParameterWidget):
             QSizePolicy.Minimum, QSizePolicy.Fixed)
         self._unit_widget.setSizePolicy(label_policy)
 
+        # Add unit description to description
+        description = self._description_label.text()
+        description += '<br><br>Available units:'
+        description += '<ul>'
+        for allowed_unit in self._parameter.allowed_units:
+            description += '<li>'
+            description += '<b>' + allowed_unit.name + '</b>: '
+            description += allowed_unit.description
+            description += '</li>'
+        description += '</ul>'
+        print description
+        self._description_label.setText(description)
+
     def get_parameter(self):
         """Obtain boolean parameter object from the current widget state.
 

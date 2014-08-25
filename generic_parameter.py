@@ -88,7 +88,6 @@ class GenericParameter(object):
         # I think validation should be in set_value
         self._expected_type = expected_type
 
-
     @property
     def is_required(self):
         """Property indicating whether the parameter is required.
