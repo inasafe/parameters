@@ -7,6 +7,9 @@ __copyright__ = 'imajimatika@gmail.com'
 __doc__ = ''
 
 import unittest
+import sys
+
+from PyQt4.QtGui import QApplication
 
 from qt_widgets.qt4_parameter_factory import Qt4ParameterFactory
 from boolean_parameter import BooleanParameter
@@ -14,8 +17,6 @@ from float_parameter import FloatParameter
 from qt_widgets.boolean_parameter_widget import BooleanParameterWidget
 from qt_widgets.float_parameter_widget import FloatParameterWidget
 
-from PyQt4.QtGui import QApplication
-import sys
 
 application = QApplication(sys.argv)
 

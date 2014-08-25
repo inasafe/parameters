@@ -6,13 +6,14 @@ __date__ = '8/19/14'
 __copyright__ = 'imajimatika@gmail.com'
 __doc__ = ''
 
-
 import unittest
+import sys
+
+from PyQt4.QtGui import QApplication
+
 from boolean_parameter import BooleanParameter
 from qt_widgets.boolean_parameter_widget import BooleanParameterWidget
 
-from PyQt4.QtGui import QApplication
-import sys
 
 application = QApplication(sys.argv)
 

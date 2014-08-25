@@ -1,8 +1,8 @@
 # coding=utf-8
 """Float Parameter."""
 import sys
-from numeric_parameter import NumericParameter, GenericParameter
-from parameter_exceptions import ValueOutOfBounds
+
+from numeric_parameter import NumericParameter
 
 
 class FloatParameter(NumericParameter):

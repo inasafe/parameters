@@ -2,6 +2,7 @@
 """Tests for integer parameter."""
 
 from unittest import TestCase
+
 from integer_parameter import IntegerParameter
 from parameter_exceptions import (
     InvalidMaximumError, InvalidMinimumError, ValueOutOfBounds)

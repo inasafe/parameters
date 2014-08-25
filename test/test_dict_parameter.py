@@ -2,9 +2,11 @@
 """Tests for dict parameter."""
 
 from unittest import TestCase
+
 from dict_parameter import DictParameter
 from parameter_exceptions import (
     CollectionLengthError,  InvalidMinimumError, InvalidMaximumError)
+
 
 good_dict = {'foo': True, 'bar': False, 'woo': False}
 bad_dict = {'foo': True, 'bar': 'wawa', ''}

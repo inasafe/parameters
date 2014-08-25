@@ -1,7 +1,6 @@
 # coding=utf-8
 
 """Integer Parameter."""
-import sys
 from generic_parameter import GenericParameter
 from parameter_exceptions import (
     InvalidMaximumError, InvalidMinimumError, ValueOutOfBounds)
@@ -24,7 +23,8 @@ class NumericParameter(GenericParameter):
         super(NumericParameter, self).__init__(guid)
         self._minimum_allowed_value = None
         self._maximum_allowed_value = None
-        self._unit = ''
+        self._unit = None
+        self._allowed_units = []
 
     @property
     def minimum_allowed_value(self):
@@ -91,7 +91,8 @@ class NumericParameter(GenericParameter):
         """Property for the unit for the parameter.
 
         :returns: The unit of the parameter.
-        :rtype: str
+        :rtype: Unit
+
         """
         return self._unit
 
@@ -100,10 +101,30 @@ class NumericParameter(GenericParameter):
         """Setter for unit for the parameter.
 
         :param unit: Unit for parameter
-        :type unit: str
+        :type unit: Unit
 
         """
         self._unit = unit
+
+    @property
+    def allowed_units(self):
+        """Property for the allowed_units for the parameter.
+
+        :returns: The list of allowed unit of the parameter.
+        :rtype: list
+
+        """
+        return self._allowed_units
+
+    @allowed_units.setter
+    def allowed_units(self, allowed_units):
+        """Setter for allowed_units for the parameter.
+
+        :param allowed_units: The list of allowed unit of the parameter.
+        :type allowed_units: list
+
+        """
+        self._allowed_units = allowed_units
 
     @GenericParameter.value.setter
     def value(self, value):

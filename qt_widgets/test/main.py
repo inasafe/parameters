@@ -6,21 +6,26 @@ __date__ = '8/19/14'
 __copyright__ = 'imajimatika@gmail.com'
 __doc__ = ''
 
-from PyQt4.QtGui import (QApplication, QWidget, QVBoxLayout)
-
 import sys
+
+from PyQt4.QtGui import (QApplication, QWidget, QVBoxLayout)
+from metadata import unit_feet_depth, unit_metres_depth, unit_mmi
 from boolean_parameter import BooleanParameter
 from float_parameter import FloatParameter
 from integer_parameter import IntegerParameter
-from qt_widgets.boolean_parameter_widget import BooleanParameterWidget
-from qt_widgets.float_parameter_widget import FloatParameterWidget
-from qt_widgets.integer_parameter_widget import IntegerParameterWidget
 from qt_widgets.parameter_container import ParameterContainer
-
+from unit import Unit
 
 def main():
     """Main function"""
     app = QApplication([])
+
+    unit_feet = Unit('130790')
+    unit_feet.load_dictionary(unit_feet_depth)
+
+    unit_metres = Unit('900713')
+    unit_metres.load_dictionary(unit_metres_depth)
+
     boolean_parameter = BooleanParameter('1231231')
     boolean_parameter.name = 'Post processor'
     boolean_parameter.help_text = 'This is post processor parameter.'
@@ -46,7 +51,8 @@ def main():
         'You are the best user so far. Even better if you read this '
         'description loudly so that all of your friends will be able to hear '
         'you')
-    float_parameter.unit = 'metres'
+    float_parameter.unit = unit_metres
+    float_parameter.allowed_units = [unit_metres, unit_feet]
     float_parameter.value = 1.12
 
     integer_parameter = IntegerParameter()
@@ -61,7 +67,8 @@ def main():
         'You are the best user so far. Even better if you read this '
         'description loudly so that all of your friends will be able to hear '
         'you')
-    integer_parameter.unit = 'Sheets'
+    integer_parameter.unit = unit_feet
+    integer_parameter.allowed_units = [unit_feet]
     integer_parameter.value = 3
 
     parameters = [

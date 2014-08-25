@@ -8,12 +8,13 @@ __copyright__ = 'imajimatika@gmail.com'
 __doc__ = ''
 
 import unittest
+import sys
+
+from PyQt4.QtGui import QApplication
 
 from integer_parameter import IntegerParameter
 from qt_widgets.integer_parameter_widget import IntegerParameterWidget
 
-from PyQt4.QtGui import QApplication
-import sys
 
 application = QApplication(sys.argv)
 

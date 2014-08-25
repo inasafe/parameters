@@ -2,6 +2,7 @@
 """Tests for float parameter."""
 
 from unittest import TestCase
+
 from float_parameter import FloatParameter
 from parameter_exceptions import (
     InvalidMaximumError, InvalidMinimumError, ValueOutOfBounds)

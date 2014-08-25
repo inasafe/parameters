@@ -43,4 +43,4 @@ class FloatParameterWidget(NumericParameterWidget):
         self._input.setSizePolicy(self._spin_box_size_policy)
 
         self._inner_input_layout.addWidget(self._input)
-        self._inner_input_layout.addWidget(self._label_unit)
+        self._inner_input_layout.addWidget(self._unit_widget)

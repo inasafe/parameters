@@ -2,6 +2,7 @@
 
 """Collection Parameter abstract base class0."""
 import abc
+
 from generic_parameter import GenericParameter
 from parameter_exceptions import (
     CollectionLengthError, InvalidMinimumError, InvalidMaximumError)

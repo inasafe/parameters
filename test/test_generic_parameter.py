@@ -2,6 +2,7 @@
 """Tests for generic parameter."""
 
 from unittest import TestCase
+
 from generic_parameter import GenericParameter
 
 

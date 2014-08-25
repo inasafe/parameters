@@ -110,7 +110,7 @@ class GenericParameter(object):
     def help_text(self):
         """Property containing help text for the parameter.
 
-        :returns: A short help sentance for the parameter.
+        :returns: A short help sentence for the parameter.
         :rtype: str
         """
         return self._help_text

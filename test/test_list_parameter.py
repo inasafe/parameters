@@ -2,9 +2,11 @@
 """Tests for list parameter."""
 
 from unittest import TestCase
+
 from list_parameter import ListParameter
 from parameter_exceptions import (
     CollectionLengthError,  InvalidMinimumError, InvalidMaximumError)
+
 
 good_list = ['one', 'two', 'three']
 bad_list = ['one', 2, 3.0]

@@ -2,9 +2,8 @@
 
 """Integer Parameter."""
 import sys
-from generic_parameter import GenericParameter
+
 from numeric_parameter import NumericParameter
-from parameter_exceptions import (ValueOutOfBounds)
 
 
 class IntegerParameter(NumericParameter):
