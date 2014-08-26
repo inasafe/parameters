@@ -51,7 +51,7 @@ def main():
         'You are the best user so far. Even better if you read this '
         'description loudly so that all of your friends will be able to hear '
         'you')
-    float_parameter.unit = unit_metres
+    float_parameter.unit = unit_feet
     float_parameter.allowed_units = [unit_metres, unit_feet]
     float_parameter.value = 1.12
 
@@ -79,8 +79,6 @@ def main():
         boolean_parameter,
         integer_parameter]
     parameter_container = ParameterContainer(parameters)
-    # parameter_container.setGeometry(0, 0, 500, 500)
-    # parameter_container.show()
 
     widget = QWidget()
     layout = QGridLayout()

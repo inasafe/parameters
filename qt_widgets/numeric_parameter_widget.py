@@ -49,7 +49,6 @@ class NumericParameterWidget(GenericParameterWidget):
             description += allowed_unit.description
             description += '</li>'
         description += '</ul>'
-        print description
         self._description_label.setText(description)
 
     def get_parameter(self):
@@ -59,6 +58,11 @@ class NumericParameterWidget(GenericParameterWidget):
 
         """
         self._parameter.value = self._input.value()
+        if len(self._parameter.allowed_units) > 1:
+            current_index = self._unit_widget.currentIndex()
+            unit = self._unit_widget.itemData(current_index, Qt.UserRole)
+            unit = unit.toPyObject()
+            self._parameter.unit = unit
         return self._parameter
 
     def set_unit(self):
@@ -78,5 +82,7 @@ class NumericParameterWidget(GenericParameterWidget):
                     current_index = index
                 self._unit_widget.addItem(name)
                 self._unit_widget.setItemData(index, tooltip, Qt.ToolTipRole)
+                self._unit_widget.setItemData(index, allowed_unit, Qt.UserRole)
             self._unit_widget.setCurrentIndex(current_index)
             self._unit_widget.setToolTip('Select your preferred unit')
+            self._unit_widget.currentIndex()
