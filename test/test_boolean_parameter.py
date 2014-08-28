@@ -15,7 +15,6 @@ class TestBooleanParameter(TestCase):
         """
         parameter = BooleanParameter('1231231')
         parameter.name = 'Boolean'
-        #parameter.set_expected_type(bool)
         parameter.help_text = 'A boolean parameter'
         parameter.description = 'A test _description'
         parameter.is_required = True

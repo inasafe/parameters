@@ -8,7 +8,6 @@ __copyright__ = 'imajimatika@gmail.com'
 __doc__ = ''
 
 import unittest
-import sys
 
 from PyQt4.QtGui import QApplication
 
@@ -18,7 +17,7 @@ from metadata import unit_metres_depth, unit_feet_depth
 from unit import Unit
 
 
-application = QApplication(sys.argv)
+application = QApplication([])
 
 
 class TestFloatParameterWidget(unittest.TestCase):

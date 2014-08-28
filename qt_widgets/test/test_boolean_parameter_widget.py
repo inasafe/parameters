@@ -7,7 +7,6 @@ __copyright__ = 'imajimatika@gmail.com'
 __doc__ = ''
 
 import unittest
-import sys
 
 from PyQt4.QtGui import QApplication
 
@@ -15,7 +14,7 @@ from boolean_parameter import BooleanParameter
 from qt_widgets.boolean_parameter_widget import BooleanParameterWidget
 
 
-application = QApplication(sys.argv)
+application = QApplication([])
 
 
 class TestBooleanParameterWidget(unittest.TestCase):

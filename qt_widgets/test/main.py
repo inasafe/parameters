@@ -14,7 +14,9 @@ from boolean_parameter import BooleanParameter
 from float_parameter import FloatParameter
 from integer_parameter import IntegerParameter
 from qt_widgets.parameter_container import ParameterContainer
+from string_parameter import StringParameter
 from unit import Unit
+
 
 def main():
     """Main function"""
@@ -25,6 +27,18 @@ def main():
 
     unit_metres = Unit('900713')
     unit_metres.load_dictionary(unit_metres_depth)
+
+    string_parameter = StringParameter('28082014')
+    string_parameter.name = 'Province Name'
+    string_parameter.help_text = 'Name of province.'
+    string_parameter.description = (
+        'A <b>test _description</b> that is very long so that you need to read '
+        'it for one minute and you will be tired after read this description. '
+        'You are the best user so far. Even better if you read this '
+        'description loudly so that all of your friends will be able to hear '
+        'you')
+    string_parameter.is_required = True
+    string_parameter.value = 'Daerah Istimewa Yogyakarta'
 
     boolean_parameter = BooleanParameter('1231231')
     boolean_parameter.name = 'Post processor'
@@ -72,6 +86,7 @@ def main():
     integer_parameter.value = 3
 
     parameters = [
+        string_parameter,
         integer_parameter,
         boolean_parameter,
         float_parameter,

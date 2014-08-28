@@ -7,7 +7,6 @@ __copyright__ = 'imajimatika@gmail.com'
 __doc__ = ''
 
 import unittest
-import sys
 
 from PyQt4.QtGui import QApplication
 
@@ -18,7 +17,7 @@ from qt_widgets.boolean_parameter_widget import BooleanParameterWidget
 from qt_widgets.float_parameter_widget import FloatParameterWidget
 
 
-application = QApplication(sys.argv)
+application = QApplication([])
 
 
 class TestQt4ParameterFactory(unittest.TestCase):

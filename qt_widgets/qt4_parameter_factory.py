@@ -10,7 +10,7 @@ __doc__ = ''
 from qt_widgets.boolean_parameter_widget import BooleanParameterWidget
 from qt_widgets.float_parameter_widget import FloatParameterWidget
 from qt_widgets.integer_parameter_widget import IntegerParameterWidget
-
+from qt_widgets.string_parameter_widget import StringParameterWidget
 
 class Qt4ParameterFactory(object):
     """A factory class that will generate a widget given a parameter."""
@@ -24,10 +24,12 @@ class Qt4ParameterFactory(object):
     def get_widget(parameter):
         """Create parameter widget from current
         :param parameter: Parameter object.
-        :type parameter: BooleanParameter, FloatParameter, IntegerParameter
+        :type parameter: BooleanParameter, FloatParameter, IntegerParameter,
+            StringParameter
 
         :returns: Widget of given parameter.
-        :rtype: BooleanParameterWidget, FloatParameterWidget
+        :rtype: BooleanParameterWidget, FloatParameterWidget,
+            IntegerParameterWidget, StringParameterWidget
         """
         class_name = parameter.__class__.__name__
 
@@ -37,6 +39,8 @@ class Qt4ParameterFactory(object):
             return FloatParameterWidget(parameter)
         elif class_name == 'IntegerParameter':
             return IntegerParameterWidget(parameter)
+        elif class_name == 'StringParameter':
+            return StringParameterWidget(parameter)
         else:
             raise TypeError(class_name)
 
