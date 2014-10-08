@@ -85,7 +85,6 @@ def main():
     integer_parameter.unit = unit_feet
     integer_parameter.allowed_units = [unit_feet]
     integer_parameter.value = 3
-    print integer_parameter.help_text
 
     parameters = [
         string_parameter,
