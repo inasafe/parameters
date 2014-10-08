@@ -18,5 +18,5 @@ class ListParameter(CollectionParameter):
         :type guid: str
         """
         super(ListParameter, self).__init__(guid)
-        self._expected_type = list
+        self.expected_type = list
 
