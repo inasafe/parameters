@@ -7,7 +7,7 @@ __date__ = '8/21/14'
 __copyright__ = 'imajimatika@gmail.com'
 __doc__ = ''
 
-from PyQt4.QtGui import QLabel, QSizePolicy,QWidget, QComboBox
+from PyQt4.QtGui import QLabel, QSizePolicy, QWidget, QComboBox
 from PyQt4.QtCore import Qt
 
 from qt_widgets.generic_parameter_widget import GenericParameterWidget
@@ -69,7 +69,7 @@ class NumericParameterWidget(GenericParameterWidget):
         """Set up label or combo box for unit."""
         if len(self._parameter.allowed_units) == 1:
             self._unit_widget = QLabel(self._parameter.unit.name)
-            self._unit_widget.setToolTip(self._parameter.unit.help_text)
+            # self._unit_widget.setToolTip(self._parameter.unit.help_text)
         elif len(self._parameter.allowed_units) > 1:
             self._unit_widget = QComboBox()
             index = -1
