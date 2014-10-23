@@ -10,6 +10,25 @@ __doc__ = ''
 small_number = 2 ** -53  # I think this is small enough
 
 # units
+unit_generic = {
+    'id': 'generic',
+    'name': 'generic',
+    'help_text': 'Generic units',
+    'description': (
+        '<b>Generic</b> units in an unspecified measurement system.'),
+    'constraint': 'continuous',
+    'default_attribute': 'units'  # applies to vector only
+}
+unit_litres = {
+    'id': 'litres',
+    'name': 'litres',
+    'help_text': 'Litres are a metric unit of measure.',
+    'description': (
+        '<b>Litres</b> are an metric unit of measure. There are 1000 '
+        'millilitres in 1 litres.'),
+    'constraint': 'continuous',
+    'default_attribute': 'litres'  # applies to vector only
+}
 unit_feet_depth = {
     'id': 'feet_depth',
     'name': 'feet',
