@@ -9,7 +9,7 @@ __doc__ = ''
 
 import sys
 
-from PyQt4.QtGui import (QApplication, QWidget, QGridLayout)
+from PyQt4.QtGui import (QApplication, QWidget, QGridLayout, QPushButton)
 from metadata import unit_feet_depth, unit_metres_depth
 from boolean_parameter import BooleanParameter
 from float_parameter import FloatParameter
@@ -17,7 +17,6 @@ from integer_parameter import IntegerParameter
 from qt_widgets.parameter_container import ParameterContainer
 from string_parameter import StringParameter
 from unit import Unit
-
 
 def main():
     """Main function"""
@@ -99,10 +98,22 @@ def main():
     widget = QWidget()
     layout = QGridLayout()
     layout.addWidget(parameter_container)
+
+    def show_parameter():
+        """Show help."""
+        temps = parameter_container.get_parameters()
+        for temp in temps:
+            print temp.name, temp.value
+
+    button = QPushButton('Press me')
+    button.clicked.connect(show_parameter)
+
+    layout.addWidget(button)
     widget.setLayout(layout)
     widget.setGeometry(0, 0, 500, 500)
 
     widget.show()
+
 
     new_parameters = parameter_container.get_parameters()
     for new_parameter in new_parameters:

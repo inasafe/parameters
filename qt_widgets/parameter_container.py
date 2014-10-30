@@ -75,8 +75,7 @@ class ParameterContainer(QWidget, object):
         :rtype: list
         """
 
-        parameter_widgets = (self.vertical_layout.itemAt(i) for i in range(
-            self.vertical_layout.count()))
+        parameter_widgets = self.get_parameter_widgets()
 
         parameters = []
 
@@ -88,3 +87,15 @@ class ParameterContainer(QWidget, object):
             parameters.append(parameter)
 
         return parameters
+
+    def get_parameter_widgets(self):
+        """Return list of parameter widgets from the current state of widget.
+
+        :returns: List of parameter widget
+        :rtype: list
+        """
+
+        parameter_widgets = (self.vertical_layout.itemAt(i) for i in range(
+            self.vertical_layout.count()))
+
+        return parameter_widgets
