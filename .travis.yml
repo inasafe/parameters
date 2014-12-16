@@ -1,0 +1,35 @@
+language: python
+
+python:
+  - "2.7"
+
+virtualenv:
+  system_site_packages: true
+
+branches:
+  only:
+    - master
+
+-before_install:
+  - sudo apt-get -qq -y update
+
+install:
+  - sudo apt-get install -y git pylint pep8 python-nose python-coverage pyflakes python-nosexcover
+  - pip install nose-exclude
+
+before_script:
+  - echo "Build starting on " `date`
+  - PYTHONPATH=$PYTHONPATH:.
+  - EXPORT $PYTHONPATH
+
+script:
+  - xvfb-run --server-args="-screen 0, 1024x768x24" nosetests -v --with-id --with-xcoverage --with-xunit --verbose --cover-package=.
+  - pep8 .
+
+after_success:
+  - pip install coveralls
+  - coveralls
+
+notifications:
+  email:
+    - ismail@kartoza.com

@@ -9,7 +9,7 @@ from parameter_exceptions import (
 
 
 good_dict = {'foo': True, 'bar': False, 'woo': False}
-bad_dict = {'foo': True, 'bar': 'wawa', ''}
+bad_dict = {'foo': True, 'bar': 'wawa', 'woo': 1}
 
 
 class TestListParameter(TestCase):
