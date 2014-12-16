@@ -15,7 +15,7 @@ from qt4_parameter_factory import Qt4ParameterFactory
 class ParameterContainer(QWidget, object):
     """Container to hold Parameter Widgets."""
 
-    def __init__(self, parameters, parent=None):
+    def __init__(self, parameters, extra_parameters=None, parent=None):
         """Constructor
 
         .. versionadded:: 2.2
@@ -45,18 +45,25 @@ class ParameterContainer(QWidget, object):
         # Main layout of the container
         self.main_layout = QGridLayout()
         self.main_layout.addWidget(self.scroll_area)
-        #self.main_layout.addStretch(1)
+        # self.main_layout.addStretch(1)
         self.setLayout(self.main_layout)
 
         self.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.MinimumExpanding)
 
-        qt4_parameter_factory = Qt4ParameterFactory()
+        self.qt4_parameter_factory = Qt4ParameterFactory()
+        if extra_parameters is not None:
+            for extra_parameter in extra_parameters:
+                if (type(extra_parameter) == tuple and
+                        len(extra_parameter) == 2):
+                    self.qt4_parameter_factory.register_widget(
+                        extra_parameter[0], extra_parameter[1])
+
         color_odd = QColor(220, 220, 220)
         color_even = QColor(192, 192, 192)
 
         i = 0
         for parameter in parameters:
-            parameter_widget = qt4_parameter_factory.get_widget(parameter)
+            parameter_widget = self.qt4_parameter_factory.get_widget(parameter)
             if i % 2:
                 color = color_even
             else:
@@ -67,6 +74,28 @@ class ParameterContainer(QWidget, object):
             palette.setColor(parameter_widget.backgroundRole(), color)
             parameter_widget.setPalette(palette)
             self.vertical_layout.addWidget(parameter_widget)
+
+    # NOTES(IS) : These functions are commented since the architecture is not
+    #  ready yet.
+    # def register_widget(self, parameter, parameter_widget):
+    #     """Register new custom widget.
+    #
+    #     :param parameter:
+    #     :type parameter: GenericParameter
+    #
+    #     :param parameter_widget:
+    #     :type parameter_widget: GenericParameterWidget
+    #     """
+    #     self.qt4_parameter_factory.register_widget(parameter, parameter_widget)
+    #
+    # def remove_widget(self, parameter):
+    #     """Register new custom widget.
+    #
+    #     :param parameter:
+    #     :type parameter: GenericParameter
+    #     """
+    #     if parameter.__name__ in self.dict_widget.keys():
+    #         self.dict_widget.pop(parameter.__name__)
 
     def get_parameters(self):
         """Return list of parameters from the current state of widget.

@@ -18,6 +18,10 @@ from qt_widgets.parameter_container import ParameterContainer
 from string_parameter import StringParameter
 from unit import Unit
 
+from custom_parameter.point_parameter import PointParameter
+
+from custom_parameter.point_parameter_widget import PointParameterWidget
+
 def main():
     """Main function"""
     app = QApplication([])
@@ -85,6 +89,13 @@ def main():
     integer_parameter.allowed_units = [unit_feet]
     integer_parameter.value = 3
 
+    point_parameter = PointParameter()
+    point_parameter.name = 'Point Parameter'
+    point_parameter.is_required = True
+    point_parameter.help_text = 'Short help.'
+    point_parameter.description = 'Long description for parameter.'
+    point_parameter.value = (0, 1)
+
     parameters = [
         string_parameter,
         integer_parameter,
@@ -92,8 +103,14 @@ def main():
         float_parameter,
         float_parameter,
         boolean_parameter,
-        integer_parameter]
-    parameter_container = ParameterContainer(parameters)
+        integer_parameter,
+        point_parameter]
+
+    extra_parameters = [
+        (PointParameter, PointParameterWidget)
+    ]
+
+    parameter_container = ParameterContainer(parameters, extra_parameters)
 
     widget = QWidget()
     layout = QGridLayout()
@@ -106,6 +123,7 @@ def main():
             print temp.name, temp.value
 
     button = QPushButton('Press me')
+    # noinspection PyUnresolvedReferences
     button.clicked.connect(show_parameter)
 
     layout.addWidget(button)
@@ -113,7 +131,6 @@ def main():
     widget.setGeometry(0, 0, 500, 500)
 
     widget.show()
-
 
     new_parameters = parameter_container.get_parameters()
     for new_parameter in new_parameters:
