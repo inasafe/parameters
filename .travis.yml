@@ -19,8 +19,7 @@ install:
 
 before_script:
   - echo "Build starting on " `date`
-  - PYTHONPATH=$PYTHONPATH:.
-  - EXPORT $PYTHONPATH
+  - export PYTHONPATH=`pwd`
 
 script:
   - xvfb-run --server-args="-screen 0, 1024x768x24" nosetests -v --with-id --with-xcoverage --with-xunit --verbose --cover-package=.
