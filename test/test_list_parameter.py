@@ -5,7 +5,7 @@ from unittest import TestCase
 
 from list_parameter import ListParameter
 from parameter_exceptions import (
-    CollectionLengthError,  InvalidMinimumError, InvalidMaximumError)
+    CollectionLengthError, InvalidMinimumError, InvalidMaximumError)
 
 
 good_list = ['one', 'two', 'three']

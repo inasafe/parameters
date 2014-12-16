@@ -88,7 +88,8 @@ class ParameterContainer(QWidget, object):
     #     :param parameter_widget:
     #     :type parameter_widget: GenericParameterWidget
     #     """
-    #     self.qt4_parameter_factory.register_widget(parameter, parameter_widget)
+    #     self.qt4_parameter_factory.register_widget(
+    # parameter, parameter_widget)
     #
     # def remove_widget(self, parameter):
     #     """Register new custom widget.

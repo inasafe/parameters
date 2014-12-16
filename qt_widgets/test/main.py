@@ -21,6 +21,7 @@ from unit import Unit
 from custom_parameter.point_parameter import PointParameter
 from custom_parameter.point_parameter_widget import PointParameterWidget
 
+
 def main():
     """Main function"""
     app = QApplication([])
@@ -35,11 +36,11 @@ def main():
     string_parameter.name = 'Province Name'
     string_parameter.help_text = 'Name of province.'
     string_parameter.description = (
-        'A <b>test _description</b> that is very long so that you need to read '
-        'it for one minute and you will be tired after read this description. '
-        'You are the best user so far. Even better if you read this '
-        'description loudly so that all of your friends will be able to hear '
-        'you')
+        'A <b>test _description</b> that is very long so that you need to '
+        'read it for one minute and you will be tired after read this '
+        'description. You are the best user so far. Even better if you read '
+        'this description loudly so that all of your friends will be able '
+        'to hear you')
     string_parameter.is_required = True
     string_parameter.value = 'Daerah Istimewa Yogyakarta'
 
@@ -47,11 +48,11 @@ def main():
     boolean_parameter.name = 'Post processor'
     boolean_parameter.help_text = 'This is post processor parameter.'
     boolean_parameter.description = (
-        'A <b>test _description</b> that is very long so that you need to read '
-        'it for one minute and you will be tired after read this description. '
-        'You are the best user so far. Even better if you read this '
-        'description loudly so that all of your friends will be able to hear '
-        'you')
+        'A <b>test _description</b> that is very long so that you need to '
+        'read it for one minute and you will be tired after read this '
+        'description. You are the best user so far. Even better if you read '
+        'this description loudly so that all of your friends will be able '
+        'to hear you')
     boolean_parameter.is_required = True
     boolean_parameter.value = True
 
@@ -63,11 +64,11 @@ def main():
     float_parameter.maximum_allowed_value = 2.0
     float_parameter.help_text = 'The depth of flood.'
     float_parameter.description = (
-        'A <b>test _description</b> that is very long so that you need to read '
-        'it for one minute and you will be tired after read this description. '
-        'You are the best user so far. Even better if you read this '
-        'description loudly so that all of your friends will be able to hear '
-        'you')
+        'A <b>test _description</b> that is very long so that you need to '
+        'read it for one minute and you will be tired after read this '
+        'description. You are the best user so far. Even better if you read '
+        'this description loudly so that all of your friends will be able '
+        'to hear you')
     float_parameter.unit = unit_feet
     float_parameter.allowed_units = [unit_metres, unit_feet]
     float_parameter.value = 1.12
@@ -79,11 +80,11 @@ def main():
     integer_parameter.maximum_allowed_value = 5
     integer_parameter.help_text = 'Number of paper'
     integer_parameter.description = (
-        'A <b>test _description</b> that is very long so that you need to read '
-        'it for one minute and you will be tired after read this description. '
-        'You are the best user so far. Even better if you read this '
-        'description loudly so that all of your friends will be able to hear '
-        'you')
+        'A <b>test _description</b> that is very long so that you need to '
+        'read it for one minute and you will be tired after read this '
+        'description. You are the best user so far. Even better if you read '
+        'this description loudly so that all of your friends will be able '
+        'to hear you')
     integer_parameter.unit = unit_feet
     integer_parameter.allowed_units = [unit_feet]
     integer_parameter.value = 3

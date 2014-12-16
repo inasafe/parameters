@@ -24,5 +24,3 @@ class TestBooleanParameter(TestCase):
 
         with self.assertRaises(TypeError):
             parameter.value = 'Test'
-
-

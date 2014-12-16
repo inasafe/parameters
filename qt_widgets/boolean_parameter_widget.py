@@ -40,4 +40,3 @@ class BooleanParameterWidget(GenericParameterWidget):
         """
         self._parameter.value = self._check_box_input.isChecked()
         return self._parameter
-
