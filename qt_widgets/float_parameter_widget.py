@@ -34,6 +34,7 @@ class FloatParameterWidget(NumericParameterWidget):
             self._parameter.maximum_allowed_value)
         self._input.setSingleStep(
             10 ** -self._parameter.precision)
+        # is it possible to use dynamic precision ?
         string_min_value = '%.*f' % (
             self._parameter.precision, self._parameter.minimum_allowed_value)
         string_max_value = '%.*f' % (

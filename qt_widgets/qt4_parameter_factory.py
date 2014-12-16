@@ -41,6 +41,8 @@ class Qt4ParameterFactory(object):
             return IntegerParameterWidget(parameter)
         elif class_name == 'StringParameter':
             return StringParameterWidget(parameter)
+        elif class_name == 'ResourceParameter':
+            return ResourceParameterWidget(parameter)
         else:
             raise TypeError(class_name)
 
