@@ -22,7 +22,7 @@ before_script:
   - export PYTHONPATH=`pwd`
 
 script:
-  - nosetests -v --with-id --with-xcoverage --with-xunit --verbose --cover-package=.
+  - xvfb-run --server-args="-screen 0, 1024x768x24" nosetests -v --with-id --with-xcoverage --with-xunit --verbose --cover-package=.
   - pep8 .
 
 after_success:
