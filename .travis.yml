@@ -14,7 +14,7 @@ branches:
   - sudo apt-get -qq -y update
 
 install:
-  - sudo apt-get install -y git pylint pep8 python-nose python-coverage pyflakes python-nosexcover
+  - sudo apt-get install -y git pylint pep8 python-nose python-coverage pyflakes python-nosexcover python-qt4
   - pip install nose-exclude
 
 before_script:
