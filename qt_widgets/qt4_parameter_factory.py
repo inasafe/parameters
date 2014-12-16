@@ -60,7 +60,6 @@ class Qt4ParameterFactory(object):
 
         if class_name in self.dict_widget.keys():
             return self.dict_widget[class_name](parameter)
-
         else:
             raise TypeError(class_name)
 

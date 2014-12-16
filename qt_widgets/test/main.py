@@ -19,7 +19,6 @@ from string_parameter import StringParameter
 from unit import Unit
 
 from custom_parameter.point_parameter import PointParameter
-
 from custom_parameter.point_parameter_widget import PointParameterWidget
 
 def main():
