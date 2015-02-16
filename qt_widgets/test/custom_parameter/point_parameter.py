@@ -4,7 +4,7 @@ __author__ = 'ismailsunni'
 __project_name = 'parameters'
 __filename = 'point_parameter'
 __date__ = '12/15/14'
-__copyright__ = 'imajimatika@gmail.com'
+__copyright__ = 'ismail@kartoza.com'
 __doc__ = ''
 
 
