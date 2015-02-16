@@ -1,5 +1,5 @@
 # coding=utf-8
-"""Docstring for this test file."""
+"""Test class for integer_parameter_widget."""
 __author__ = 'ismailsunni'
 __project_name = 'parameters'
 __filename = 'test_integer_parameter_widget'
@@ -17,10 +17,10 @@ from unit import Unit
 
 from qt_widgets.integer_parameter_widget import IntegerParameterWidget
 
-application = QApplication([])
-
 
 class TestFloatParameterWidget(unittest.TestCase):
+    application = QApplication([])
+
     def test_init(self):
 
         unit_feet = Unit('130790')

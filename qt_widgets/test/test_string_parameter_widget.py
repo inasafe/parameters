@@ -1,5 +1,5 @@
 # coding=utf-8
-"""Docstring for this test file."""
+"""Test class for string_parameter_widget."""
 __author__ = 'ismailsunni'
 __project_name = 'parameters'
 __filename = 'test_string_parameter_widget.py'
@@ -16,10 +16,9 @@ from string_parameter import StringParameter
 from qt_widgets.string_parameter_widget import StringParameterWidget
 
 
-application = QApplication([])
-
-
 class TestBooleanParameterWidget(unittest.TestCase):
+    application = QApplication([])
+
     def test_init(self):
         string_parameter = StringParameter('28082014')
         string_parameter.name = 'Province Name'

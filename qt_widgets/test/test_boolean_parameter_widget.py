@@ -1,4 +1,5 @@
 # coding=utf-8
+"""Test class for boolean_parameter_widget."""
 __author__ = 'ismailsunni'
 __project_name = 'parameters'
 __filename = 'test_boolean_parameter_widget'
@@ -14,10 +15,9 @@ from boolean_parameter import BooleanParameter
 from qt_widgets.boolean_parameter_widget import BooleanParameterWidget
 
 
-application = QApplication([])
-
-
 class TestBooleanParameterWidget(unittest.TestCase):
+    application = QApplication([])
+
     def test_init(self):
         parameter = BooleanParameter('1231231')
         parameter.name = 'Boolean'

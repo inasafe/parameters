@@ -23,10 +23,9 @@ from qt_widgets.test.custom_parameter.point_parameter import PointParameter
 from qt_widgets.test.custom_parameter.point_parameter_widget import (
     PointParameterWidget)
 
-application = QApplication([])
-
 
 class TestQt4ParameterFactory(unittest.TestCase):
+    application = QApplication([])
 
     def setUp(self):
         """SetUp for unit test."""

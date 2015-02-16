@@ -1,4 +1,5 @@
 # coding=utf-8
+"""Test class for float_parameter_widget."""
 __author__ = 'ismailsunni'
 __project_name = 'parameters'
 __filename = 'test_float_parameter_widget'
@@ -17,10 +18,9 @@ from unit import Unit
 from qt_widgets.float_parameter_widget import FloatParameterWidget
 
 
-application = QApplication([])
-
-
 class TestFloatParameterWidget(unittest.TestCase):
+    application = QApplication([])
+
     def test_init(self):
 
         unit_feet = Unit('130790')

@@ -20,7 +20,7 @@ from qt_widgets.parameter_container import ParameterContainer
 
 def main():
     """Main function"""
-    app = QApplication([])
+    application = QApplication([])
 
     name_parameter = StringParameter('UUID-1')
     name_parameter.name = 'Resource name'
@@ -130,7 +130,7 @@ def main():
     for new_parameter in new_parameters:
         print new_parameter.name, new_parameter.value
 
-    sys.exit(app.exec_())
+    sys.exit(application.exec_())
 
 if __name__ == '__main__':
     main()
