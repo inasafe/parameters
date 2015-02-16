@@ -23,7 +23,7 @@ before_script:
 
 script:
   - xvfb-run --server-args="-screen 0, 1024x768x24" nosetests -v --with-id --with-xcoverage --with-xunit --verbose --cover-package=.
-  - pep8 .
+  - make pep8
 
 after_success:
   - pip install coveralls
