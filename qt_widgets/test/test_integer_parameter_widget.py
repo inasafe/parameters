@@ -12,10 +12,10 @@ import unittest
 from PyQt4.QtGui import QApplication
 
 from integer_parameter import IntegerParameter
-from qt_widgets.integer_parameter_widget import IntegerParameterWidget
 from metadata import unit_metres_depth, unit_feet_depth
 from unit import Unit
 
+from qt_widgets.integer_parameter_widget import IntegerParameterWidget
 
 application = QApplication([])
 

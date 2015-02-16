@@ -13,9 +13,9 @@ import sys
 
 from PyQt4.QtGui import QApplication, QWidget, QGridLayout
 from float_parameter import FloatParameter
-from integer_parameter import IntegerParameter
-from qt_widgets.parameter_container import ParameterContainer
 from string_parameter import StringParameter
+
+from qt_widgets.parameter_container import ParameterContainer
 
 
 def main():

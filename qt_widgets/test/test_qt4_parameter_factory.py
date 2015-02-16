@@ -11,14 +11,17 @@ import unittest
 
 from PyQt4.QtGui import QApplication
 
-from qt_widgets.qt4_parameter_factory import Qt4ParameterFactory
+
 from boolean_parameter import BooleanParameter
 from float_parameter import FloatParameter
+
 from qt_widgets.boolean_parameter_widget import BooleanParameterWidget
 from qt_widgets.float_parameter_widget import FloatParameterWidget
+from qt_widgets.qt4_parameter_factory import Qt4ParameterFactory
 
-from custom_parameter.point_parameter import PointParameter
-from custom_parameter.point_parameter_widget import PointParameterWidget
+from qt_widgets.test.custom_parameter.point_parameter import PointParameter
+from qt_widgets.test.custom_parameter.point_parameter_widget import (
+    PointParameterWidget)
 
 application = QApplication([])
 

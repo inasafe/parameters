@@ -14,12 +14,13 @@ from metadata import unit_feet_depth, unit_metres_depth
 from boolean_parameter import BooleanParameter
 from float_parameter import FloatParameter
 from integer_parameter import IntegerParameter
-from qt_widgets.parameter_container import ParameterContainer
 from string_parameter import StringParameter
 from unit import Unit
 
-from custom_parameter.point_parameter import PointParameter
-from custom_parameter.point_parameter_widget import PointParameterWidget
+from qt_widgets.parameter_container import ParameterContainer
+from qt_widgets.test.custom_parameter.point_parameter import PointParameter
+from qt_widgets.test.custom_parameter.point_parameter_widget import (
+    PointParameterWidget)
 
 
 def main():
