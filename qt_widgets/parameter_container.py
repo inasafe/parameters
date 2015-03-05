@@ -8,14 +8,25 @@ __copyright__ = 'ismail@kartoza.com'
 __doc__ = ''
 
 from PyQt4.QtGui import (
-    QWidget, QScrollArea, QVBoxLayout, QGridLayout, QSizePolicy, QColor)
+    QWidget,
+    QScrollArea,
+    QVBoxLayout,
+    QGridLayout,
+    QSizePolicy,
+    QColor,
+    QLabel)
 from qt_widgets.qt4_parameter_factory import Qt4ParameterFactory
 
 
 class ParameterContainer(QWidget, object):
     """Container to hold Parameter Widgets."""
 
-    def __init__(self, parameters, extra_parameters=None, parent=None):
+    def __init__(
+            self,
+            parameters=[],
+            description_text='',
+            extra_parameters=None,
+            parent=None):
         """Constructor
 
         .. versionadded:: 2.2
@@ -23,61 +34,27 @@ class ParameterContainer(QWidget, object):
         :param parameters: List of Parameter Widget
         :type parameters: list
 
+        :param description_text: Text for description of the parameter
+            container.
+        :type description_text: str
+
         """
         QWidget.__init__(self, parent)
 
-        self._parameters = parameters
+        self.parameters = parameters
+        self.description_text = description_text
+        self.extra_parameters = extra_parameters
+        self.parent = parent
 
-        # Vertical layout to place the parameter widgets
+        # UI
         self.vertical_layout = QVBoxLayout()
-        self.vertical_layout.setContentsMargins(0, 0, 0, 0)
-        self.vertical_layout.setSpacing(0)
-
-        # Widget to hold the vertical layout
         self.widget = QWidget()
-        self.widget.setLayout(self.vertical_layout)
-
-        # Scroll area to make the container scroll-able
+        self.description_label = QLabel()
         self.scroll_area = QScrollArea()
-        self.scroll_area.setWidgetResizable(True)
-        # self.scroll_area.setSizePolicy(QSizePolicy.Expanding)
-        self.scroll_area.setWidget(self.widget)
-
-        # Main layout of the container
-        self.main_layout = QGridLayout()
-        self.main_layout.addWidget(self.scroll_area)
-        self.main_layout.setContentsMargins(0, 0, 0, 0)
-        # self.main_layout.addStretch(1)
-        self.setLayout(self.main_layout)
-
-        self.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.MinimumExpanding)
-
         self.qt4_parameter_factory = Qt4ParameterFactory()
-        if extra_parameters is not None:
-            for extra_parameter in extra_parameters:
-                if (type(extra_parameter) == tuple and
-                        len(extra_parameter) == 2):
-                    self.qt4_parameter_factory.register_widget(
-                        extra_parameter[0], extra_parameter[1])
+        self.main_layout = QGridLayout()
 
-        color_odd = QColor(220, 220, 220)
-        color_even = QColor(192, 192, 192)
-
-        i = 0
-        for parameter in parameters:
-            parameter_widget = self.qt4_parameter_factory.get_widget(parameter)
-            if i % 2:
-                color = color_even
-            else:
-                color = color_odd
-            i += 1
-            parameter_widget.setAutoFillBackground(True)
-            palette = parameter_widget.palette()
-            palette.setColor(parameter_widget.backgroundRole(), color)
-            parameter_widget.setPalette(palette)
-            self.vertical_layout.addWidget(parameter_widget)
-
-    # NOTES(IS) : These functions are commented since the architecture is not
+# NOTES(IS) : These functions are commented since the architecture is not
     #  ready yet.
     # def register_widget(self, parameter, parameter_widget):
     #     """Register new custom widget.
@@ -131,3 +108,78 @@ class ParameterContainer(QWidget, object):
             self.vertical_layout.count()))
 
         return parameter_widgets
+
+    def setup_ui(self):
+        """Setup the UI of this parameter container.
+        """
+        # Vertical layout to place the parameter widgets
+        self.vertical_layout.setContentsMargins(0, 0, 0, 0)
+        self.vertical_layout.setSpacing(0)
+
+        # Widget to hold the vertical layout
+        self.widget.setLayout(self.vertical_layout)
+
+        # Label for description
+        self.description_label.setText(self.description_text)
+
+        # Scroll area to make the container scroll-able
+        self.scroll_area.setWidgetResizable(True)
+        # self.scroll_area.setSizePolicy(QSizePolicy.Expanding)
+        self.scroll_area.setWidget(self.widget)
+
+        # Main layout of the container
+        if self.description_text:
+            self.main_layout.addWidget(self.description_label)
+        self.main_layout.setContentsMargins(0, 0, 0, 0)
+        # self.main_layout.addStretch(1)
+        self.setLayout(self.main_layout)
+
+        self.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.MinimumExpanding)
+
+        if len(self.parameters) == 0:
+            self.set_empty_parameters()
+            return
+
+        self.main_layout.addWidget(self.scroll_area)
+
+        self.qt4_parameter_factory = Qt4ParameterFactory()
+        if self.extra_parameters is not None:
+            for extra_parameter in self.extra_parameters:
+                if (type(extra_parameter) == tuple and
+                        len(extra_parameter) == 2):
+                    self.qt4_parameter_factory.register_widget(
+                        extra_parameter[0], extra_parameter[1])
+
+        color_odd = QColor(220, 220, 220)
+        color_even = QColor(192, 192, 192)
+
+        i = 0
+        for parameter in self.parameters:
+            parameter_widget = self.qt4_parameter_factory.get_widget(parameter)
+            if i % 2:
+                color = color_even
+            else:
+                color = color_odd
+            i += 1
+            parameter_widget.setAutoFillBackground(True)
+            palette = parameter_widget.palette()
+            palette.setColor(parameter_widget.backgroundRole(), color)
+            parameter_widget.setPalette(palette)
+            self.vertical_layout.addWidget(parameter_widget)
+
+    def set_description(self, description):
+        """Set description of the parameter container.
+
+        :param description: A new description fot the parameter container.
+        :type description: str
+        """
+        self.description_text = description
+        self.description_label.setText(self.description_text)
+
+    def set_empty_parameters(self):
+        """Update UI if there is no parameters in the container.
+        """
+        new_description = self.description_text
+        new_description += '\n'
+        new_description += 'But, currently there is no parameters available.'
+        self.description_label.setText(new_description)

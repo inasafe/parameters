@@ -111,11 +111,24 @@ def main():
         (PointParameter, PointParameterWidget)
     ]
 
-    parameter_container = ParameterContainer(parameters, extra_parameters)
+    description_text = (
+        'These parameters are merely created for showing example only')
+    # description_text = ''
+    parameter_container = ParameterContainer(
+        parameters,
+        extra_parameters=extra_parameters,
+        description_text=description_text)
+    parameter_container.setup_ui()
+
+    parameter_container2 = ParameterContainer(
+        extra_parameters=extra_parameters,
+        description_text=description_text)
+    parameter_container2.setup_ui()
 
     widget = QWidget()
     layout = QGridLayout()
     layout.addWidget(parameter_container)
+    layout.addWidget(parameter_container2)
 
     def show_parameter():
         """Show help."""
