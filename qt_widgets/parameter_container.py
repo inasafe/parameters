@@ -16,6 +16,7 @@ from PyQt4.QtGui import (
     QColor,
     QLabel)
 from qt_widgets.qt4_parameter_factory import Qt4ParameterFactory
+from parameter_exceptions import RequiredException, InvalidValidationException
 
 
 class ParameterContainer(QWidget, object):
@@ -23,7 +24,7 @@ class ParameterContainer(QWidget, object):
 
     def __init__(
             self,
-            parameters=[],
+            parameters=None,
             description_text='',
             extra_parameters=None,
             parent=None):
@@ -41,10 +42,15 @@ class ParameterContainer(QWidget, object):
         """
         QWidget.__init__(self, parent)
 
-        self.parameters = parameters
+        # attributes
+        if not parameters:
+            self.parameters = []
+        else:
+            self.parameters = parameters
         self.description_text = description_text
         self.extra_parameters = extra_parameters
         self.parent = parent
+        self.validators = []
 
         # UI
         self.vertical_layout = QVBoxLayout()
@@ -77,12 +83,18 @@ class ParameterContainer(QWidget, object):
     #     if parameter.__name__ in self.dict_widget.keys():
     #         self.dict_widget.pop(parameter.__name__)
 
-    def get_parameters(self):
+    def get_parameters(self, validate=True):
         """Return list of parameters from the current state of widget.
+
+        :param validate: If true, run validator, else no.
+        :type validate: bool
 
         :returns: List of parameter
         :rtype: list
         """
+        if validate:
+            if not self.validate():
+                return
 
         parameter_widgets = (self.vertical_layout.itemAt(i) for i in range(
             self.vertical_layout.count()))
@@ -183,3 +195,40 @@ class ParameterContainer(QWidget, object):
         new_description += '\n'
         new_description += 'But, currently there is no parameters available.'
         self.description_label.setText(new_description)
+
+    def add_validator(self, validator):
+        """Add validator for this parameter container.
+
+        :param validator: validator function for this parameter container.
+        :type validator: function
+        """
+        validator.parent = self
+        self.validators.append(validator)
+
+    def validate(self):
+        """Validate of all rule for all parameter in this container.
+
+        :return: True if all valid, False
+        :rtype: bool
+        """
+        for validator in self.validators:
+            validation_result = validator(self)
+            if not validation_result['valid']:
+                raise InvalidValidationException(validation_result['message'])
+
+        return True
+
+    def get_parameter_by_guid(self, parameter_guid):
+        """Return a parameter based on its uuid
+
+        :param parameter_guid: The parameter uuid
+        :type parameter_guid: str
+
+        :returns: The parameter or None if not exist
+        :rtype: GenericParameter, None
+        """
+        parameters = self.get_parameters(validate=False)
+        for parameter in parameters:
+            if parameter.guid == parameter_guid:
+                return parameter
+        return None

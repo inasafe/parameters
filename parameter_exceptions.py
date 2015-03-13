@@ -20,3 +20,15 @@ class ValueOutOfBounds(Exception):
 class CollectionLengthError(Exception):
     """Error raised when a collection is too long or too short."""
     pass
+
+
+class RequiredException(Exception):
+    """Exception raised when a parameter is required but not assigned.
+    """
+    pass
+
+
+class InvalidValidationException(Exception):
+    """Exception raised when there is validation breaker in ParameterContainer.
+    """
+    pass

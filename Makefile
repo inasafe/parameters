@@ -1,3 +1,6 @@
+PROJECT_NAME = PARAMETERS
+BUILD_DIRECTORY = ../build_$(PROJECT_NAME)
+
 # Run pep8 style checking
 #http://pypi.python.org/pypi/pep8
 pep8:
@@ -14,3 +17,14 @@ test_suite:
 	@echo "Regression Test Suite"
 	@echo "---------------------"
 	@export PYTHONPATH=`pwd`:$(PYTHONPATH);nosetests -v --with-id --with-coverage --cover-package=. 3>&1 1>&2 2>&3 3>&- || true
+
+# zip
+package:
+	@echo
+	@echo "---------------------"
+	@echo "Creating a package for $(PROJECT_NAME) project"
+	@echo "---------------------"
+	rm -rf $(BUILD_DIRECTORY)
+	cp -rf . $(BUILD_DIRECTORY)
+	find $(BUILD_DIRECTORY) -name "*.pyc" -exec rm -rf {} \;
+	find $(BUILD_DIRECTORY) -name "test_" -exec rm -rf {} \;
