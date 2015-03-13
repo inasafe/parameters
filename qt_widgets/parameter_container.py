@@ -14,7 +14,8 @@ from PyQt4.QtGui import (
     QGridLayout,
     QSizePolicy,
     QColor,
-    QLabel)
+    QLabel,
+    QMessageBox)
 from qt_widgets.qt4_parameter_factory import Qt4ParameterFactory
 from parameter_exceptions import RequiredException, InvalidValidationException
 
@@ -214,7 +215,8 @@ class ParameterContainer(QWidget, object):
         for validator in self.validators:
             validation_result = validator(self)
             if not validation_result['valid']:
-                raise InvalidValidationException(validation_result['message'])
+                QMessageBox.information(
+                    None, 'Validation Error', validation_result['message'])
 
         return True
 
