@@ -33,6 +33,7 @@ class InvalidValidationException(Exception):
     """
     pass
 
+
 class ValueNotAllowedException(Exception):
     """Exception raised when the value assigned in the ListParameter contains
     items that didn't exists in options list

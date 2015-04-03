@@ -35,7 +35,6 @@ class TestListParameter(TestCase):
 
         self.assertEqual(good_list, self.parameter.value)
 
-
         with self.assertRaises(TypeError):
             # should raise, because it expects a list or dict of string
             self.parameter.value = 'Test'
