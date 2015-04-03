@@ -1,5 +1,7 @@
 # coding=utf-8
 """Main file for showing off widget parameter."""
+from list_parameter import ListParameter
+
 __author__ = 'ismailsunni'
 __project_name = 'parameters'
 __filename = 'main'
@@ -150,6 +152,17 @@ def main():
     max_integer_parameter.allowed_units = [unit_metres]
     max_integer_parameter.value = 4
 
+    list_parameter = ListParameter()
+    list_parameter.name = 'Affected Field'
+    list_parameter.is_required = True
+    list_parameter.maximum_item_count = 3
+    list_parameter.minimum_item_count = 1
+    list_parameter.help_text = 'Column used for affected field'
+    list_parameter.description = 'Column used for affected field in the vector'
+    list_parameter.element_type = str
+    list_parameter.options_list = ['FLOODPRONE', 'affected', 'floodprone',
+                                   'yes/no', '\xddounicode test']
+
     parameters = [
         string_parameter,
         integer_parameter,
@@ -158,7 +171,8 @@ def main():
         float_parameter,
         boolean_parameter,
         integer_parameter,
-        point_parameter]
+        point_parameter,
+        list_parameter]
 
     extra_parameters = [
         (PointParameter, PointParameterWidget)
