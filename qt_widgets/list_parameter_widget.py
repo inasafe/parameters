@@ -1,12 +1,12 @@
-from PyQt4.QtGui import QListWidget, \
-    QListWidget, QAbstractItemView, QListWidgetItem, QMessageBox
-from qt_widgets.generic_parameter_widget import GenericParameterWidget
-
+# coding=utf-8
 __author__ = 'lucernae'
 __project_name__ = 'parameters'
 __filename__ = 'list_parameter_widget'
 __date__ = '02/04/15'
 __copyright__ = 'lana.pcfre@gmail.com'
+
+from PyQt4.QtGui import QListWidget, QAbstractItemView, QMessageBox
+from qt_widgets.generic_parameter_widget import GenericParameterWidget
 
 
 class ListParameterWidget(GenericParameterWidget):

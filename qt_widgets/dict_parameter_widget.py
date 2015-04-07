@@ -8,8 +8,6 @@ __copyright__ = 'kartoza.com'
 __doc__ = ''
 
 # This import is to enable SIP API V2
-# noinspection PyUnresolvedReferences
-import qgis  # pylint: disable=unused-import
 # noinspection PyPackageRequirements
 from PyQt4.QtGui import QTableWidget, QTableWidgetItem
 from qt_widgets.generic_parameter_widget import (
