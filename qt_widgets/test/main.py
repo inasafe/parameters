@@ -1,5 +1,6 @@
 # coding=utf-8
 """Main file for showing off widget parameter."""
+from input_list_parameter import InputListParameter
 
 __author__ = 'ismailsunni'
 __project_name = 'parameters'
@@ -164,6 +165,16 @@ def main():
     list_parameter.options_list = ['FLOODPRONE', 'affected', 'floodprone',
                                    'yes/no', '\xddounicode test']
 
+    input_list_parameter = InputListParameter()
+    input_list_parameter.name = 'Thresholds'
+    input_list_parameter.is_required = True
+    input_list_parameter.maximum_item_count = 3
+    input_list_parameter.minimum_item_count = 1
+    input_list_parameter.help_text = 'Specified List of thresholds'
+    input_list_parameter.description = 'Some description'
+    input_list_parameter.element_type = int
+    input_list_parameter.ordering = InputListParameter.DescendingOrder
+
     dict_parameter = DictParameter()
     dict_parameter.name = 'Dict Parameter'
     dict_parameter.is_required = True
@@ -172,7 +183,15 @@ def main():
     dict_parameter.help_text = 'Dict Parameter example'
     dict_parameter.description = 'Dict Parameter desc'
     dict_parameter.element_type = str
-    dict_parameter.value = {'foo': True, 'bar': 10, 'woo': False}
+    dict_parameter.value = {
+        'foo': 'True',
+        'bar': '10',
+        'woo': 'False',
+        'sub_dict_sample': {
+            'key1': 'val1',
+            'key2': 'val2'
+        }
+    }
 
     parameters = [
         string_parameter,
@@ -184,6 +203,7 @@ def main():
         integer_parameter,
         point_parameter,
         list_parameter,
+        input_list_parameter,
         dict_parameter]
 
     extra_parameters = [
