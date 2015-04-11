@@ -164,6 +164,7 @@ def main():
     list_parameter.element_type = str
     list_parameter.options_list = ['FLOODPRONE', 'affected', 'floodprone',
                                    'yes/no', '\xddounicode test']
+    list_parameter.value = ['FLOODPRONE', 'affected', 'floodprone']
 
     input_list_parameter = InputListParameter()
     input_list_parameter.name = 'Thresholds'
@@ -174,11 +175,12 @@ def main():
     input_list_parameter.description = 'Some description'
     input_list_parameter.element_type = int
     input_list_parameter.ordering = InputListParameter.DescendingOrder
+    input_list_parameter.value = [1]
 
     dict_parameter = DictParameter()
     dict_parameter.name = 'Dict Parameter'
     dict_parameter.is_required = True
-    dict_parameter.maximum_item_count = 3
+    dict_parameter.maximum_item_count = 5
     dict_parameter.minimum_item_count = 1
     dict_parameter.help_text = 'Dict Parameter example'
     dict_parameter.description = 'Dict Parameter desc'
