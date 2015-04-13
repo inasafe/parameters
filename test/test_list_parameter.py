@@ -5,12 +5,17 @@ from unittest import TestCase
 
 from list_parameter import ListParameter
 from parameter_exceptions import (
-    CollectionLengthError, InvalidMinimumError, InvalidMaximumError)
+    CollectionLengthError, InvalidMinimumError, InvalidMaximumError,
+    ValueNotAllowedException)
 
 
 good_list = ['one', 'two', 'three']
 bad_list = ['one', 2, 3.0]
 int_list = [1, 2, 3]
+
+not_allowed_list = ['one', 'two', 'six']
+
+good_options = ['one', 'two', 'three', 'four', 'five']
 
 
 class TestListParameter(TestCase):
@@ -22,6 +27,7 @@ class TestListParameter(TestCase):
 
         self.parameter.minimum_item_count = 1
         self.parameter.maximum_item_count = 3
+        self.parameter.options_list = good_options
         self.parameter.value = good_list
 
     def test_all(self):
@@ -30,13 +36,16 @@ class TestListParameter(TestCase):
         self.assertEqual(good_list, self.parameter.value)
 
         with self.assertRaises(TypeError):
+            # should raise, because it expects a list or dict of string
             self.parameter.value = 'Test'
 
         with self.assertRaises(TypeError):
-            self.parameter.value = 3.0
+            # should raise, because it expects a list or dict of string
+            self.parameter.value = [3.0]
 
         with self.assertRaises(TypeError):
-            self.parameter.value = 3
+            # should raise, because it expects a list or dict of string
+            self.parameter.value = [3]
 
     def test_set_minimum_item_count(self):
         with self.assertRaises(InvalidMinimumError):
@@ -75,3 +84,7 @@ class TestListParameter(TestCase):
     def test_set_value(self):
         self.parameter.value = good_list
         self.assertEqual(good_list, self.parameter.value)
+
+    def test_not_allowed_value(self):
+        with self.assertRaises(ValueNotAllowedException):
+            self.parameter.value = not_allowed_list

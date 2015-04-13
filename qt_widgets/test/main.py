@@ -1,5 +1,7 @@
 # coding=utf-8
 """Main file for showing off widget parameter."""
+from input_list_parameter import InputListParameter
+
 __author__ = 'ismailsunni'
 __project_name = 'parameters'
 __filename = 'main'
@@ -16,6 +18,8 @@ from boolean_parameter import BooleanParameter
 from float_parameter import FloatParameter
 from integer_parameter import IntegerParameter
 from string_parameter import StringParameter
+from dict_parameter import DictParameter
+from list_parameter import ListParameter
 from unit import Unit
 
 from qt_widgets.parameter_container import ParameterContainer
@@ -150,6 +154,47 @@ def main():
     max_integer_parameter.allowed_units = [unit_metres]
     max_integer_parameter.value = 4
 
+    list_parameter = ListParameter()
+    list_parameter.name = 'Affected Field'
+    list_parameter.is_required = True
+    list_parameter.maximum_item_count = 3
+    list_parameter.minimum_item_count = 1
+    list_parameter.help_text = 'Column used for affected field'
+    list_parameter.description = 'Column used for affected field in the vector'
+    list_parameter.element_type = str
+    list_parameter.options_list = ['FLOODPRONE', 'affected', 'floodprone',
+                                   'yes/no', '\xddounicode test']
+    list_parameter.value = ['FLOODPRONE', 'affected', 'floodprone']
+
+    input_list_parameter = InputListParameter()
+    input_list_parameter.name = 'Thresholds'
+    input_list_parameter.is_required = True
+    input_list_parameter.maximum_item_count = 3
+    input_list_parameter.minimum_item_count = 1
+    input_list_parameter.help_text = 'Specified List of thresholds'
+    input_list_parameter.description = 'Some description'
+    input_list_parameter.element_type = int
+    input_list_parameter.ordering = InputListParameter.DescendingOrder
+    input_list_parameter.value = [1]
+
+    dict_parameter = DictParameter()
+    dict_parameter.name = 'Dict Parameter'
+    dict_parameter.is_required = True
+    dict_parameter.maximum_item_count = 5
+    dict_parameter.minimum_item_count = 1
+    dict_parameter.help_text = 'Dict Parameter example'
+    dict_parameter.description = 'Dict Parameter desc'
+    dict_parameter.element_type = str
+    dict_parameter.value = {
+        'foo': 'True',
+        'bar': '10',
+        'woo': 'False',
+        'sub_dict_sample': {
+            'key1': 'val1',
+            'key2': 'val2'
+        }
+    }
+
     parameters = [
         string_parameter,
         integer_parameter,
@@ -158,7 +203,10 @@ def main():
         float_parameter,
         boolean_parameter,
         integer_parameter,
-        point_parameter]
+        point_parameter,
+        list_parameter,
+        input_list_parameter,
+        dict_parameter]
 
     extra_parameters = [
         (PointParameter, PointParameterWidget)

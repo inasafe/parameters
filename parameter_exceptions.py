@@ -32,3 +32,10 @@ class InvalidValidationException(Exception):
     """Exception raised when there is validation breaker in ParameterContainer.
     """
     pass
+
+
+class ValueNotAllowedException(Exception):
+    """Exception raised when the value assigned in the ListParameter contains
+    items that didn't exists in options list
+    """
+    pass

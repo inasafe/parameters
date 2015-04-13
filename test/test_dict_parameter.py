@@ -17,7 +17,7 @@ class TestListParameter(TestCase):
     def setUp(self):
         self.parameter = DictParameter()
         self.parameter.is_required = True
-        self.parameter.element_type = str
+        self.parameter.element_type = bool
 
         self.parameter.minimum_item_count = 1
         self.parameter.maximum_item_count = 3
@@ -57,8 +57,8 @@ class TestListParameter(TestCase):
             self.parameter.maximum_item_count = 0
 
         with self.assertRaises(CollectionLengthError):
-            # and what happens if you try to load a list with less items
-            # than the required minimum
+            # and what happens if you try to load a list with more items than
+            # required maximum
             self.parameter.minimum_item_count = 1
             self.parameter.maximum_item_count = 2
             self.parameter.value = good_dict
