@@ -1,7 +1,5 @@
 # coding=utf-8
 """Main file for showing off widget parameter."""
-from group_parameter import GroupParameter
-from input_list_parameter import InputListParameter
 
 __author__ = 'ismailsunni'
 __project_name = 'parameters'
@@ -13,7 +11,8 @@ __doc__ = ''
 import sys
 from functools import partial
 
-from PyQt4.QtGui import (QApplication, QWidget, QGridLayout, QPushButton)
+from PyQt4.QtGui import (QApplication, QWidget, QGridLayout, QPushButton,
+                         QMessageBox)
 from metadata import unit_feet_depth, unit_metres_depth
 from boolean_parameter import BooleanParameter
 from float_parameter import FloatParameter
@@ -23,7 +22,10 @@ from dict_parameter import DictParameter
 from list_parameter import ListParameter
 from unit import Unit
 
+from group_parameter import GroupParameter
+from input_list_parameter import InputListParameter
 from qt_widgets.parameter_container import ParameterContainer
+from qt_widgets.input_list_parameter_widget import InputListParameterWidget
 from qt_widgets.test.custom_parameter.point_parameter import PointParameter
 from qt_widgets.test.custom_parameter.point_parameter_widget import (
     PointParameterWidget)
@@ -205,7 +207,7 @@ def main():
         boolean_parameter
     ]
 
-    def _custom_validator():
+    def _custom_validator(parameters=None):
         valid = True
         if string_parameter.value == 'foo' and integer_parameter.value == \
                 3 and boolean_parameter.value is True:
@@ -244,6 +246,17 @@ def main():
         description_text=description_text)
     parameter_container.setup_ui()
 
+    # create error handler
+    parameter_widget = parameter_container.get_parameter_widgets()
+    input_list_widget = [w.widget() for w in parameter_widget if isinstance(
+        w.widget(), InputListParameterWidget)][0]
+
+    def add_row_handler(exception):
+        box = QMessageBox()
+        box.critical(input_list_widget, 'Add Row Error', exception.message)
+
+    input_list_widget.add_row_error_handler = add_row_handler
+
     parameter_container2 = ParameterContainer(
         extra_parameters=extra_parameters,
         description_text='Empty Parameter Container Description')
@@ -256,23 +269,37 @@ def main():
     parameter_container3.add_validator(validate_min_max)
     parameter_container3.setup_ui()
 
+    def show_error_message(parent, exception):
+        """Generate error message to handle parameter errors
+
+        :param parent: The widget as a parent of message box
+        :type parent: QWidget
+        :param exception: python Exception or Error
+        :type exception: Exception
+        """
+        box = QMessageBox()
+        box.critical(parent, 'Error occured', exception.message)
+
     def show_parameter(the_parameter_container):
         """Print the value of parameter.
 
         :param the_parameter_container: A parameter container
         :type the_parameter_container: ParameterContainer
         """
-        temps = the_parameter_container.get_parameters()
-
         def show_parameter_value(parameter):
             if isinstance(parameter, GroupParameter):
                 for param in parameter.value:
                     show_parameter_value(param)
             else:
                 print parameter.guid, parameter.name, parameter.value
-        if temps:
-            for temp in temps:
-                show_parameter_value(temp)
+
+        try:
+            temps = the_parameter_container.get_parameters()
+            if temps:
+                for temp in temps:
+                    show_parameter_value(temp)
+        except Exception as inst:
+            show_error_message(parameter_container, inst)
 
     button = QPushButton('Show parameters')
     # noinspection PyUnresolvedReferences
