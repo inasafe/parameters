@@ -8,7 +8,12 @@ __copyright__ = 'ismail@kartoza.com'
 __doc__ = ''
 
 from PyQt4.QtGui import (
-    QWidget, QHBoxLayout, QVBoxLayout, QLabel, QToolButton, QGridLayout,
+    QWidget,
+    QHBoxLayout,
+    QVBoxLayout,
+    QLabel,
+    QToolButton,
+    QGridLayout,
     QSizePolicy)
 
 
@@ -31,7 +36,12 @@ class GenericParameterWidget(QWidget, object):
         self._label = QLabel(self._parameter.name)
 
         # Label (help text)
-        self._help_text_label = QLabel(self._parameter.help_text)
+        # Hacky fix for #1830 - checking the base type
+        if isinstance(self._parameter.help_text, basestring):
+            self._help_text_label = QLabel(self._parameter.help_text)
+        else:
+            self._help_text_label = QLabel()
+
         self._help_text_label.setWordWrap(True)
 
         # Label (description)
@@ -70,9 +80,11 @@ class GenericParameterWidget(QWidget, object):
         self._input_layout.addLayout(self._inner_input_layout)
         # self._input_layout.addSpacing(100)
 
-        self._help_layout.addWidget(self._switch_button, 0, 0)
-        self._help_layout.addWidget(self._help_text_label, 0, 1)
-        self._help_layout.addWidget(self._description_label, 1, 1)
+        if self._parameter.description:
+            self._help_layout.addWidget(self._switch_button, 0, 0)
+            self._help_layout.addWidget(self._description_label, 1, 1)
+        if self._parameter.help_text:
+            self._help_layout.addWidget(self._help_text_label, 0, 1)
 
         self._main_layout.addLayout(self._input_layout)
         self._main_layout.addLayout(self._help_layout)

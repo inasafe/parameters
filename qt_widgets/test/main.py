@@ -1,5 +1,6 @@
 # coding=utf-8
 """Main file for showing off widget parameter."""
+from group_parameter import GroupParameter
 from input_list_parameter import InputListParameter
 
 __author__ = 'ismailsunni'
@@ -195,6 +196,25 @@ def main():
         }
     }
 
+    group_parameter = GroupParameter()
+    group_parameter.name = 'Age ratios'
+    group_parameter.is_required = True
+    group_parameter.value = [
+        string_parameter,
+        integer_parameter,
+        boolean_parameter
+    ]
+
+    def _custom_validator():
+        valid = True
+        if string_parameter.value == 'foo' and integer_parameter.value == \
+                3 and boolean_parameter.value is True:
+            valid = False
+        if not valid:
+            raise Exception('Parameter not valid')
+
+    group_parameter.custom_validator = _custom_validator
+
     parameters = [
         string_parameter,
         integer_parameter,
@@ -206,7 +226,9 @@ def main():
         point_parameter,
         list_parameter,
         input_list_parameter,
-        dict_parameter]
+        dict_parameter,
+        group_parameter
+    ]
 
     extra_parameters = [
         (PointParameter, PointParameterWidget)
@@ -241,9 +263,16 @@ def main():
         :type the_parameter_container: ParameterContainer
         """
         temps = the_parameter_container.get_parameters()
+
+        def show_parameter_value(parameter):
+            if isinstance(parameter, GroupParameter):
+                for param in parameter.value:
+                    show_parameter_value(param)
+            else:
+                print parameter.guid, parameter.name, parameter.value
         if temps:
             for temp in temps:
-                print temp.guid, temp.name, temp.value
+                show_parameter_value(temp)
 
     button = QPushButton('Show parameters')
     # noinspection PyUnresolvedReferences

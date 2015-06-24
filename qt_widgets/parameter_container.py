@@ -15,9 +15,10 @@ from PyQt4.QtGui import (
     QSizePolicy,
     QColor,
     QLabel,
-    QMessageBox)
+    QMessageBox,
+    QFrame)
+
 from qt_widgets.qt4_parameter_factory import Qt4ParameterFactory
-from parameter_exceptions import RequiredException, InvalidValidationException
 
 
 class ParameterContainer(QWidget, object):
@@ -42,7 +43,6 @@ class ParameterContainer(QWidget, object):
 
         """
         QWidget.__init__(self, parent)
-
         # attributes
         if not parameters:
             self.parameters = []
@@ -58,6 +58,7 @@ class ParameterContainer(QWidget, object):
         self.widget = QWidget()
         self.description_label = QLabel()
         self.scroll_area = QScrollArea()
+        self.group_frame = QFrame()
         self.qt4_parameter_factory = Qt4ParameterFactory()
         self.main_layout = QGridLayout()
 
@@ -97,8 +98,7 @@ class ParameterContainer(QWidget, object):
             if not self.validate():
                 return
 
-        parameter_widgets = (self.vertical_layout.itemAt(i) for i in range(
-            self.vertical_layout.count()))
+        parameter_widgets = self.get_parameter_widgets()
 
         parameters = []
 
@@ -108,7 +108,12 @@ class ParameterContainer(QWidget, object):
             parameter = parameter_widget.get_parameter()
             parameters.append(parameter)
 
-        return parameters
+        # returns based on the object type of self.parameters
+        if isinstance(self.parameters, list):
+            return parameters
+        else:
+            # just return single parameter
+            return parameters[0]
 
     def get_parameter_widgets(self):
         """Return list of parameter widgets from the current state of widget.
@@ -117,12 +122,12 @@ class ParameterContainer(QWidget, object):
         :rtype: list
         """
 
-        parameter_widgets = (self.vertical_layout.itemAt(i) for i in range(
-            self.vertical_layout.count()))
+        parameter_widgets = [self.vertical_layout.itemAt(i) for i in range(
+            self.vertical_layout.count())]
 
         return parameter_widgets
 
-    def setup_ui(self):
+    def setup_ui(self, must_scroll=True):
         """Setup the UI of this parameter container.
         """
         # Vertical layout to place the parameter widgets
@@ -130,30 +135,44 @@ class ParameterContainer(QWidget, object):
         self.vertical_layout.setSpacing(0)
 
         # Widget to hold the vertical layout
+        self.widget = QWidget()
         self.widget.setLayout(self.vertical_layout)
 
         # Label for description
         self.description_label.setText(self.description_text)
 
-        # Scroll area to make the container scroll-able
-        self.scroll_area.setWidgetResizable(True)
-        # self.scroll_area.setSizePolicy(QSizePolicy.Expanding)
-        self.scroll_area.setWidget(self.widget)
+        self.group_frame.setLineWidth(1)
+        self.group_frame.setFrameStyle(QFrame.Panel)
+        vlayout = QVBoxLayout()
+        vlayout.setContentsMargins(0, 0, 0, 0)
+        vlayout.setSpacing(0)
+        self.group_frame.setLayout(vlayout)
+
+        if must_scroll:
+            vlayout.addWidget(self.scroll_area)
+            self.scroll_area.setWidgetResizable(True)
+            self.scroll_area.setWidget(self.widget)
+        else:
+            vlayout.addWidget(self.widget)
 
         # Main layout of the container
         if self.description_text:
             self.main_layout.addWidget(self.description_label)
         self.main_layout.setContentsMargins(0, 0, 0, 0)
-        # self.main_layout.addStretch(1)
         self.setLayout(self.main_layout)
 
         self.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.MinimumExpanding)
 
-        if len(self.parameters) == 0:
+        if not isinstance(self.parameters, list):
+            parameters = [self.parameters]
+        else:
+            parameters = self.parameters
+
+        if len(parameters) == 0:
             self.set_empty_parameters()
             return
 
-        self.main_layout.addWidget(self.scroll_area)
+        self.main_layout.addWidget(self.group_frame)
 
         self.qt4_parameter_factory = Qt4ParameterFactory()
         if self.extra_parameters is not None:
@@ -167,7 +186,7 @@ class ParameterContainer(QWidget, object):
         color_even = QColor(192, 192, 192)
 
         i = 0
-        for parameter in self.parameters:
+        for parameter in parameters:
             parameter_widget = self.qt4_parameter_factory.get_widget(parameter)
             if i % 2:
                 color = color_even
@@ -179,6 +198,8 @@ class ParameterContainer(QWidget, object):
             palette.setColor(parameter_widget.backgroundRole(), color)
             parameter_widget.setPalette(palette)
             self.vertical_layout.addWidget(parameter_widget)
+
+        self.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
 
     def set_description(self, description):
         """Set description of the parameter container.
