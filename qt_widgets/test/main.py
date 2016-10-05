@@ -20,12 +20,14 @@ from integer_parameter import IntegerParameter
 from string_parameter import StringParameter
 from dict_parameter import DictParameter
 from list_parameter import ListParameter
+from select_parameter import SelectParameter
 from unit import Unit
 
 from group_parameter import GroupParameter
 from input_list_parameter import InputListParameter
 from qt_widgets.parameter_container import ParameterContainer
 from qt_widgets.input_list_parameter_widget import InputListParameterWidget
+
 from qt_widgets.test.custom_parameter.point_parameter import PointParameter
 from qt_widgets.test.custom_parameter.point_parameter_widget import (
     PointParameterWidget)
@@ -169,6 +171,17 @@ def main():
                                    'yes/no', '\xddounicode test']
     list_parameter.value = ['FLOODPRONE', 'affected', 'floodprone']
 
+    select_parameter = SelectParameter()
+    select_parameter.name = 'Select Affected Field'
+    select_parameter.is_required = True
+    select_parameter.help_text = 'Column used for affected field'
+    select_parameter.description = (
+        'Column used for affected field in the vector')
+    select_parameter.element_type = str
+    select_parameter.options_list = [
+        'FLOODPRONE', 'affected', 'floodprone', 'yes/no', '\xddounicode test']
+    select_parameter.value = 'affected'
+
     input_list_parameter = InputListParameter()
     input_list_parameter.name = 'Thresholds'
     input_list_parameter.is_required = True
@@ -229,7 +242,8 @@ def main():
         list_parameter,
         input_list_parameter,
         dict_parameter,
-        group_parameter
+        group_parameter,
+        select_parameter
     ]
 
     extra_parameters = [
@@ -248,14 +262,18 @@ def main():
 
     # create error handler
     parameter_widget = parameter_container.get_parameter_widgets()
-    input_list_widget = [w.widget() for w in parameter_widget if isinstance(
-        w.widget(), InputListParameterWidget)][0]
+    try:
+        input_list_widget = [
+            w.widget() for w in parameter_widget if
+            isinstance(w.widget(), InputListParameterWidget)][0]
 
-    def add_row_handler(exception):
-        box = QMessageBox()
-        box.critical(input_list_widget, 'Add Row Error', exception.message)
+        def add_row_handler(exception):
+            box = QMessageBox()
+            box.critical(input_list_widget, 'Add Row Error', exception.message)
 
-    input_list_widget.add_row_error_handler = add_row_handler
+        input_list_widget.add_row_error_handler = add_row_handler
+    except IndexError:
+        pass
 
     parameter_container2 = ParameterContainer(
         extra_parameters=extra_parameters,
@@ -294,10 +312,10 @@ def main():
                 print parameter.guid, parameter.name, parameter.value
 
         try:
-            temps = the_parameter_container.get_parameters()
-            if temps:
-                for temp in temps:
-                    show_parameter_value(temp)
+            parameters = the_parameter_container.get_parameters()
+            if parameters:
+                for parameter in parameters:
+                    show_parameter_value(parameter)
         except Exception as inst:
             show_error_message(parameter_container, inst)
 
