@@ -1,21 +1,15 @@
 # coding=utf-8
+"""Select Parameter Widget"""
+
+from PyQt4.QtCore import Qt
+from PyQt4.QtGui import QVBoxLayout, QComboBox
+from qt_widgets.generic_parameter_widget import GenericParameterWidget
 
 __author__ = 'ismailsunni'
 __project_name__ = 'parameters'
 __filename__ = 'select_parameter_widget'
 __date__ = '05/10/2016'
 __copyright__ = 'imajimatika@gmail.com'
-
-
-from PyQt4.QtCore import Qt
-from PyQt4.QtGui import (
-    QListWidget,
-    QAbstractItemView,
-    QListWidgetItem,
-    QVBoxLayout,
-    QComboBox
-)
-from qt_widgets.generic_parameter_widget import GenericParameterWidget
 
 
 class SelectParameterWidget(GenericParameterWidget):

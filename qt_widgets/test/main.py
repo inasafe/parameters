@@ -1,18 +1,11 @@
 # coding=utf-8
 """Main file for showing off widget parameter."""
 
-__author__ = 'ismailsunni'
-__project_name = 'parameters'
-__filename = 'main'
-__date__ = '8/19/14'
-__copyright__ = 'ismail@kartoza.com'
-__doc__ = ''
-
 import sys
 from functools import partial
 
-from PyQt4.QtGui import (QApplication, QWidget, QGridLayout, QPushButton,
-                         QMessageBox)
+from PyQt4.QtGui import (
+    QApplication, QWidget, QGridLayout, QPushButton, QMessageBox)
 from metadata import unit_feet_depth, unit_metres_depth
 from boolean_parameter import BooleanParameter
 from float_parameter import FloatParameter
@@ -31,6 +24,13 @@ from qt_widgets.input_list_parameter_widget import InputListParameterWidget
 from qt_widgets.test.custom_parameter.point_parameter import PointParameter
 from qt_widgets.test.custom_parameter.point_parameter_widget import (
     PointParameterWidget)
+
+__author__ = 'ismailsunni'
+__project_name = 'parameters'
+__filename = 'main'
+__date__ = '8/19/14'
+__copyright__ = 'ismail@kartoza.com'
+__doc__ = ''
 
 
 def main():
@@ -220,7 +220,7 @@ def main():
         boolean_parameter
     ]
 
-    def _custom_validator(parameters=None):
+    def _custom_validator():
         valid = True
         if string_parameter.value == 'foo' and integer_parameter.value == \
                 3 and boolean_parameter.value is True:
@@ -304,17 +304,17 @@ def main():
         :param the_parameter_container: A parameter container
         :type the_parameter_container: ParameterContainer
         """
-        def show_parameter_value(parameter):
-            if isinstance(parameter, GroupParameter):
-                for param in parameter.value:
+        def show_parameter_value(a_parameter):
+            if isinstance(a_parameter, GroupParameter):
+                for param in a_parameter.value:
                     show_parameter_value(param)
             else:
-                print parameter.guid, parameter.name, parameter.value
+                print a_parameter.guid, a_parameter.name, a_parameter.value
 
         try:
-            parameters = the_parameter_container.get_parameters()
-            if parameters:
-                for parameter in parameters:
+            the_parameters = the_parameter_container.get_parameters()
+            if the_parameters:
+                for parameter in the_parameters:
                     show_parameter_value(parameter)
         except Exception as inst:
             show_error_message(parameter_container, inst)

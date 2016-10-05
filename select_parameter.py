@@ -4,6 +4,12 @@
 from collection_parameter import CollectionParameter
 from parameter_exceptions import ValueNotAllowedException
 
+__author__ = 'ismailsunni'
+__project_name__ = 'parameters'
+__filename__ = 'select_parameter'
+__date__ = '05/10/2016'
+__copyright__ = 'imajimatika@gmail.com'
+
 
 class SelectParameter(CollectionParameter):
     """A subclass of parameter that allows the user to select from a list.
