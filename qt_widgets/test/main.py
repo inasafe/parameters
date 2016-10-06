@@ -220,7 +220,7 @@ def main():
         boolean_parameter
     ]
 
-    def _custom_validator():
+    def _custom_validator(value):
         valid = True
         if string_parameter.value == 'foo' and integer_parameter.value == \
                 3 and boolean_parameter.value is True:
