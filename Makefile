@@ -26,5 +26,9 @@ package:
 	@echo "---------------------"
 	rm -rf $(BUILD_DIRECTORY)
 	cp -rf . $(BUILD_DIRECTORY)
+	@echo "Remove pyc files"
 	find $(BUILD_DIRECTORY) -name "*.pyc" -exec rm -rf {} \;
-	find $(BUILD_DIRECTORY) -name "test_" -exec rm -rf {} \;
+	@echo "Remove test directories"
+	find $(BUILD_DIRECTORY) -name "test" -type d -prune -exec rm -rf '{}' '+'
+	@echo "Remove dot files"
+	find $(BUILD_DIRECTORY) -name ".*" -prune -exec rm -rf '{}' '+'
