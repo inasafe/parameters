@@ -32,3 +32,5 @@ package:
 	find $(BUILD_DIRECTORY) -name "test" -type d -prune -exec rm -rf '{}' '+'
 	@echo "Remove dot files"
 	find $(BUILD_DIRECTORY) -name ".*" -prune -exec rm -rf '{}' '+'
+	@echo "Remove Makefile"
+	find $(BUILD_DIRECTORY) -name "Makefile" -prune -exec rm '{}' '+'
