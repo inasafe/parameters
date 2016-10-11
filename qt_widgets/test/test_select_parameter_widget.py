@@ -38,3 +38,23 @@ class TestSelectParameterWidget(unittest.TestCase):
         widget._input.setCurrentIndex(0)
         real_value = widget.get_parameter().value
         self.assertEqual(real_value, select_parameter.options_list[0])
+
+    def test_set_choice(self):
+        """Test for set_choice method."""
+        select_parameter = SelectParameter()
+        select_parameter.name = 'Select Affected Field'
+        select_parameter.is_required = True
+        select_parameter.help_text = 'Column used for affected field'
+        select_parameter.description = (
+            'Column used for affected field in the vector')
+        select_parameter.element_type = str
+        select_parameter.options_list = [
+            'FLOODPRONE', 'affected', 'floodprone', 'yes/no',
+            '\xddounicode test']
+        select_parameter.value = 'affected'
+
+        widget = SelectParameterWidget(select_parameter)
+
+        widget.set_choice('floodprone')
+        real_value = widget.get_parameter().value
+        self.assertEqual('floodprone', real_value)
