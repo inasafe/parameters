@@ -24,6 +24,9 @@ from qt_widgets.input_list_parameter_widget import InputListParameterWidget
 from qt_widgets.test.custom_parameter.point_parameter import PointParameter
 from qt_widgets.test.custom_parameter.point_parameter_widget import (
     PointParameterWidget)
+from default_select_parameter import DefaultSelectParameter
+from qt_widgets.default_select_parameter_widget import (
+    DefaultSelectParameterWidget)
 
 __author__ = 'ismailsunni'
 __project_name = 'parameters'
@@ -220,6 +223,22 @@ def main():
         boolean_parameter
     ]
 
+    default_select_parameter = DefaultSelectParameter()
+    default_select_parameter.name = 'Default Select Affected Field'
+    default_select_parameter.is_required = True
+    default_select_parameter.help_text = 'Column used for affected field'
+    default_select_parameter.description = (
+        'Column used for affected field in the vector')
+    default_select_parameter.element_type = str
+    default_select_parameter.options_list = [
+        'FLOODPRONE', 'affected', 'floodprone', 'yes/no',
+        '\xddounicode test']
+    default_select_parameter.value = 'affected'
+    default_select_parameter.default_labels = [
+        'Setting (%s)', 'Do not use', 'Custom']
+    default_select_parameter.default_values = [0.1, None, 0.2]
+    default_select_parameter.default_value = 0.2
+
     def _custom_validator(value):
         valid = True
         if string_parameter.value == 'foo' and integer_parameter.value == \
@@ -231,6 +250,8 @@ def main():
     group_parameter.custom_validator = _custom_validator
 
     parameters = [
+        default_select_parameter,
+        default_select_parameter,
         string_parameter,
         integer_parameter,
         boolean_parameter,
@@ -243,11 +264,12 @@ def main():
         input_list_parameter,
         dict_parameter,
         group_parameter,
-        select_parameter
+        select_parameter,
     ]
 
     extra_parameters = [
-        (PointParameter, PointParameterWidget)
+        (PointParameter, PointParameterWidget),
+        (DefaultSelectParameter, DefaultSelectParameterWidget)
     ]
     min_max_parameters = [min_integer_parameter, max_integer_parameter]
 
