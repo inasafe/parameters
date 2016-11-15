@@ -38,24 +38,6 @@ class SelectParameterWidget(GenericParameterWidget):
 
         self._inner_input_layout.addWidget(self._input)
 
-        # override self._input_layout arrangement to make the label at the top
-        # reset the layout
-        self._input_layout.setParent(None)
-        self._help_layout.setParent(None)
-
-        self._label.setParent(None)
-        self._inner_input_layout.setParent(None)
-
-        self._input_layout = QVBoxLayout()
-        self._input_layout.setSpacing(0)
-
-        # put element into layout
-        self._input_layout.addWidget(self._label)
-        self._input_layout.addLayout(self._inner_input_layout)
-
-        self._main_layout.addLayout(self._input_layout)
-        self._main_layout.addLayout(self._help_layout)
-
     def raise_invalid_type_exception(self):
         message = 'Expecting element type of %s' % (
             self._parameter.element_type.__name__)
