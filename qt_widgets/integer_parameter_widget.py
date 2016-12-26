@@ -27,10 +27,8 @@ class IntegerParameterWidget(NumericParameterWidget):
 
         self._input = QSpinBox()
         self._input.setValue(self._parameter.value)
-        self._input.setMinimum(
-            self._parameter.minimum_allowed_value)
-        self._input.setMaximum(
-            self._parameter.maximum_allowed_value)
+        self._input.setMinimum(self._parameter.minimum_allowed_value)
+        self._input.setMaximum(self._parameter.maximum_allowed_value)
         tool_tip = 'Choose a number between %d and %d' % (
             self._parameter.minimum_allowed_value,
             self._parameter.maximum_allowed_value)

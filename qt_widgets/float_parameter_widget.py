@@ -27,11 +27,9 @@ class FloatParameterWidget(NumericParameterWidget):
 
         self._input = QDoubleSpinBox()
         self._input.setDecimals(self._parameter.precision)
+        self._input.setMinimum(self._parameter.minimum_allowed_value)
+        self._input.setMaximum(self._parameter.maximum_allowed_value)
         self._input.setValue(self._parameter.value)
-        self._input.setMinimum(
-            self._parameter.minimum_allowed_value)
-        self._input.setMaximum(
-            self._parameter.maximum_allowed_value)
         self._input.setSingleStep(
             10 ** -self._parameter.precision)
         # is it possible to use dynamic precision ?
