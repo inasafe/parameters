@@ -6,7 +6,6 @@ __project_name = 'parameters'
 __filename = 'dict_parameter_widget'
 __date__ = '12/11/14'
 __copyright__ = 'kartoza.com'
-__doc__ = ''
 
 # This import is to enable SIP API V2
 # noinspection PyPackageRequirements

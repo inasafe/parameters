@@ -17,7 +17,6 @@ __project_name = 'parameters'
 __filename = 'qt4_parameter_factory'
 __date__ = '8/19/14'
 __copyright__ = 'ismail@kartoza.com'
-__doc__ = ''
 
 
 class Qt4ParameterFactory(object):

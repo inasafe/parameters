@@ -5,7 +5,6 @@ __project_name = 'parameters'
 __filename = 'string_parameter_widget'
 __date__ = '8/28/14'
 __copyright__ = 'ismail@kartoza.com'
-__doc__ = ''
 
 
 from PyQt4.QtGui import QTextEdit, QSizePolicy

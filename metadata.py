@@ -5,7 +5,6 @@ __project_name = 'parameters'
 __filename = 'metadata.py'
 __date__ = '8/25/14'
 __copyright__ = 'ismail@kartoza.com'
-__doc__ = ''
 # constants
 small_number = 2 ** -53  # I think this is small enough
 

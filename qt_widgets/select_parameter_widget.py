@@ -2,7 +2,7 @@
 """Select Parameter Widget"""
 
 from PyQt4.QtCore import Qt
-from PyQt4.QtGui import QVBoxLayout, QComboBox
+from PyQt4.QtGui import QComboBox
 from qt_widgets.generic_parameter_widget import GenericParameterWidget
 
 __author__ = 'ismailsunni'

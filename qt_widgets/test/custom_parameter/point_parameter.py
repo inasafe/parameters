@@ -5,7 +5,6 @@ __project_name = 'parameters'
 __filename = 'point_parameter'
 __date__ = '12/15/14'
 __copyright__ = 'ismail@kartoza.com'
-__doc__ = ''
 
 
 from generic_parameter import GenericParameter

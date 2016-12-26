@@ -13,7 +13,6 @@ __project_name = 'parameters'
 __filename = 'numeric_parameter_widget'
 __date__ = '8/21/14'
 __copyright__ = 'ismail@kartoza.com'
-__doc__ = ''
 
 
 class NumericParameterWidget(GenericParameterWidget):

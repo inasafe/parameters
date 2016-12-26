@@ -9,8 +9,10 @@ __copyright__ = 'lana.pcfre@gmail.com'
 
 from PyQt4.QtCore import Qt
 from PyQt4.QtGui import (
-    QListWidget, QAbstractItemView, QMessageBox,
-    QListWidgetItem, QVBoxLayout)
+    QListWidget,
+    QAbstractItemView,
+    QListWidgetItem,
+    QVBoxLayout)
 from qt_widgets.generic_parameter_widget import GenericParameterWidget
 
 

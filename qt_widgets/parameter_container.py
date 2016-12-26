@@ -20,7 +20,6 @@ __project_name = 'parameters'
 __filename = 'parameter_container'
 __date__ = '8/22/14'
 __copyright__ = 'ismail@kartoza.com'
-__doc__ = ''
 
 
 class ParameterContainer(QWidget, object):

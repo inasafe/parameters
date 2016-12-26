@@ -5,7 +5,6 @@ __project_name = 'parameters'
 __filename = 'unit'
 __date__ = '8/25/14'
 __copyright__ = 'ismail@kartoza.com'
-__doc__ = ''
 
 import uuid
 

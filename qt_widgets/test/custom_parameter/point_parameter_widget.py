@@ -5,7 +5,6 @@ __project_name = 'parameters'
 __filename = 'point_parameter_widget'
 __date__ = '12/15/14'
 __copyright__ = 'ismail@kartoza.com'
-__doc__ = ''
 
 
 from qt_widgets.generic_parameter_widget import GenericParameterWidget

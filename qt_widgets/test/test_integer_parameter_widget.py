@@ -5,7 +5,6 @@ __project_name = 'parameters'
 __filename = 'test_integer_parameter_widget'
 __date__ = '8/21/14'
 __copyright__ = 'ismail@kartoza.com'
-__doc__ = ''
 
 import unittest
 

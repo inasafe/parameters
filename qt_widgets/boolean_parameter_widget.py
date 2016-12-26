@@ -4,7 +4,6 @@ __project_name = 'parameters'
 __filename = 'boolean_parameter_widget'
 __date__ = '8/19/14'
 __copyright__ = 'ismail@kartoza.com'
-__doc__ = ''
 
 
 from PyQt4.QtGui import QCheckBox
