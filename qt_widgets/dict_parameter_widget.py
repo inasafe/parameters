@@ -34,34 +34,34 @@ class DictParameterWidget(GenericParameterWidget):
         super(DictParameterWidget, self).__init__(parameter, parent)
         # pylint: enable=E1002
 
-        self._input = QTreeWidget()
+        self.input = QTreeWidget()
 
         # generate tree model
         widget_items = self.generate_tree_model(self._parameter.value)
-        self._input.addTopLevelItems(widget_items)
+        self.input.addTopLevelItems(widget_items)
         # set header
-        self._input.headerItem().setText(0, 'Keys')
-        self._input.headerItem().setText(1, 'Values')
+        self.input.headerItem().setText(0, 'Keys')
+        self.input.headerItem().setText(1, 'Values')
 
-        self._inner_input_layout.addWidget(self._input)
+        self.inner_input_layout.addWidget(self.input)
 
         # override self._input_layout arrangement to make the label at the top
         # reset the layout
-        self._input_layout.setParent(None)
-        self._help_layout.setParent(None)
+        self.input_layout.setParent(None)
+        self.help_layout.setParent(None)
 
-        self._label.setParent(None)
-        self._inner_input_layout.setParent(None)
+        self.label.setParent(None)
+        self.inner_input_layout.setParent(None)
 
-        self._input_layout = QVBoxLayout()
-        self._input_layout.setSpacing(0)
+        self.input_layout = QVBoxLayout()
+        self.input_layout.setSpacing(0)
 
         # put element into layout
-        self._input_layout.addWidget(self._label)
-        self._input_layout.addLayout(self._inner_input_layout)
+        self.input_layout.addWidget(self.label)
+        self.input_layout.addLayout(self.inner_input_layout)
 
-        self._main_layout.addLayout(self._input_layout)
-        self._main_layout.addLayout(self._help_layout)
+        self.main_layout.addLayout(self.input_layout)
+        self.main_layout.addLayout(self.help_layout)
 
     def generate_tree_model(self, data_dict):
         """Generate a tree model for specified dictionary
@@ -124,7 +124,7 @@ class DictParameterWidget(GenericParameterWidget):
         :returns: A DictParameter from the current state of widget
 
         """
-        root_widget_item = self._input.invisibleRootItem()
+        root_widget_item = self.input.invisibleRootItem()
         widget_items = [root_widget_item.child(i)
                         for i in range(root_widget_item.childCount())]
         data_dict = self.extract_dict(widget_items)

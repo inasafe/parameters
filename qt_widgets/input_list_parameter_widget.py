@@ -31,9 +31,9 @@ class InputListParameterWidget(GenericParameterWidget):
         # copy the list so the original is unaffected
         self._value_cache = list(self._parameter.value)
 
-        self._input = QListWidget()
+        self.input = QListWidget()
 
-        self._input.setSelectionMode(QAbstractItemView.SingleSelection)
+        self.input.setSelectionMode(QAbstractItemView.SingleSelection)
 
         if self._parameter.maximum_item_count != \
                 self._parameter.minimum_item_count:
@@ -44,53 +44,53 @@ class InputListParameterWidget(GenericParameterWidget):
             tool_tip = 'Select exactly %d items' % (
                        self._parameter.maximum_item_count)
 
-        self._input.setToolTip(tool_tip)
+        self.input.setToolTip(tool_tip)
 
         # arrange widget
 
-        self._insert_item_input = QLineEdit()
+        self.insert_item_input = QLineEdit()
 
         vbox_layout = QVBoxLayout()
         hbox_layout = QHBoxLayout()
-        self._input_add_button = QPushButton('Add')
-        self._input_remove_button = QPushButton('Remove')
+        self.input_add_button = QPushButton('Add')
+        self.input_remove_button = QPushButton('Remove')
         # arrange line edit, add button, remove button in horizontal layout
-        hbox_layout.addWidget(self._insert_item_input)
-        hbox_layout.addWidget(self._input_add_button)
-        hbox_layout.addWidget(self._input_remove_button)
+        hbox_layout.addWidget(self.insert_item_input)
+        hbox_layout.addWidget(self.input_add_button)
+        hbox_layout.addWidget(self.input_remove_button)
         # arrange vertical layout
         vbox_layout.addLayout(hbox_layout)
-        vbox_layout.addWidget(self._input)
-        self._inner_input_layout.addLayout(vbox_layout)
+        vbox_layout.addWidget(self.input)
+        self.inner_input_layout.addLayout(vbox_layout)
 
         # override self._input_layout arrangement to make the label at the top
         # reset the layout
-        self._input_layout.setParent(None)
-        self._help_layout.setParent(None)
+        self.input_layout.setParent(None)
+        self.help_layout.setParent(None)
 
-        self._label.setParent(None)
-        self._inner_input_layout.setParent(None)
+        self.label.setParent(None)
+        self.inner_input_layout.setParent(None)
 
-        self._input_layout = QVBoxLayout()
-        self._input_layout.setSpacing(0)
+        self.input_layout = QVBoxLayout()
+        self.input_layout.setSpacing(0)
 
         # put element into layout
-        self._input_layout.addWidget(self._label)
-        self._input_layout.addLayout(self._inner_input_layout)
+        self.input_layout.addWidget(self.label)
+        self.input_layout.addLayout(self.inner_input_layout)
 
-        self._main_layout.addLayout(self._input_layout)
-        self._main_layout.addLayout(self._help_layout)
+        self.main_layout.addLayout(self.input_layout)
+        self.main_layout.addLayout(self.help_layout)
 
         # connect handler
         # noinspection PyUnresolvedReferences
-        self._input_add_button.clicked.connect(self.on_add_button_click)
+        self.input_add_button.clicked.connect(self.on_add_button_click)
         # noinspection PyUnresolvedReferences
-        self._input_remove_button.clicked.connect(self.on_remove_button_click)
+        self.input_remove_button.clicked.connect(self.on_remove_button_click)
         # noinspection PyUnresolvedReferences
-        self._insert_item_input.returnPressed.connect(
-            self._input_add_button.click)
+        self.insert_item_input.returnPressed.connect(
+            self.input_add_button.click)
         # noinspection PyUnresolvedReferences
-        self._input.itemChanged.connect(self.on_row_changed)
+        self.input.itemChanged.connect(self.on_row_changed)
 
         self.refresh_list()
 
@@ -113,7 +113,7 @@ class InputListParameterWidget(GenericParameterWidget):
         self._add_row_error_handler = value
 
     def refresh_list(self):
-        self._input.clear()
+        self.input.clear()
         if not self._parameter.ordering == InputListParameter.NotOrdered:
             self._value_cache.sort()
         if self._parameter.ordering == InputListParameter.DescendingOrder:
@@ -122,12 +122,12 @@ class InputListParameterWidget(GenericParameterWidget):
             item = QListWidgetItem()
             item.setText(str(opt))
             item.setFlags(item.flags() | Qt.ItemIsEditable)
-            self._input.addItem(item)
+            self.input.addItem(item)
 
     def on_add_button_click(self):
         try:
             value = self._parameter.element_type(
-                self._insert_item_input.text())
+                self.insert_item_input.text())
             self._value_cache.append(value)
             self.refresh_list()
         except ValueError:
@@ -138,14 +138,14 @@ class InputListParameterWidget(GenericParameterWidget):
                 raise err
 
     def on_remove_button_click(self):
-        for opt in self._input.selectedItems():
-            index = self._input.indexFromItem(opt)
+        for opt in self.input.selectedItems():
+            index = self.input.indexFromItem(opt)
             del self._value_cache[index.row()]
         self.refresh_list()
 
     def on_row_changed(self, item):
         try:
-            index = self._input.indexFromItem(item).row()
+            index = self.input.indexFromItem(item).row()
             prev_value = self._value_cache[index]
             self._value_cache[index] = self._parameter.element_type(
                 item.text())

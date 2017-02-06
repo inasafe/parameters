@@ -52,25 +52,25 @@ class ListParameterWidget(GenericParameterWidget):
             if opt in self._parameter.value:
                 item.setSelected(True)
 
-        self._inner_input_layout.addWidget(self._input)
+        self.inner_input_layout.addWidget(self._input)
 
         # override self._input_layout arrangement to make the label at the top
         # reset the layout
-        self._input_layout.setParent(None)
-        self._help_layout.setParent(None)
+        self.input_layout.setParent(None)
+        self.help_layout.setParent(None)
 
-        self._label.setParent(None)
-        self._inner_input_layout.setParent(None)
+        self.label.setParent(None)
+        self.inner_input_layout.setParent(None)
 
-        self._input_layout = QVBoxLayout()
-        self._input_layout.setSpacing(0)
+        self.input_layout = QVBoxLayout()
+        self.input_layout.setSpacing(0)
 
         # put element into layout
-        self._input_layout.addWidget(self._label)
-        self._input_layout.addLayout(self._inner_input_layout)
+        self.input_layout.addWidget(self.label)
+        self.input_layout.addLayout(self.inner_input_layout)
 
-        self._main_layout.addLayout(self._input_layout)
-        self._main_layout.addLayout(self._help_layout)
+        self.main_layout.addLayout(self.input_layout)
+        self.main_layout.addLayout(self.help_layout)
 
     def raise_invalid_type_exception(self):
         message = 'Expecting element type of %s' % (

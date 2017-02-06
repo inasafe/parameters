@@ -32,7 +32,7 @@ class TextParameterWidget(GenericParameterWidget):
         self.setToolTip('Write the value for %s here ' % self._parameter.name)
         self._line_edit_input.setText(self._parameter.value)
 
-        self._inner_input_layout.addWidget(self._line_edit_input)
+        self.inner_input_layout.addWidget(self._line_edit_input)
 
     def get_parameter(self):
         """Obtain string parameter object from the current widget state.

@@ -26,7 +26,7 @@ class GroupParameterWidget(GenericParameterWidget):
         super(GroupParameterWidget, self).__init__(parameter, parent)
 
         # Get the parameter label and use its value as the checkbox text
-        label_item = self._input_layout.itemAt(0)
+        label_item = self.input_layout.itemAt(0)
         label_widget = label_item.widget()
         text = label_widget.text()
         self._enable_check_box = QCheckBox(text)
@@ -38,15 +38,15 @@ class GroupParameterWidget(GenericParameterWidget):
         self._group_layout.setSpacing(0)
 
         if not self._parameter.is_required:
-            self._input_layout.insertWidget(0, self._enable_check_box)
+            self.input_layout.insertWidget(0, self._enable_check_box)
             # now we don't need the parameter label anymore so chuck it
-            self._input_layout.removeItem(label_item)
+            self.input_layout.removeItem(label_item)
             # Make the sub group appear indented
             self._group_layout.setContentsMargins(20, 0, 0, 0)
         else:
             self._parameter.enable_parameter = True
 
-        self._main_layout.addLayout(self._group_layout)
+        self.main_layout.addLayout(self._group_layout)
 
         # Why are we doing imports here? TS
         from qt_widgets.parameter_container import ParameterContainer

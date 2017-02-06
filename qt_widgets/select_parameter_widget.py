@@ -36,7 +36,7 @@ class SelectParameterWidget(GenericParameterWidget):
 
         self._input.setCurrentIndex(current_index)
 
-        self._inner_input_layout.addWidget(self._input)
+        self.inner_input_layout.addWidget(self._input)
 
     def raise_invalid_type_exception(self):
         message = 'Expecting element type of %s' % (

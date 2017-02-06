@@ -41,8 +41,8 @@ class PointParameterWidget(GenericParameterWidget):
         self._input_y.setToolTip(tool_tip)
         self._input_y.setSizePolicy(self._spin_box_size_policy)
 
-        self._inner_input_layout.addWidget(self._input_x)
-        self._inner_input_layout.addWidget(self._input_y)
+        self.inner_input_layout.addWidget(self._input_x)
+        self.inner_input_layout.addWidget(self._input_y)
 
     def get_parameter(self):
         """Obtain boolean parameter object from the current widget state.
