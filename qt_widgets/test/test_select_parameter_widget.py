@@ -35,7 +35,7 @@ class TestSelectParameterWidget(unittest.TestCase):
         real_value = widget.get_parameter().value
         self.assertEqual(expected_value, real_value)
 
-        widget._input.setCurrentIndex(0)
+        widget.input.setCurrentIndex(0)
         real_value = widget.get_parameter().value
         self.assertEqual(real_value, select_parameter.options_list[0])
 
