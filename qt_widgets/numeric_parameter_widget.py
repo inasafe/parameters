@@ -42,7 +42,7 @@ class NumericParameterWidget(GenericParameterWidget):
         self._unit_widget.setSizePolicy(label_policy)
 
         # Add unit description to description
-        description = self._description_label.text()
+        description = self.help_label.text()
         if self._parameter.allowed_units:
             description += '<br><br>Available units:'
             description += '<ul>'
@@ -52,7 +52,7 @@ class NumericParameterWidget(GenericParameterWidget):
                 description += allowed_unit.description or ''
                 description += '</li>'
             description += '</ul>'
-        self._description_label.setText(description)
+        self.help_label.setText(description)
 
     def get_parameter(self):
         """Obtain numeric parameter object from the current widget state.

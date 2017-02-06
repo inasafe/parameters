@@ -106,28 +106,10 @@ class GenericParameter(object):
         self._is_required = required
 
     @property
-    def help_text(self):
-        """Property containing help text for the parameter.
-
-        :returns: A short help sentence for the parameter.
-        :rtype: str
-        """
-        return self._help_text
-
-    @help_text.setter
-    def help_text(self, help_text):
-        """Define the help _help_text for this parameter.
-
-        :param help_text: A short (i.e. one line) explanation of the parameter.
-        :type help_text: str
-        """
-        self._help_text = help_text
-
-    @property
     def description(self):
         """Property for the description of the parameter.
 
-        :returns: A detailed description for the parameter.
+        :returns: A short description for the parameter.
         :rtype: str
         """
         return self._description
@@ -136,10 +118,28 @@ class GenericParameter(object):
     def description(self, description):
         """Define the _description for this parameter.
 
-        :param description: A detailed _description of the parameter
+        :param description: A short _description of the parameter
         :type description: str
         """
         self._description = description
+
+    @property
+    def help_text(self):
+        """Property containing help text for the parameter.
+
+        :returns: A long and detail help sentence for the parameter.
+        :rtype: str
+        """
+        return self._help_text
+
+    @help_text.setter
+    def help_text(self, help_text):
+        """Define the help _help_text for this parameter.
+
+        :param help_text: A long and detail explanation of the parameter.
+        :type help_text: str
+        """
+        self._help_text = help_text
 
     def _check_type(self, value):
         # Checking that the type of _value is the same as the expected _value

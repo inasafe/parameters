@@ -72,9 +72,9 @@ def main():
 
     string_parameter = StringParameter('28082014')
     string_parameter.name = 'Province Name'
-    string_parameter.help_text = 'Name of province.'
-    string_parameter.description = (
-        'A <b>test _description</b> that is very long so that you need to '
+    string_parameter.description = 'Name of province.'
+    string_parameter.help_text = (
+        'A <b>test help</b> that is very long so that you need to '
         'read it for one minute and you will be tired after read this '
         'description. You are the best user so far. Even better if you read '
         'this description loudly so that all of your friends will be able '
@@ -84,9 +84,9 @@ def main():
 
     boolean_parameter = BooleanParameter('1231231')
     boolean_parameter.name = 'Post processor'
-    boolean_parameter.help_text = 'This is post processor parameter.'
-    boolean_parameter.description = (
-        'A <b>test _description</b> that is very long so that you need to '
+    boolean_parameter.description = 'This is post processor parameter.'
+    boolean_parameter.help_text = (
+        'A <b>test help text</b> that is very long so that you need to '
         'read it for one minute and you will be tired after read this '
         'description. You are the best user so far. Even better if you read '
         'this description loudly so that all of your friends will be able '
@@ -100,8 +100,8 @@ def main():
     float_parameter.precision = 3
     float_parameter.minimum_allowed_value = 1.0
     float_parameter.maximum_allowed_value = 2.0
-    float_parameter.help_text = 'The depth of flood.'
-    float_parameter.description = (
+    float_parameter.description = 'The depth of flood.'
+    float_parameter.help_text = (
         'A <b>test _description</b> that is very long so that you need to '
         'read it for one minute and you will be tired after read this '
         'description. You are the best user so far. Even better if you read '
@@ -116,8 +116,8 @@ def main():
     integer_parameter.is_required = True
     integer_parameter.minimum_allowed_value = 1
     integer_parameter.maximum_allowed_value = 5
-    integer_parameter.help_text = 'Number of paper'
-    integer_parameter.description = (
+    integer_parameter.description = 'Number of paper'
+    integer_parameter.help_text = (
         'A <b>test _description</b> that is very long so that you need to '
         'read it for one minute and you will be tired after read this '
         'description. You are the best user so far. Even better if you read '
@@ -130,8 +130,8 @@ def main():
     point_parameter = PointParameter()
     point_parameter.name = 'Point Parameter'
     point_parameter.is_required = True
-    point_parameter.help_text = 'Short help.'
-    point_parameter.description = 'Long description for parameter.'
+    point_parameter.description = 'Short help.'
+    point_parameter.help_text = 'Long description for parameter.'
     point_parameter.value = (0, 1)
 
     min_integer_parameter = IntegerParameter()
@@ -139,8 +139,8 @@ def main():
     min_integer_parameter.is_required = True
     min_integer_parameter.minimum_allowed_value = 1
     min_integer_parameter.maximum_allowed_value = 50
-    min_integer_parameter.help_text = 'Minimum length of a stick'
-    min_integer_parameter.description = (
+    min_integer_parameter.description = 'Minimum length of a stick'
+    min_integer_parameter.help_text = (
         'Minimum length of a stick that are allowed')
     min_integer_parameter.unit = unit_metres
     min_integer_parameter.allowed_units = [unit_metres]
@@ -151,8 +151,8 @@ def main():
     max_integer_parameter.is_required = True
     max_integer_parameter.minimum_allowed_value = 1
     max_integer_parameter.maximum_allowed_value = 50
-    max_integer_parameter.help_text = 'Maximum length of a stick'
-    max_integer_parameter.description = (
+    max_integer_parameter.description = 'Maximum length of a stick'
+    max_integer_parameter.help_text = (
         'Maximum length of a stick that are allowed')
     max_integer_parameter.unit = unit_metres
     max_integer_parameter.allowed_units = [unit_metres]
@@ -163,8 +163,8 @@ def main():
     list_parameter.is_required = True
     list_parameter.maximum_item_count = 3
     list_parameter.minimum_item_count = 1
-    list_parameter.help_text = 'Column used for affected field'
-    list_parameter.description = 'Column used for affected field in the vector'
+    list_parameter.description = 'Column used for affected field'
+    list_parameter.help_text = 'Column used for affected field in the vector'
     list_parameter.element_type = str
     list_parameter.options_list = ['FLOODPRONE', 'affected', 'floodprone',
                                    'yes/no', '\xddounicode test']
@@ -173,8 +173,8 @@ def main():
     select_parameter = SelectParameter()
     select_parameter.name = 'Select Affected Field'
     select_parameter.is_required = True
-    select_parameter.help_text = 'Column used for affected field'
-    select_parameter.description = (
+    select_parameter.description = 'Column used for affected field'
+    select_parameter.help_text = (
         'Column used for affected field in the vector')
     select_parameter.element_type = str
     select_parameter.options_list = [
@@ -186,8 +186,8 @@ def main():
     input_list_parameter.is_required = True
     input_list_parameter.maximum_item_count = 3
     input_list_parameter.minimum_item_count = 1
-    input_list_parameter.help_text = 'Specified List of thresholds'
-    input_list_parameter.description = 'Some description'
+    input_list_parameter.description = 'Specified List of thresholds'
+    input_list_parameter.help_text = 'Some help text'
     input_list_parameter.element_type = int
     input_list_parameter.ordering = InputListParameter.DescendingOrder
     input_list_parameter.value = [1]
@@ -197,8 +197,8 @@ def main():
     dict_parameter.is_required = True
     dict_parameter.maximum_item_count = 5
     dict_parameter.minimum_item_count = 1
-    dict_parameter.help_text = 'Dict Parameter example'
-    dict_parameter.description = 'Dict Parameter desc'
+    dict_parameter.description = 'Dict Parameter example'
+    dict_parameter.help_text = 'Dict Parameter help text.'
     dict_parameter.element_type = str
     dict_parameter.value = {
         'foo': 'True',
