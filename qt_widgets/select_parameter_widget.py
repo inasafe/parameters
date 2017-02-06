@@ -23,7 +23,7 @@ class SelectParameterWidget(GenericParameterWidget):
         """
         super(SelectParameterWidget, self).__init__(parameter, parent)
 
-        self._input = QComboBox()
+        self.input = QComboBox()
 
         index = -1
         current_index = -1
@@ -31,12 +31,12 @@ class SelectParameterWidget(GenericParameterWidget):
             index += 1
             if opt == self._parameter.value:
                 current_index = index
-            self._input.addItem(opt)
-            self._input.setItemData(index, opt, Qt.UserRole)
+            self.input.addItem(opt)
+            self.input.setItemData(index, opt, Qt.UserRole)
 
-        self._input.setCurrentIndex(current_index)
+        self.input.setCurrentIndex(current_index)
 
-        self.inner_input_layout.addWidget(self._input)
+        self.inner_input_layout.addWidget(self.input)
 
     def raise_invalid_type_exception(self):
         message = 'Expecting element type of %s' % (
@@ -50,8 +50,8 @@ class SelectParameterWidget(GenericParameterWidget):
         :returns: A ListParameter from the current state of widget
 
         """
-        current_index = self._input.currentIndex()
-        selected_value = self._input.itemData(current_index, Qt.UserRole)
+        current_index = self.input.currentIndex()
+        selected_value = self.input.itemData(current_index, Qt.UserRole)
         if hasattr(selected_value, 'toPyObject'):
             selected_value = selected_value.toPyObject()
 
@@ -77,5 +77,5 @@ class SelectParameterWidget(GenericParameterWidget):
         if choice_index < 0:
             return False
         else:
-            self._input.setCurrentIndex(choice_index)
+            self.input.setCurrentIndex(choice_index)
             return True
