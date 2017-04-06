@@ -11,7 +11,9 @@ from PyQt4.QtGui import (
     QColor,
     QLabel,
     QMessageBox,
-    QFrame)
+    QFrame,
+    QHBoxLayout
+)
 
 from qt_widgets.qt4_parameter_factory import Qt4ParameterFactory
 
@@ -30,7 +32,8 @@ class ParameterContainer(QWidget, object):
             parameters=None,
             description_text='',
             extra_parameters=None,
-            parent=None):
+            parent=None,
+            vertical=True):
         """Constructor
 
         .. versionadded:: 2.2
@@ -55,7 +58,10 @@ class ParameterContainer(QWidget, object):
         self.validators = []
 
         # UI
-        self.vertical_layout = QVBoxLayout()
+        if vertical:
+            self.vertical_layout = QVBoxLayout()
+        else:
+            self.vertical_layout = QHBoxLayout()
         self.widget = QWidget()
         self.description_label = QLabel()
         self.scroll_area = QScrollArea()
