@@ -10,11 +10,11 @@ from PyQt4.QtGui import (
     QSizePolicy,
     QColor,
     QLabel,
-    QMessageBox,
     QFrame,
     QHBoxLayout
 )
 
+from parameter_exceptions import InvalidValidationException
 from qt_widgets.qt4_parameter_factory import Qt4ParameterFactory
 
 __author__ = 'ismailsunni'
@@ -102,8 +102,9 @@ class ParameterContainer(QWidget, object):
         :rtype: list
         """
         if validate:
-            if not self.validate():
-                return
+            validation_result = self.validate()
+            if not validation_result['valid']:
+                raise InvalidValidationException(validation_result['message'])
 
         parameter_widgets = self.get_parameter_widgets()
 
@@ -238,15 +239,17 @@ class ParameterContainer(QWidget, object):
         """Validate of all rule for all parameter in this container.
 
         :return: True if all valid, False
-        :rtype: bool
+        :rtype: dict
         """
         for validator in self.validators:
             validation_result = validator(self)
             if not validation_result['valid']:
-                QMessageBox.information(
-                    None, 'Validation Error', validation_result['message'])
+                return validation_result
 
-        return True
+        return {
+            'valid': True,
+            'message': ''
+        }
 
     def get_parameter_by_guid(self, parameter_guid):
         """Return a parameter based on its uuid
