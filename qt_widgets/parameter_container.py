@@ -65,6 +65,7 @@ class ParameterContainer(QWidget, object):
             self.vertical_layout = QHBoxLayout()
         self.widget = QWidget()
         self.description_label = QLabel()
+        self.description_label.setWordWrap(True)
         self.scroll_area = QScrollArea()
         self.group_frame = QFrame()
         self.qt4_parameter_factory = Qt4ParameterFactory()
