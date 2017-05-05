@@ -56,6 +56,7 @@ class ParameterContainer(QWidget, object):
         self.extra_parameters = extra_parameters
         self.parent = parent
         self.validators = []
+        self.validators_kwargs = []
 
         # UI
         if vertical:
@@ -226,7 +227,7 @@ class ParameterContainer(QWidget, object):
         new_description += 'But, currently there is no parameters available.'
         self.description_label.setText(new_description)
 
-    def add_validator(self, validator):
+    def add_validator(self, validator, **kwargs):
         """Add validator for this parameter container.
 
         :param validator: validator function for this parameter container.
@@ -234,6 +235,10 @@ class ParameterContainer(QWidget, object):
         """
         validator.parent = self
         self.validators.append(validator)
+        if kwargs:
+            self.validators_kwargs.append(kwargs)
+        else:
+            self.validators_kwargs.append({})
 
     def validate(self):
         """Validate of all rule for all parameter in this container.
@@ -241,8 +246,10 @@ class ParameterContainer(QWidget, object):
         :return: True if all valid, False
         :rtype: dict
         """
-        for validator in self.validators:
-            validation_result = validator(self)
+        for i in range(len(self.validators)):
+            validator = self.validators[i]
+            validator_kwargs = self.validators_kwargs[i]
+            validation_result = validator(self, **validator_kwargs)
             if not validation_result['valid']:
                 return validation_result
 
