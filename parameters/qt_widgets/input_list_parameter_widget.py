@@ -10,8 +10,7 @@ from PyQt4.QtCore import Qt
 from PyQt4.QtGui import (
     QListWidget, QAbstractItemView, QLineEdit, QVBoxLayout, QHBoxLayout, QPushButton, QListWidgetItem)
 
-from qt_widgets.generic_parameter_widget import GenericParameterWidget
-
+from parameters.qt_widgets.generic_parameter_widget import GenericParameterWidget
 from parameters.input_list_parameter import InputListParameter
 
 

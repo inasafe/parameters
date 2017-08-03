@@ -9,8 +9,8 @@ __copyright__ = 'ismail@kartoza.com'
 import unittest
 
 from PyQt4.QtGui import QApplication
-from qt_widgets.boolean_parameter_widget import BooleanParameterWidget
 
+from parameters.qt_widgets.boolean_parameter_widget import BooleanParameterWidget
 from parameters.boolean_parameter import BooleanParameter
 
 

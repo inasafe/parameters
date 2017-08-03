@@ -13,7 +13,7 @@ from PyQt4.QtGui import (
     QListWidgetItem,
     QVBoxLayout)
 
-from parameters.qt_widgets import GenericParameterWidget
+from parameters.qt_widgets.generic_parameter_widget import GenericParameterWidget
 
 
 class ListParameterWidget(GenericParameterWidget):

@@ -1,15 +1,15 @@
 # coding=utf-8
 """QT4 Parameter Factory."""
 
-from qt_widgets.boolean_parameter_widget import BooleanParameterWidget
-from qt_widgets.dict_parameter_widget import DictParameterWidget
-from qt_widgets.float_parameter_widget import FloatParameterWidget
-from qt_widgets.group_parameter_widget import GroupParameterWidget
-from qt_widgets.input_list_parameter_widget import InputListParameterWidget
-from qt_widgets.integer_parameter_widget import IntegerParameterWidget
-from qt_widgets.list_parameter_widget import ListParameterWidget
-from qt_widgets.select_parameter_widget import SelectParameterWidget
-from qt_widgets.text_parameter_widget import TextParameterWidget
+from parameters.qt_widgets.boolean_parameter_widget import BooleanParameterWidget
+from parameters.qt_widgets.dict_parameter_widget import DictParameterWidget
+from parameters.qt_widgets.float_parameter_widget import FloatParameterWidget
+from parameters.qt_widgets.group_parameter_widget import GroupParameterWidget
+from parameters.qt_widgets.input_list_parameter_widget import InputListParameterWidget
+from parameters.qt_widgets.integer_parameter_widget import IntegerParameterWidget
+from parameters.qt_widgets.list_parameter_widget import ListParameterWidget
+from parameters.qt_widgets.select_parameter_widget import SelectParameterWidget
+from parameters.qt_widgets.text_parameter_widget import TextParameterWidget
 
 from parameters.qt_widgets.string_parameter_widget import StringParameterWidget
 

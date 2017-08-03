@@ -3,8 +3,10 @@
 
 from unittest import TestCase
 
-from parameter_exceptions import (
-    CollectionLengthError, InvalidMinimumError, InvalidMaximumError)
+from parameters.parameter_exceptions import (
+    CollectionLengthError,
+    InvalidMinimumError,
+    InvalidMaximumError)
 
 from parameters.dict_parameter import DictParameter
 

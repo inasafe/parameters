@@ -4,7 +4,7 @@
 from PyQt4.QtCore import Qt
 from PyQt4.QtGui import QComboBox
 
-from parameters.qt_widgets import GenericParameterWidget
+from parameters.qt_widgets.generic_parameter_widget import GenericParameterWidget
 
 __author__ = 'ismailsunni'
 __project_name__ = 'parameters'

@@ -4,8 +4,8 @@
 import unittest
 
 from PyQt4.QtGui import QApplication
-from qt_widgets.select_parameter_widget import SelectParameterWidget
 
+from parameters.qt_widgets.select_parameter_widget import SelectParameterWidget
 from parameters.select_parameter import SelectParameter
 
 

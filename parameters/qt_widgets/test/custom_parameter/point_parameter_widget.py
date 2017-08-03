@@ -8,7 +8,7 @@ __copyright__ = 'ismail@kartoza.com'
 
 from PyQt4.QtGui import QSpinBox, QSizePolicy
 
-from parameters.qt_widgets import GenericParameterWidget
+from parameters.qt_widgets.generic_parameter_widget import GenericParameterWidget
 
 
 class PointParameterWidget(GenericParameterWidget):

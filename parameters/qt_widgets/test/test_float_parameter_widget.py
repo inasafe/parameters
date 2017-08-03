@@ -9,9 +9,9 @@ __copyright__ = 'ismail@kartoza.com'
 import unittest
 
 from PyQt4.QtGui import QApplication
-from float_parameter import FloatParameter
-from metadata import unit_metres_depth, unit_feet_depth
-from qt_widgets.float_parameter_widget import FloatParameterWidget
+from parameters.float_parameter import FloatParameter
+from parameters.metadata import unit_metres_depth, unit_feet_depth
+from parameters.qt_widgets.float_parameter_widget import FloatParameterWidget
 
 from parameters.unit import Unit
 

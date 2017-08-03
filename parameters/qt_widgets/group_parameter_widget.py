@@ -3,7 +3,7 @@
 
 from PyQt4.QtGui import QVBoxLayout, QCheckBox
 
-from parameters.qt_widgets import GenericParameterWidget
+from parameters.qt_widgets.generic_parameter_widget import GenericParameterWidget
 
 __author__ = 'lucernae'
 __project_name__ = 'parameters'

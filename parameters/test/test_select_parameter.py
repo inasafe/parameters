@@ -3,7 +3,7 @@
 
 from unittest import TestCase
 
-from parameter_exceptions import ValueNotAllowedException
+from parameters.parameter_exceptions import ValueNotAllowedException
 
 from parameters.select_parameter import SelectParameter
 

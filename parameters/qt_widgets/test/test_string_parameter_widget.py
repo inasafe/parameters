@@ -9,7 +9,7 @@ __copyright__ = 'ismail@kartoza.com'
 import unittest
 
 from PyQt4.QtGui import QApplication
-from string_parameter import StringParameter
+from parameters.string_parameter import StringParameter
 
 from parameters.qt_widgets.string_parameter_widget import StringParameterWidget
 

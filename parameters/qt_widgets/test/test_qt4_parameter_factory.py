@@ -9,12 +9,12 @@ __copyright__ = 'ismail@kartoza.com'
 import unittest
 
 from PyQt4.QtGui import QApplication
-from boolean_parameter import BooleanParameter
-from float_parameter import FloatParameter
-from qt_widgets.boolean_parameter_widget import BooleanParameterWidget
-from qt_widgets.float_parameter_widget import FloatParameterWidget
-from qt_widgets.test.custom_parameter.point_parameter import PointParameter
-from qt_widgets.test.custom_parameter.point_parameter_widget import (
+from parameters.boolean_parameter import BooleanParameter
+from parameters.float_parameter import FloatParameter
+from parameters.qt_widgets.boolean_parameter_widget import BooleanParameterWidget
+from parameters.qt_widgets.float_parameter_widget import FloatParameterWidget
+from parameters.qt_widgets.test.custom_parameter.point_parameter import PointParameter
+from parameters.qt_widgets.test.custom_parameter.point_parameter_widget import (
     PointParameterWidget)
 
 from parameters.qt_widgets.qt4_parameter_factory import Qt4ParameterFactory
