@@ -1,5 +1,4 @@
-__author__ = 'ismailsunni'
-__project_name = 'parameters'
-__filename = '__init__.py'
-__date__ = '8/18/14'
-__copyright__ = 'ismail@kartoza.com'
+__copyright__ = "Copyright 2014, The InaSAFE Project"
+__license__ = "GPL version 3"
+__email__ = "info@inasafe.org"
+__revision__ = '$Format:%H$'

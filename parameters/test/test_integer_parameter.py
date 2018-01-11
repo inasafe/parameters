@@ -11,6 +11,12 @@ from parameters.parameter_exceptions import (
 from parameters.integer_parameter import IntegerParameter
 
 
+__copyright__ = "Copyright 2014, The InaSAFE Project"
+__license__ = "GPL version 3"
+__email__ = "info@inasafe.org"
+__revision__ = '$Format:%H$'
+
+
 class TestIntegerParameter(TestCase):
     """Test class for IntegerParameter."""
     def test_all(self):

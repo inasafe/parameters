@@ -1,17 +1,18 @@
 # coding=utf-8
 
-__author__ = 'lucernae'
-__project_name__ = 'parameters'
-__filename__ = 'list_parameter_widget'
-__date__ = '02/04/15'
-__copyright__ = 'lana.pcfre@gmail.com'
-
 from PyQt4.QtCore import Qt
 from PyQt4.QtGui import (
     QListWidget, QAbstractItemView, QLineEdit, QVBoxLayout, QHBoxLayout, QPushButton, QListWidgetItem)
 
-from parameters.qt_widgets.generic_parameter_widget import GenericParameterWidget
+from parameters.qt_widgets.generic_parameter_widget import (
+    GenericParameterWidget)
 from parameters.input_list_parameter import InputListParameter
+
+
+__copyright__ = "Copyright 2014, The InaSAFE Project"
+__license__ = "GPL version 3"
+__email__ = "info@inasafe.org"
+__revision__ = '$Format:%H$'
 
 
 class InputListParameterWidget(GenericParameterWidget):

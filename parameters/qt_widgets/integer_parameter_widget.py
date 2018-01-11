@@ -1,14 +1,16 @@
 # coding=utf-8
 """Docstring for this file."""
-__author__ = 'ismailsunni'
-__project_name = 'parameters'
-__filename = 'float_parameter_widget'
-__date__ = '8/19/14'
-__copyright__ = 'ismail@kartoza.com'
 
 from PyQt4.QtGui import QSpinBox
 
-from parameters.qt_widgets.numeric_parameter_widget import NumericParameterWidget
+from parameters.qt_widgets.numeric_parameter_widget import (
+    NumericParameterWidget)
+
+
+__copyright__ = "Copyright 2014, The InaSAFE Project"
+__license__ = "GPL version 3"
+__email__ = "info@inasafe.org"
+__revision__ = '$Format:%H$'
 
 
 class IntegerParameterWidget(NumericParameterWidget):

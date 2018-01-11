@@ -1,20 +1,22 @@
 # coding=utf-8
 """Test class for integer_parameter_widget."""
-__author__ = 'ismailsunni'
-__project_name = 'parameters'
-__filename = 'test_integer_parameter_widget'
-__date__ = '8/21/14'
-__copyright__ = 'ismail@kartoza.com'
 
 import unittest
 
 from PyQt4.QtGui import QApplication
 
 from parameters.metadata import unit_metres_depth, unit_feet_depth
-from parameters.qt_widgets.integer_parameter_widget import IntegerParameterWidget
+from parameters.qt_widgets.integer_parameter_widget import (
+    IntegerParameterWidget)
 from parameters.unit import Unit
 
 from parameters.integer_parameter import IntegerParameter
+
+
+__copyright__ = "Copyright 2014, The InaSAFE Project"
+__license__ = "GPL version 3"
+__email__ = "info@inasafe.org"
+__revision__ = '$Format:%H$'
 
 
 class TestFloatParameterWidget(unittest.TestCase):

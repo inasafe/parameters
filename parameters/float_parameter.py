@@ -2,7 +2,13 @@
 """Float Parameter."""
 import sys
 
-from numeric_parameter import NumericParameter
+from parameters.numeric_parameter import NumericParameter
+
+
+__copyright__ = "Copyright 2014, The InaSAFE Project"
+__license__ = "GPL version 3"
+__email__ = "info@inasafe.org"
+__revision__ = '$Format:%H$'
 
 
 class FloatParameter(NumericParameter):

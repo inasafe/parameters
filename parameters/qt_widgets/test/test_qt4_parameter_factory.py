@@ -1,23 +1,26 @@
 # coding=utf-8
 """Test class for qt4_parameter_factory."""
-__author__ = 'ismailsunni'
-__project_name = 'parameters'
-__filename = 'test_qt4_parameter_factory'
-__date__ = '8/19/14'
-__copyright__ = 'ismail@kartoza.com'
 
 import unittest
 
 from PyQt4.QtGui import QApplication
 from parameters.boolean_parameter import BooleanParameter
 from parameters.float_parameter import FloatParameter
-from parameters.qt_widgets.boolean_parameter_widget import BooleanParameterWidget
+from parameters.qt_widgets.boolean_parameter_widget import (
+    BooleanParameterWidget)
 from parameters.qt_widgets.float_parameter_widget import FloatParameterWidget
-from parameters.qt_widgets.test.custom_parameter.point_parameter import PointParameter
-from parameters.qt_widgets.test.custom_parameter.point_parameter_widget import (
-    PointParameterWidget)
+from parameters.qt_widgets.test.custom_parameter.point_parameter import (
+    PointParameter)
+from parameters.qt_widgets.test.custom_parameter.\
+    point_parameter_widget import PointParameterWidget
 
 from parameters.qt_widgets.qt4_parameter_factory import Qt4ParameterFactory
+
+
+__copyright__ = "Copyright 2014, The InaSAFE Project"
+__license__ = "GPL version 3"
+__email__ = "info@inasafe.org"
+__revision__ = '$Format:%H$'
 
 
 class TestQt4ParameterFactory(unittest.TestCase):

@@ -1,14 +1,16 @@
 # coding=utf-8
 """Docstring for this file."""
-__author__ = 'ismailsunni'
-__project_name = 'parameters'
-__filename = 'string_parameter_widget'
-__date__ = '8/28/14'
-__copyright__ = 'ismail@kartoza.com'
 
 from PyQt4.QtGui import QLineEdit, QSizePolicy
 
-from parameters.qt_widgets.generic_parameter_widget import GenericParameterWidget
+from parameters.qt_widgets.generic_parameter_widget import (
+    GenericParameterWidget)
+
+
+__copyright__ = "Copyright 2014, The InaSAFE Project"
+__license__ = "GPL version 3"
+__email__ = "info@inasafe.org"
+__revision__ = '$Format:%H$'
 
 
 class StringParameterWidget(GenericParameterWidget):

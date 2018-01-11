@@ -7,11 +7,10 @@ from parameters.parameter_exceptions import ValueNotAllowedException
 
 from parameters.select_parameter import SelectParameter
 
-__author__ = 'ismailsunni'
-__project_name__ = 'parameters'
-__filename__ = 'test_select_parameter'
-__date__ = '05/10/2016'
-__copyright__ = 'imajimatika@gmail.com'
+__copyright__ = "Copyright 2014, The InaSAFE Project"
+__license__ = "GPL version 3"
+__email__ = "info@inasafe.org"
+__revision__ = '$Format:%H$'
 
 selected = 'one'
 

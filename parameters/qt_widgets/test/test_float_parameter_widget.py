@@ -1,10 +1,5 @@
 # coding=utf-8
 """Test class for float_parameter_widget."""
-__author__ = 'ismailsunni'
-__project_name = 'parameters'
-__filename = 'test_float_parameter_widget'
-__date__ = '8/19/14'
-__copyright__ = 'ismail@kartoza.com'
 
 import unittest
 
@@ -14,6 +9,12 @@ from parameters.metadata import unit_metres_depth, unit_feet_depth
 from parameters.qt_widgets.float_parameter_widget import FloatParameterWidget
 
 from parameters.unit import Unit
+
+
+__copyright__ = "Copyright 2014, The InaSAFE Project"
+__license__ = "GPL version 3"
+__email__ = "info@inasafe.org"
+__revision__ = '$Format:%H$'
 
 
 class TestFloatParameterWidget(unittest.TestCase):

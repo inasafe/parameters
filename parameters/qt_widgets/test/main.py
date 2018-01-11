@@ -6,29 +6,30 @@ from functools import partial
 
 from PyQt4.QtGui import (
     QApplication, QWidget, QGridLayout, QPushButton, QMessageBox)
-from boolean_parameter import BooleanParameter
-from dict_parameter import DictParameter
-from float_parameter import FloatParameter
-from group_parameter import GroupParameter
-from input_list_parameter import InputListParameter
-from integer_parameter import IntegerParameter
-from metadata import unit_feet_depth, unit_metres_depth
-from qt_widgets.input_list_parameter_widget import InputListParameterWidget
-from qt_widgets.parameter_container import ParameterContainer
-from qt_widgets.test.custom_parameter.point_parameter import PointParameter
-from qt_widgets.test.custom_parameter.point_parameter_widget import (
-    PointParameterWidget)
-from select_parameter import SelectParameter
-from string_parameter import StringParameter
-from unit import Unit
-
+from parameters.boolean_parameter import BooleanParameter
+from parameters.dict_parameter import DictParameter
+from parameters.float_parameter import FloatParameter
+from parameters.group_parameter import GroupParameter
+from parameters.input_list_parameter import InputListParameter
+from parameters.integer_parameter import IntegerParameter
+from parameters.metadata import unit_feet_depth, unit_metres_depth
+from parameters.qt_widgets.input_list_parameter_widget import (
+    InputListParameterWidget)
+from parameters.qt_widgets.parameter_container import ParameterContainer
+from parameters.qt_widgets.test.custom_parameter.point_parameter import (
+    PointParameter)
+from parameters.qt_widgets.test.custom_parameter.\
+    point_parameter_widget import PointParameterWidget
+from parameters.select_parameter import SelectParameter
+from parameters.string_parameter import StringParameter
+from parameters.unit import Unit
 from parameters.list_parameter import ListParameter
 
-__author__ = 'ismailsunni'
-__project_name = 'parameters'
-__filename = 'main'
-__date__ = '8/19/14'
-__copyright__ = 'ismail@kartoza.com'
+
+__copyright__ = "Copyright 2014, The InaSAFE Project"
+__license__ = "GPL version 3"
+__email__ = "info@inasafe.org"
+__revision__ = '$Format:%H$'
 
 
 def main():
