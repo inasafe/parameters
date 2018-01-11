@@ -1,6 +1,5 @@
 # coding=utf-8
 """Generic Parameter."""
-from builtins import str
 import uuid
 
 
@@ -153,8 +152,7 @@ class GenericParameter:
         # or same as one type in list of type
         message = (
             'The type of the _value [%s] does match with the expected '
-            'type of the parameter [%s].' % (
-                str(type(value)), str(self._expected_type)))
+            'type of the parameter [%s].' % (type(value), self._expected_type))
 
         if (type(self._expected_type) is type and type(value) is not
                 self._expected_type):

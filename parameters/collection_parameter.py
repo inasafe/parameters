@@ -1,7 +1,4 @@
-# coding=utf-8
-
 """Collection Parameter abstract base class0."""
-from builtins import str
 from abc import ABCMeta
 from parameters.generic_parameter import GenericParameter
 from parameters.parameter_exceptions import (

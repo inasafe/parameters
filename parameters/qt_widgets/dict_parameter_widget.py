@@ -3,8 +3,6 @@
 
 # This import is to enable SIP API V2
 # noinspection PyPackageRequirements
-from builtins import str
-from builtins import range
 import logging
 
 from PyQt5.QtCore import Qt
@@ -23,7 +21,6 @@ __email__ = "info@inasafe.org"
 __revision__ = '$Format:%H$'
 
 
-# pylint: disable=super-on-old-class
 class DictParameterWidget(GenericParameterWidget):
     """Widget class for DictParameter."""
     def __init__(self, parameter, parent=None):
@@ -130,10 +127,9 @@ class DictParameterWidget(GenericParameterWidget):
 
         """
         root_widget_item = self.input.invisibleRootItem()
-        widget_items = [root_widget_item.child(i)
-                        for i in range(root_widget_item.childCount())]
+        widget_items = [
+            root_widget_item.child(i)
+            for i in range(root_widget_item.childCount())]
         data_dict = self.extract_dict(widget_items)
         self._parameter.value = data_dict
         return self._parameter
-
-# pylint: enable=super-on-old-class
