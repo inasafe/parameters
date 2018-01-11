@@ -3,7 +3,7 @@
 
 import unittest
 
-from PyQt4.QtGui import QApplication
+from PyQt5.QtWidgets import QApplication
 
 from parameters.boolean_parameter import BooleanParameter
 from parameters.qt_widgets.boolean_parameter_widget import (
@@ -46,6 +46,7 @@ class TestBooleanParameterWidget(unittest.TestCase):
         real_value = widget._check_box_input.isChecked()
         message = 'Expected %s get %s' % (expected_value, real_value)
         self.assertEqual(expected_value, real_value, message)
+
 
 if __name__ == '__main__':
     unittest.main()

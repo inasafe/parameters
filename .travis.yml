@@ -1,10 +1,7 @@
 language: python
 
 python:
-  - "2.7"
-
-virtualenv:
-  system_site_packages: true
+  - "3.6"
 
 branches:
   only:
@@ -14,15 +11,15 @@ branches:
   - sudo apt-get -qq -y update
 
 install:
-  - sudo apt-get install -y git pylint pep8 python-nose python-coverage pyflakes python-nosexcover python-qt4
-  - pip install nose-exclude
+  - sudo apt-get install -y git pylint pep8 python-nose python-coverage pyflakes python-nosexcover
+  - pip install PyQt5
 
 before_script:
   - echo "Build starting on " `date`
   - export PYTHONPATH=`pwd`
 
 script:
-  - xvfb-run --server-args="-screen 0, 1024x768x24" nosetests -v --with-id --with-xcoverage --with-xunit --verbose --cover-package=.
+  - xvfb-run --server-args="-screen 0, 1024x768x24" nosetests -v --with-id --with-xunit --verbose --cover-package=parameters
   - make pep8
 
 after_success:

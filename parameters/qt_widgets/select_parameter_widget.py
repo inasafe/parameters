@@ -1,8 +1,8 @@
 # coding=utf-8
 """Select Parameter Widget"""
 
-from PyQt4.QtCore import Qt
-from PyQt4.QtGui import QComboBox
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QComboBox
 
 from parameters.qt_widgets.generic_parameter_widget import (
     GenericParameterWidget)

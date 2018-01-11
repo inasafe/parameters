@@ -3,7 +3,7 @@
 
 import unittest
 
-from PyQt4.QtGui import QApplication
+from PyQt5.QtWidgets import QApplication
 
 from parameters.boolean_parameter import BooleanParameter
 from parameters.float_parameter import FloatParameter
@@ -90,6 +90,7 @@ class TestQt4ParameterFactory(unittest.TestCase):
             BooleanParameterWidget, FloatParameterWidget, PointParameterWidget]
         message = 'Expected %s got %s' % (expected_classes, widget_classes)
         self.assertListEqual(widget_classes, expected_classes, message)
+
 
 if __name__ == '__main__':
     unittest.main()

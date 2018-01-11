@@ -36,7 +36,7 @@ class DictParameter(CollectionParameter):
 
     def keys(self):
         """Helper method to make DictParameter behave like dict"""
-        return self._value.keys()
+        return list(self._value.keys())
 
     @property
     def value(self):

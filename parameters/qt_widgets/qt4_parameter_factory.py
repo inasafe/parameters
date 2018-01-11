@@ -1,6 +1,7 @@
 # coding=utf-8
 """QT4 Parameter Factory."""
 
+from builtins import object
 from parameters.qt_widgets.boolean_parameter_widget import (
     BooleanParameterWidget)
 from parameters.qt_widgets.dict_parameter_widget import DictParameterWidget
@@ -56,7 +57,7 @@ class Qt4ParameterFactory(object):
         :param parameter:
         :type parameter: GenericParameter
         """
-        if parameter.__name__ in self.dict_widget.keys():
+        if parameter.__name__ in list(self.dict_widget.keys()):
             self.dict_widget.pop(parameter.__name__)
 
     def get_widget(self, parameter):
@@ -71,7 +72,7 @@ class Qt4ParameterFactory(object):
         """
         class_name = parameter.__class__.__name__
 
-        if class_name in self.dict_widget.keys():
+        if class_name in list(self.dict_widget.keys()):
             return self.dict_widget[class_name](parameter)
         else:
             raise TypeError(class_name)

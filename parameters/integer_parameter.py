@@ -30,6 +30,6 @@ class IntegerParameter(NumericParameter):
         """
         super(IntegerParameter, self).__init__(guid)
         self.expected_type = int
-        self._minimum_allowed_value = - sys.maxint - 1
-        self._maximum_allowed_value = sys.maxint
+        self._minimum_allowed_value = - sys.maxsize - 1
+        self._maximum_allowed_value = sys.maxsize
         self._unit = ''

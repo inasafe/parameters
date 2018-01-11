@@ -1,6 +1,7 @@
 # coding=utf-8
 """Docstring for this file."""
 
+from builtins import object
 import uuid
 
 

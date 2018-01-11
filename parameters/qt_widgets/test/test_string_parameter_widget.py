@@ -3,7 +3,7 @@
 
 import unittest
 
-from PyQt4.QtGui import QApplication
+from PyQt5.QtWidgets import QApplication
 
 from parameters.qt_widgets.string_parameter_widget import StringParameterWidget
 from parameters.string_parameter import StringParameter
@@ -49,6 +49,7 @@ class TestBooleanParameterWidget(unittest.TestCase):
         real_value = widget._line_edit_input.text()
         message = 'Expected %s get %s' % (expected_value, real_value)
         self.assertEqual(expected_value, real_value, message)
+
 
 if __name__ == '__main__':
     unittest.main()
