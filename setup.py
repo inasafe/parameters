@@ -26,5 +26,5 @@ setup(
         'Operating System :: OS Independent',
         'Programming Language :: Python',
         'Topic :: Scientific/Engineering :: GIS',
-    ],
+    ], install_requires=['PyQt5']
 )
