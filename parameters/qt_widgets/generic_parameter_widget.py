@@ -18,7 +18,7 @@ __email__ = "info@inasafe.org"
 __revision__ = '$Format:%H$'
 
 
-class GenericParameterWidget(QWidget, object):
+class GenericParameterWidget(QWidget):
     """Widget class for generic parameter."""
     def __init__(self, parameter, parent=None):
         """Constructor

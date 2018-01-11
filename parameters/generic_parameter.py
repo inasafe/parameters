@@ -1,7 +1,6 @@
 # coding=utf-8
 """Generic Parameter."""
 from builtins import str
-from builtins import object
 import uuid
 
 
@@ -11,7 +10,7 @@ __email__ = "info@inasafe.org"
 __revision__ = '$Format:%H$'
 
 
-class GenericParameter(object):
+class GenericParameter:
     """A generic base class for all parameters."""
 
     def __init__(self, guid=None):
