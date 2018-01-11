@@ -1,23 +1,26 @@
 # coding=utf-8
 """QT4 Parameter Factory."""
 
-from parameters.qt_widgets.boolean_parameter_widget import BooleanParameterWidget
+from parameters.qt_widgets.boolean_parameter_widget import (
+    BooleanParameterWidget)
 from parameters.qt_widgets.dict_parameter_widget import DictParameterWidget
 from parameters.qt_widgets.float_parameter_widget import FloatParameterWidget
 from parameters.qt_widgets.group_parameter_widget import GroupParameterWidget
-from parameters.qt_widgets.input_list_parameter_widget import InputListParameterWidget
-from parameters.qt_widgets.integer_parameter_widget import IntegerParameterWidget
+from parameters.qt_widgets.input_list_parameter_widget import (
+    InputListParameterWidget)
+from parameters.qt_widgets.integer_parameter_widget import (
+    IntegerParameterWidget)
 from parameters.qt_widgets.list_parameter_widget import ListParameterWidget
 from parameters.qt_widgets.select_parameter_widget import SelectParameterWidget
 from parameters.qt_widgets.text_parameter_widget import TextParameterWidget
 
 from parameters.qt_widgets.string_parameter_widget import StringParameterWidget
 
-__author__ = 'ismailsunni'
-__project_name = 'parameters'
-__filename = 'qt4_parameter_factory'
-__date__ = '8/19/14'
-__copyright__ = 'ismail@kartoza.com'
+
+__copyright__ = "Copyright 2014, The InaSAFE Project"
+__license__ = "GPL version 3"
+__email__ = "info@inasafe.org"
+__revision__ = '$Format:%H$'
 
 
 class Qt4ParameterFactory(object):

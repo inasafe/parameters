@@ -1,10 +1,5 @@
 # coding=utf-8
 """Test class for string_parameter_widget."""
-__author__ = 'ismailsunni'
-__project_name = 'parameters'
-__filename = 'test_string_parameter_widget.py'
-__date__ = '8/28/14'
-__copyright__ = 'ismail@kartoza.com'
 
 import unittest
 
@@ -12,6 +7,12 @@ from PyQt4.QtGui import QApplication
 from parameters.string_parameter import StringParameter
 
 from parameters.qt_widgets.string_parameter_widget import StringParameterWidget
+
+
+__copyright__ = "Copyright 2014, The InaSAFE Project"
+__license__ = "GPL version 3"
+__email__ = "info@inasafe.org"
+__revision__ = '$Format:%H$'
 
 
 class TestBooleanParameterWidget(unittest.TestCase):

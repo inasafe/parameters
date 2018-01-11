@@ -1,9 +1,15 @@
 # coding=utf-8
 
 """Integer Parameter."""
-from generic_parameter import GenericParameter
-from parameter_exceptions import (
+from parameters.generic_parameter import GenericParameter
+from parameters.parameter_exceptions import (
     InvalidMaximumError, InvalidMinimumError, ValueOutOfBounds)
+
+
+__copyright__ = "Copyright 2014, The InaSAFE Project"
+__license__ = "GPL version 3"
+__email__ = "info@inasafe.org"
+__revision__ = '$Format:%H$'
 
 
 class NumericParameter(GenericParameter):

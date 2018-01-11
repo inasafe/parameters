@@ -1,12 +1,6 @@
 # coding=utf-8
 """Docstring for this file."""
 
-__author__ = 'Jannes Engelbrecht jannes@kartoza.com'
-__project_name = 'parameters'
-__filename = 'dict_parameter_widget'
-__date__ = '12/11/14'
-__copyright__ = 'kartoza.com'
-
 # This import is to enable SIP API V2
 # noinspection PyPackageRequirements
 import logging
@@ -18,6 +12,12 @@ from parameters.qt_widgets.generic_parameter_widget import (
     GenericParameterWidget)
 
 LOGGER = logging.getLogger('InaSAFE')
+
+
+__copyright__ = "Copyright 2014, The InaSAFE Project"
+__license__ = "GPL version 3"
+__email__ = "info@inasafe.org"
+__revision__ = '$Format:%H$'
 
 
 # pylint: disable=super-on-old-class

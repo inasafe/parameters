@@ -1,13 +1,12 @@
 # coding=utf-8
 """Docstring for this file."""
-__author__ = 'ismailsunni'
-__project_name = 'parameters'
-__filename = 'point_parameter'
-__date__ = '12/15/14'
-__copyright__ = 'ismail@kartoza.com'
-
 
 from parameters.generic_parameter import GenericParameter
+
+__copyright__ = "Copyright 2014, The InaSAFE Project"
+__license__ = "GPL version 3"
+__email__ = "info@inasafe.org"
+__revision__ = '$Format:%H$'
 
 
 class PointParameter(GenericParameter):
