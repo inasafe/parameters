@@ -2,12 +2,10 @@
 
 """Collection Parameter abstract base class0."""
 from builtins import str
-import abc
-
+from abc import ABCMeta
 from parameters.generic_parameter import GenericParameter
 from parameters.parameter_exceptions import (
     CollectionLengthError, InvalidMinimumError, InvalidMaximumError)
-from future.utils import with_metaclass
 
 __copyright__ = "Copyright 2014, The InaSAFE Project"
 __license__ = "GPL version 3"
@@ -15,7 +13,7 @@ __email__ = "info@inasafe.org"
 __revision__ = '$Format:%H$'
 
 
-class CollectionParameter(with_metaclass(abc.ABCMeta, GenericParameter)):
+class CollectionParameter(GenericParameter, metaclass=ABCMeta):
     """A subclass of generic parameter that accepts collections only.
 
     This is a base class for List, Dict etc. parameters which share some
