@@ -9,7 +9,7 @@ from PyQt5.QtWidgets import (
     QSizePolicy,
     QLabel,
     QFrame,
-    QHBoxLayout,
+    QHBoxLayout
 )
 from PyQt5.QtGui import QColor
 

@@ -126,7 +126,7 @@ class CollectionParameter(GenericParameter, metaclass=ABCMeta):
             raise TypeError(message)
 
         if isinstance(value, dict):
-            inspected_values = [value[key] for key in list(value.keys())]
+            inspected_values = [value[key] for key in value.keys()]
         elif isinstance(value, list):
             inspected_values = value
         else:

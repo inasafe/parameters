@@ -8,7 +8,7 @@ from PyQt5.QtWidgets import (
     QLabel,
     QToolButton,
     QGridLayout,
-    QSizePolicy,
+    QSizePolicy
 )
 
 
