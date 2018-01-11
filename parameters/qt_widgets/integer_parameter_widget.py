@@ -6,7 +6,6 @@ from PyQt4.QtGui import QSpinBox
 from parameters.qt_widgets.numeric_parameter_widget import (
     NumericParameterWidget)
 
-
 __copyright__ = "Copyright 2014, The InaSAFE Project"
 __license__ = "GPL version 3"
 __email__ = "info@inasafe.org"

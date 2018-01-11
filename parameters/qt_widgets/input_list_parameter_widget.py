@@ -2,12 +2,12 @@
 
 from PyQt4.QtCore import Qt
 from PyQt4.QtGui import (
-    QListWidget, QAbstractItemView, QLineEdit, QVBoxLayout, QHBoxLayout, QPushButton, QListWidgetItem)
+    QListWidget, QAbstractItemView, QLineEdit, QVBoxLayout, QHBoxLayout,
+    QPushButton, QListWidgetItem)
 
+from parameters.input_list_parameter import InputListParameter
 from parameters.qt_widgets.generic_parameter_widget import (
     GenericParameterWidget)
-from parameters.input_list_parameter import InputListParameter
-
 
 __copyright__ = "Copyright 2014, The InaSAFE Project"
 __license__ = "GPL version 3"

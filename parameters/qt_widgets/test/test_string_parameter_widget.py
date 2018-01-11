@@ -4,10 +4,9 @@
 import unittest
 
 from PyQt4.QtGui import QApplication
-from parameters.string_parameter import StringParameter
 
 from parameters.qt_widgets.string_parameter_widget import StringParameterWidget
-
+from parameters.string_parameter import StringParameter
 
 __copyright__ = "Copyright 2014, The InaSAFE Project"
 __license__ = "GPL version 3"

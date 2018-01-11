@@ -4,7 +4,6 @@
 from unittest import TestCase
 
 from parameters.parameter_exceptions import ValueNotAllowedException
-
 from parameters.select_parameter import SelectParameter
 
 __copyright__ = "Copyright 2014, The InaSAFE Project"

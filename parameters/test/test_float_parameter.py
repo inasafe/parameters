@@ -4,7 +4,6 @@
 from unittest import TestCase
 
 from parameters.float_parameter import FloatParameter
-
 from parameters.parameter_exceptions import (
     InvalidMaximumError, InvalidMinimumError, ValueOutOfBounds)
 
