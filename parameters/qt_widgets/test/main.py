@@ -6,25 +6,25 @@ from functools import partial
 
 from PyQt4.QtGui import (
     QApplication, QWidget, QGridLayout, QPushButton, QMessageBox)
+
 from parameters.boolean_parameter import BooleanParameter
 from parameters.dict_parameter import DictParameter
 from parameters.float_parameter import FloatParameter
 from parameters.group_parameter import GroupParameter
 from parameters.input_list_parameter import InputListParameter
 from parameters.integer_parameter import IntegerParameter
+from parameters.list_parameter import ListParameter
 from parameters.metadata import unit_feet_depth, unit_metres_depth
 from parameters.qt_widgets.input_list_parameter_widget import (
     InputListParameterWidget)
 from parameters.qt_widgets.parameter_container import ParameterContainer
 from parameters.qt_widgets.test.custom_parameter.point_parameter import (
     PointParameter)
-from parameters.qt_widgets.test.custom_parameter.\
+from parameters.qt_widgets.test.custom_parameter. \
     point_parameter_widget import PointParameterWidget
 from parameters.select_parameter import SelectParameter
 from parameters.string_parameter import StringParameter
 from parameters.unit import Unit
-from parameters.list_parameter import ListParameter
-
 
 __copyright__ = "Copyright 2014, The InaSAFE Project"
 __license__ = "GPL version 3"

@@ -3,13 +3,11 @@
 
 from unittest import TestCase
 
+from parameters.integer_parameter import IntegerParameter
 from parameters.parameter_exceptions import (
     InvalidMaximumError,
     InvalidMinimumError,
     ValueOutOfBounds)
-
-from parameters.integer_parameter import IntegerParameter
-
 
 __copyright__ = "Copyright 2014, The InaSAFE Project"
 __license__ = "GPL version 3"

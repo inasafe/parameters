@@ -12,10 +12,9 @@ from PyQt4.QtGui import (
     QFrame,
     QHBoxLayout
 )
+
 from parameters.parameter_exceptions import InvalidValidationException
-
 from parameters.qt_widgets.qt4_parameter_factory import Qt4ParameterFactory
-
 
 __copyright__ = "Copyright 2014, The InaSAFE Project"
 __license__ = "GPL version 3"

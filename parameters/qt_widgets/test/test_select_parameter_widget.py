@@ -8,7 +8,6 @@ from PyQt4.QtGui import QApplication
 from parameters.qt_widgets.select_parameter_widget import SelectParameterWidget
 from parameters.select_parameter import SelectParameter
 
-
 __copyright__ = "Copyright 2014, The InaSAFE Project"
 __license__ = "GPL version 3"
 __email__ = "info@inasafe.org"

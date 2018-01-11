@@ -3,14 +3,12 @@
 
 from unittest import TestCase
 
+from parameters.list_parameter import ListParameter
 from parameters.parameter_exceptions import (
     CollectionLengthError,
     InvalidMinimumError,
     InvalidMaximumError,
     ValueNotAllowedException)
-
-from parameters.list_parameter import ListParameter
-
 
 __copyright__ = "Copyright 2014, The InaSAFE Project"
 __license__ = "GPL version 3"

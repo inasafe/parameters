@@ -4,18 +4,17 @@
 import unittest
 
 from PyQt4.QtGui import QApplication
+
 from parameters.boolean_parameter import BooleanParameter
 from parameters.float_parameter import FloatParameter
 from parameters.qt_widgets.boolean_parameter_widget import (
     BooleanParameterWidget)
 from parameters.qt_widgets.float_parameter_widget import FloatParameterWidget
+from parameters.qt_widgets.qt4_parameter_factory import Qt4ParameterFactory
 from parameters.qt_widgets.test.custom_parameter.point_parameter import (
     PointParameter)
-from parameters.qt_widgets.test.custom_parameter.\
+from parameters.qt_widgets.test.custom_parameter. \
     point_parameter_widget import PointParameterWidget
-
-from parameters.qt_widgets.qt4_parameter_factory import Qt4ParameterFactory
-
 
 __copyright__ = "Copyright 2014, The InaSAFE Project"
 __license__ = "GPL version 3"

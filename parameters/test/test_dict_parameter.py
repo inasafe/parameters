@@ -3,13 +3,11 @@
 
 from unittest import TestCase
 
+from parameters.dict_parameter import DictParameter
 from parameters.parameter_exceptions import (
     CollectionLengthError,
     InvalidMinimumError,
     InvalidMaximumError)
-
-from parameters.dict_parameter import DictParameter
-
 
 __copyright__ = "Copyright 2014, The InaSAFE Project"
 __license__ = "GPL version 3"

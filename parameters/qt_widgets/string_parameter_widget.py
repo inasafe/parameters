@@ -6,7 +6,6 @@ from PyQt4.QtGui import QLineEdit, QSizePolicy
 from parameters.qt_widgets.generic_parameter_widget import (
     GenericParameterWidget)
 
-
 __copyright__ = "Copyright 2014, The InaSAFE Project"
 __license__ = "GPL version 3"
 __email__ = "info@inasafe.org"

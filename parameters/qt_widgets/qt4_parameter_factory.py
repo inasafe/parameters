@@ -12,10 +12,8 @@ from parameters.qt_widgets.integer_parameter_widget import (
     IntegerParameterWidget)
 from parameters.qt_widgets.list_parameter_widget import ListParameterWidget
 from parameters.qt_widgets.select_parameter_widget import SelectParameterWidget
-from parameters.qt_widgets.text_parameter_widget import TextParameterWidget
-
 from parameters.qt_widgets.string_parameter_widget import StringParameterWidget
-
+from parameters.qt_widgets.text_parameter_widget import TextParameterWidget
 
 __copyright__ = "Copyright 2014, The InaSAFE Project"
 __license__ = "GPL version 3"

@@ -5,9 +5,9 @@ import unittest
 
 from PyQt4.QtGui import QApplication
 
+from parameters.boolean_parameter import BooleanParameter
 from parameters.qt_widgets.boolean_parameter_widget import (
     BooleanParameterWidget)
-from parameters.boolean_parameter import BooleanParameter
 
 __copyright__ = "Copyright 2014, The InaSAFE Project"
 __license__ = "GPL version 3"

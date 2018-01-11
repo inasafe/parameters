@@ -5,11 +5,10 @@
 import sys
 
 from PyQt4.QtGui import QApplication, QWidget, QGridLayout
+
 from parameters.float_parameter import FloatParameter
-from parameters.string_parameter import StringParameter
-
 from parameters.qt_widgets.parameter_container import ParameterContainer
-
+from parameters.string_parameter import StringParameter
 
 __copyright__ = "Copyright 2014, The InaSAFE Project"
 __license__ = "GPL version 3"

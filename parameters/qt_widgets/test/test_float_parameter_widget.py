@@ -4,12 +4,11 @@
 import unittest
 
 from PyQt4.QtGui import QApplication
+
 from parameters.float_parameter import FloatParameter
 from parameters.metadata import unit_metres_depth, unit_feet_depth
 from parameters.qt_widgets.float_parameter_widget import FloatParameterWidget
-
 from parameters.unit import Unit
-
 
 __copyright__ = "Copyright 2014, The InaSAFE Project"
 __license__ = "GPL version 3"
