@@ -1,4 +1,3 @@
-# coding=utf-8
 """Tests for list parameter."""
 
 from unittest import TestCase

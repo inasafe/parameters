@@ -1,4 +1,3 @@
-# coding=utf-8
 """String Parameter."""
 
 from parameters.generic_parameter import GenericParameter

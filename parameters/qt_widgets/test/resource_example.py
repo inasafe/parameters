@@ -1,4 +1,3 @@
-# coding=utf-8
 
 """Simple example of using parameters to define a parameter - how meta!"""
 

@@ -1,4 +1,3 @@
-# coding=utf-8
 """Test class for qt5_parameter_factory."""
 
 import unittest

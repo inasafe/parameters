@@ -1,4 +1,3 @@
-# coding=utf-8
 """Docstring for this file."""
 
 __copyright__ = "Copyright 2014, The InaSAFE Project"

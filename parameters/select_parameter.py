@@ -1,4 +1,3 @@
-# coding=utf-8
 """Select Parameter."""
 
 from parameters.collection_parameter import CollectionParameter

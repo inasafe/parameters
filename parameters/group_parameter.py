@@ -1,4 +1,3 @@
-# coding=utf-8
 """List Parameter."""
 
 from parameters.collection_parameter import CollectionParameter

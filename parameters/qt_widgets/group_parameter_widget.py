@@ -1,4 +1,3 @@
-# coding=utf-8
 """Group Parameter Widget."""
 
 from PyQt5.QtWidgets import QVBoxLayout, QCheckBox

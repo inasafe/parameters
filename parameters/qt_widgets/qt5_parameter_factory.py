@@ -1,4 +1,3 @@
-# coding=utf-8
 """QT5 Parameter Factory."""
 
 from parameters.qt_widgets.boolean_parameter_widget import (

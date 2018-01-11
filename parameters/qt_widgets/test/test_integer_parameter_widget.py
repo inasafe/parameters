@@ -1,4 +1,3 @@
-# coding=utf-8
 """Test class for integer_parameter_widget."""
 
 import unittest

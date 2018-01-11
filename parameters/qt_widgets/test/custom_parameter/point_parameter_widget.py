@@ -1,4 +1,3 @@
-# coding=utf-8
 """Docstring for this file."""
 
 from PyQt5.QtWidgets import QSpinBox, QSizePolicy

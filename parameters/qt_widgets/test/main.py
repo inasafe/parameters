@@ -1,4 +1,3 @@
-# coding=utf-8
 """Main file for showing off widget parameter."""
 
 import sys

@@ -1,4 +1,3 @@
-# coding=utf-8
 """Docstring for this file."""
 
 # This import is to enable SIP API V2

@@ -1,4 +1,3 @@
-# coding=utf-8
 """Parameter Container."""
 
 from PyQt5.QtWidgets import (

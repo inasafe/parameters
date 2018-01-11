@@ -1,4 +1,3 @@
-# coding=utf-8
 """Dictionary Parameter."""
 from parameters.collection_parameter import CollectionParameter
 

@@ -1,4 +1,3 @@
-# coding=utf-8
 """Select Parameter Widget"""
 
 from PyQt5.QtCore import Qt

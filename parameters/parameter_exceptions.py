@@ -1,4 +1,3 @@
-# coding=utf-8
 """Exceptions related to parameters implementation."""
 
 

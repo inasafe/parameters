@@ -1,4 +1,3 @@
-# coding=utf-8
 """Generic Parameter Widget for this file."""
 
 from PyQt5.QtWidgets import (

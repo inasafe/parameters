@@ -1,4 +1,3 @@
-# coding=utf-8
 """Numeric Parameter Widget"""
 
 # noinspection PyPackageRequirements
