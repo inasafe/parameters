@@ -1,8 +1,5 @@
-# coding=utf-8
-
-"""Collection Parameter abstract base class0."""
-import abc
-
+"""Collection Parameter abstract base class."""
+from abc import ABCMeta
 from parameters.generic_parameter import GenericParameter
 from parameters.parameter_exceptions import (
     CollectionLengthError, InvalidMinimumError, InvalidMaximumError)
@@ -13,7 +10,7 @@ __email__ = "info@inasafe.org"
 __revision__ = '$Format:%H$'
 
 
-class CollectionParameter(GenericParameter):
+class CollectionParameter(GenericParameter, metaclass=ABCMeta):
     """A subclass of generic parameter that accepts collections only.
 
     This is a base class for List, Dict etc. parameters which share some
@@ -21,8 +18,6 @@ class CollectionParameter(GenericParameter):
 
     .. versionadded:: 2.2
     """
-    # Indicate that this is an abstract base class
-    __metaclass__ = abc.ABCMeta
 
     def __init__(self, guid=None):
         """Constructor.

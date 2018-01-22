@@ -1,4 +1,3 @@
-# coding=utf-8
 """Setup file for distutils / pypi."""
 try:
     from ez_setup import use_setuptools
@@ -27,5 +26,5 @@ setup(
         'Operating System :: OS Independent',
         'Programming Language :: Python',
         'Topic :: Scientific/Engineering :: GIS',
-    ],
+    ], install_requires=['PyQt5']
 )

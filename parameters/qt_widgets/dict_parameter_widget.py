@@ -1,12 +1,12 @@
-# coding=utf-8
 """Docstring for this file."""
 
 # This import is to enable SIP API V2
 # noinspection PyPackageRequirements
 import logging
 
-from PyQt4.QtCore import Qt
-from PyQt4.QtGui import (QTreeWidget, QFont, QTreeWidgetItem, QVBoxLayout)
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QTreeWidget, QTreeWidgetItem, QVBoxLayout
+from PyQt5.QtGui import QFont
 
 from parameters.qt_widgets.generic_parameter_widget import (
     GenericParameterWidget)
@@ -20,7 +20,6 @@ __email__ = "info@inasafe.org"
 __revision__ = '$Format:%H$'
 
 
-# pylint: disable=super-on-old-class
 class DictParameterWidget(GenericParameterWidget):
     """Widget class for DictParameter."""
     def __init__(self, parameter, parent=None):
@@ -127,10 +126,9 @@ class DictParameterWidget(GenericParameterWidget):
 
         """
         root_widget_item = self.input.invisibleRootItem()
-        widget_items = [root_widget_item.child(i)
-                        for i in range(root_widget_item.childCount())]
+        widget_items = [
+            root_widget_item.child(i)
+            for i in range(root_widget_item.childCount())]
         data_dict = self.extract_dict(widget_items)
         self._parameter.value = data_dict
         return self._parameter
-
-# pylint: enable=super-on-old-class

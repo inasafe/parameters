@@ -1,9 +1,8 @@
-# coding=utf-8
 """Test class for float_parameter_widget."""
 
 import unittest
 
-from PyQt4.QtGui import QApplication
+from PyQt5.QtWidgets import QApplication
 
 from parameters.float_parameter import FloatParameter
 from parameters.metadata import unit_metres_depth, unit_feet_depth
@@ -92,6 +91,7 @@ class TestFloatParameterWidget(unittest.TestCase):
         real_value = widget.get_parameter().unit.name
         message = 'Expected %s get %s' % (expected_value, real_value)
         self.assertEqual(expected_value, real_value, message)
+
 
 if __name__ == '__main__':
     unittest.main()

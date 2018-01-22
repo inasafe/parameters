@@ -1,14 +1,14 @@
-# coding=utf-8
 """Generic Parameter Widget for this file."""
 
-from PyQt4.QtGui import (
+from PyQt5.QtWidgets import (
     QWidget,
     QHBoxLayout,
     QVBoxLayout,
     QLabel,
     QToolButton,
     QGridLayout,
-    QSizePolicy)
+    QSizePolicy
+)
 
 
 __copyright__ = "Copyright 2014, The InaSAFE Project"
@@ -17,7 +17,7 @@ __email__ = "info@inasafe.org"
 __revision__ = '$Format:%H$'
 
 
-class GenericParameterWidget(QWidget, object):
+class GenericParameterWidget(QWidget):
     """Widget class for generic parameter."""
     def __init__(self, parameter, parent=None):
         """Constructor
@@ -37,7 +37,7 @@ class GenericParameterWidget(QWidget, object):
 
         # Label (description text)
         # Hacky fix for #1830 - checking the base type
-        if isinstance(self._parameter.description, basestring):
+        if isinstance(self._parameter.description, str):
             self.description_text_label = QLabel(self._parameter.description)
         else:
             self.description_text_label = QLabel()

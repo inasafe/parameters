@@ -1,4 +1,3 @@
-# coding=utf-8
 """Tests for float parameter."""
 
 from unittest import TestCase

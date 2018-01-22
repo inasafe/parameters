@@ -1,5 +1,4 @@
-# coding=utf-8
-"""QT4 Parameter Factory."""
+"""QT5 Parameter Factory."""
 
 from parameters.qt_widgets.boolean_parameter_widget import (
     BooleanParameterWidget)
@@ -21,7 +20,7 @@ __email__ = "info@inasafe.org"
 __revision__ = '$Format:%H$'
 
 
-class Qt4ParameterFactory(object):
+class Qt5ParameterFactory:
     """A factory class that will generate a widget given a parameter."""
 
     def __init__(self):

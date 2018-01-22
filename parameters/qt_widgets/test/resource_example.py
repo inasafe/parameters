@@ -1,10 +1,9 @@
-# coding=utf-8
 
 """Simple example of using parameters to define a parameter - how meta!"""
 
 import sys
 
-from PyQt4.QtGui import QApplication, QWidget, QGridLayout
+from PyQt5.QtWidgets import QApplication, QWidget, QGridLayout
 
 from parameters.float_parameter import FloatParameter
 from parameters.qt_widgets.parameter_container import ParameterContainer
@@ -126,9 +125,10 @@ def main():
 
     new_parameters = parameter_container.get_parameters()
     for new_parameter in new_parameters:
-        print new_parameter.name, new_parameter.value
+        print(new_parameter.name, new_parameter.value)
 
     sys.exit(application.exec_())
+
 
 if __name__ == '__main__':
     main()

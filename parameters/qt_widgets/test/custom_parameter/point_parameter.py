@@ -1,4 +1,3 @@
-# coding=utf-8
 """Docstring for this file."""
 
 from parameters.generic_parameter import GenericParameter
