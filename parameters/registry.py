@@ -8,7 +8,7 @@ __email__ = "info@inasafe.org"
 __revision__ = '$Format:%H$'
 
 
-class Registry(object):
+class Registry():
     """A simple registry for keeping track of all parameters.
 
     We will use a singleton pattern to ensure that there is only

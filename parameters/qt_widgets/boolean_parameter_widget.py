@@ -1,6 +1,6 @@
 # coding=utf-8
 
-from PyQt4.QtGui import QCheckBox
+from PyQt5.QtWidgets import QCheckBox
 
 from parameters.qt_widgets.generic_parameter_widget import (
     GenericParameterWidget)

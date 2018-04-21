@@ -10,7 +10,7 @@ __email__ = "info@inasafe.org"
 __revision__ = '$Format:%H$'
 
 
-class Unit(object):
+class Unit():
     """Class for representing unit."""
     def __init__(self, guid=None):
         """Constructor

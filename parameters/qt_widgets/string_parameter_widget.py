@@ -1,7 +1,7 @@
 # coding=utf-8
 """Docstring for this file."""
 
-from PyQt4.QtGui import QLineEdit, QSizePolicy
+from PyQt5.QtWidgets import QLineEdit, QSizePolicy
 
 from parameters.qt_widgets.generic_parameter_widget import (
     GenericParameterWidget)

@@ -1,7 +1,7 @@
 # coding=utf-8
 """Docstring for this file."""
 
-from PyQt4.QtGui import QSpinBox
+from PyQt5.QtWidgets import QSpinBox
 
 from parameters.qt_widgets.numeric_parameter_widget import (
     NumericParameterWidget)

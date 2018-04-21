@@ -3,7 +3,7 @@
 
 import unittest
 
-from PyQt4.QtGui import QApplication
+from PyQt5.QtWidgets import QApplication
 
 from parameters.qt_widgets.select_parameter_widget import SelectParameterWidget
 from parameters.select_parameter import SelectParameter
