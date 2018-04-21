@@ -25,4 +25,4 @@ class TextParameter(GenericParameter):
         :type guid: str, None
         """
         super(TextParameter, self).__init__(guid)
-        self.expected_type = [str, unicode]
+        self.expected_type = [str]

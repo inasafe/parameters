@@ -5,8 +5,9 @@
 # noinspection PyPackageRequirements
 import logging
 
-from PyQt4.QtCore import Qt
-from PyQt4.QtGui import (QTreeWidget, QFont, QTreeWidgetItem, QVBoxLayout)
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QTreeWidget, QTreeWidgetItem, QVBoxLayout
+from PyQt5.QtGui import QFont
 
 from parameters.qt_widgets.generic_parameter_widget import (
     GenericParameterWidget)
@@ -76,7 +77,7 @@ class DictParameterWidget(GenericParameterWidget):
         widget_items = []
         font = QFont()
         font.setBold(True)
-        for key in data_dict.keys():
+        for key in list(data_dict.keys()):
             entry = data_dict[key]
             key_item = QTreeWidgetItem()
             key_item.setText(0, str(key))

@@ -3,7 +3,7 @@
 
 import unittest
 
-from PyQt4.QtGui import QApplication
+from PyQt5.QtWidgets import QApplication
 
 from parameters.float_parameter import FloatParameter
 from parameters.metadata import unit_metres_depth, unit_feet_depth

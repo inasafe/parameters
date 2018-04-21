@@ -3,7 +3,7 @@
 
 import unittest
 
-from PyQt4.QtGui import QApplication
+from PyQt5.QtWidgets import QApplication
 
 from parameters.boolean_parameter import BooleanParameter
 from parameters.qt_widgets.boolean_parameter_widget import (

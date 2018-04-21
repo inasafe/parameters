@@ -4,8 +4,7 @@
 import sys
 from functools import partial
 
-from PyQt4.QtGui import (
-    QApplication, QWidget, QGridLayout, QPushButton, QMessageBox)
+from PyQt5.QtWidgets import QApplication, QWidget, QGridLayout, QPushButton, QMessageBox
 
 from parameters.boolean_parameter import BooleanParameter
 from parameters.dict_parameter import DictParameter
@@ -50,18 +49,18 @@ def main():
         min_value = min_value_parameter.value
         max_value = max_value_parameter.value
 
-        print 'min', min_value
-        print 'max', max_value
+        print('min', min_value)
+        print('max', max_value)
 
         if min_value > max_value:
-            print 'Not valid'
+            print('Not valid')
             return {
                 'valid': False,
                 'message': (
                     'Your minimum value (%d) should be less than your maximum '
                     'value (%d)' % (min_value, max_value))
             }
-        print 'Valid'
+        print('Valid')
         return {'valid': True, 'message': ''}
 
     unit_feet = Unit('130790')
@@ -308,7 +307,7 @@ def main():
                 for param in a_parameter.value:
                     show_parameter_value(param)
             else:
-                print a_parameter.guid, a_parameter.name, a_parameter.value
+                print(a_parameter.guid, a_parameter.name, a_parameter.value)
 
         try:
             the_parameters = the_parameter_container.get_parameters()

@@ -21,7 +21,7 @@ __email__ = "info@inasafe.org"
 __revision__ = '$Format:%H$'
 
 
-class Qt4ParameterFactory(object):
+class Qt4ParameterFactory():
     """A factory class that will generate a widget given a parameter."""
 
     def __init__(self):
@@ -56,7 +56,7 @@ class Qt4ParameterFactory(object):
         :param parameter:
         :type parameter: GenericParameter
         """
-        if parameter.__name__ in self.dict_widget.keys():
+        if parameter.__name__ in list(self.dict_widget.keys()):
             self.dict_widget.pop(parameter.__name__)
 
     def get_widget(self, parameter):
@@ -71,7 +71,7 @@ class Qt4ParameterFactory(object):
         """
         class_name = parameter.__class__.__name__
 
-        if class_name in self.dict_widget.keys():
+        if class_name in list(self.dict_widget.keys()):
             return self.dict_widget[class_name](parameter)
         else:
             raise TypeError(class_name)

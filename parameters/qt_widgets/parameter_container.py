@@ -1,17 +1,8 @@
 # coding=utf-8
 """Parameter Container."""
 
-from PyQt4.QtGui import (
-    QWidget,
-    QScrollArea,
-    QVBoxLayout,
-    QGridLayout,
-    QSizePolicy,
-    QColor,
-    QLabel,
-    QFrame,
-    QHBoxLayout
-)
+from PyQt5.QtWidgets import QWidget, QScrollArea, QVBoxLayout, QGridLayout, QSizePolicy, QLabel, QFrame, QHBoxLayout
+from PyQt5.QtGui import QColor
 
 from parameters.parameter_exceptions import InvalidValidationException
 from parameters.qt_widgets.qt4_parameter_factory import Qt4ParameterFactory

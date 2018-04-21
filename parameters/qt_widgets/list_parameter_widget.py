@@ -1,11 +1,7 @@
 # coding=utf-8
 
-from PyQt4.QtCore import Qt
-from PyQt4.QtGui import (
-    QListWidget,
-    QAbstractItemView,
-    QListWidgetItem,
-    QVBoxLayout)
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QListWidget, QAbstractItemView, QListWidgetItem, QVBoxLayout
 
 from parameters.qt_widgets.generic_parameter_widget import (
     GenericParameterWidget)

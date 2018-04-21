@@ -1,9 +1,8 @@
+from builtins import str
 # coding=utf-8
 
-from PyQt4.QtCore import Qt
-from PyQt4.QtGui import (
-    QListWidget, QAbstractItemView, QLineEdit, QVBoxLayout, QHBoxLayout,
-    QPushButton, QListWidgetItem)
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QListWidget, QAbstractItemView, QLineEdit, QVBoxLayout, QHBoxLayout, QPushButton, QListWidgetItem
 
 from parameters.input_list_parameter import InputListParameter
 from parameters.qt_widgets.generic_parameter_widget import (

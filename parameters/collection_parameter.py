@@ -13,7 +13,7 @@ __email__ = "info@inasafe.org"
 __revision__ = '$Format:%H$'
 
 
-class CollectionParameter(GenericParameter):
+class CollectionParameter(GenericParameter, metaclass=abc.ABCMeta):
     """A subclass of generic parameter that accepts collections only.
 
     This is a base class for List, Dict etc. parameters which share some
@@ -21,8 +21,6 @@ class CollectionParameter(GenericParameter):
 
     .. versionadded:: 2.2
     """
-    # Indicate that this is an abstract base class
-    __metaclass__ = abc.ABCMeta
 
     def __init__(self, guid=None):
         """Constructor.
@@ -131,7 +129,7 @@ class CollectionParameter(GenericParameter):
             raise TypeError(message)
 
         if isinstance(value, dict):
-            inspected_values = [value[key] for key in value.keys()]
+            inspected_values = [value[key] for key in list(value.keys())]
         elif isinstance(value, list):
             inspected_values = value
         else:
