@@ -6,9 +6,10 @@ python:
 virtualenv:
   system_site_packages: true
 
-branches:
-  only:
-    - master
+# Disable branch whitelist until migration to QGIS3 is completed
+#branches:
+#  only:
+#    - master
 
 -before_install:
   - sudo apt-get -qq -y update
