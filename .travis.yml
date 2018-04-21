@@ -1,22 +1,23 @@
 language: python
 
 python:
-  - "2.7"
-
-virtualenv:
-  system_site_packages: true
+  - "3.4"
 
 # Disable branch whitelist until migration to QGIS3 is completed
 #branches:
 #  only:
 #    - master
 
+virtualenv:
+  system_site_packages: true
+
+
 -before_install:
   - sudo apt-get -qq -y update
 
 install:
-  - sudo apt-get install -y git pylint pep8 python-nose python-coverage pyflakes python-nosexcover python-qt4
-  - pip install nose-exclude
+  - sudo apt-get install -y git pylint pep8 python3-pyqt5
+  - pip install nose nose-exclude nosexcover pyflakes
 
 before_script:
   - echo "Build starting on " `date`
@@ -30,6 +31,8 @@ after_success:
   - pip install coveralls
   - coveralls
 
-notifications:
-  email:
-    - ismail@kartoza.com
+
+# Disable notifications until migration to QGIS3 is completed
+#notifications:
+#  email:
+#    - ismail@kartoza.com

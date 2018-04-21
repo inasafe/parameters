@@ -16,7 +16,7 @@ test_suite:
 	@echo "---------------------"
 	@echo "Regression Test Suite"
 	@echo "---------------------"
-	@export PYTHONPATH=`pwd`:$(PYTHONPATH);nosetests -v --with-id --with-coverage --cover-package=. 3>&1 1>&2 2>&3 3>&- || true
+	@export PYTHONPATH=`pwd`:$(PYTHONPATH);nosetests3 -v --with-id --with-coverage --cover-package=. 3>&1 1>&2 2>&3 3>&- || true
 
 # zip
 package:
