@@ -77,7 +77,7 @@ class DictParameterWidget(GenericParameterWidget):
         widget_items = []
         font = QFont()
         font.setBold(True)
-        for key in list(data_dict.keys()):
+        for key in data_dict.keys():
             entry = data_dict[key]
             key_item = QTreeWidgetItem()
             key_item.setText(0, str(key))
