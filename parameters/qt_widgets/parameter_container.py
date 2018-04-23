@@ -173,7 +173,7 @@ class ParameterContainer(QWidget, object):
 
         self.main_layout.addWidget(self.group_frame)
 
-        self.5_parameter_factory = Qt5ParameterFactory()
+        self.qt5_parameter_factory = Qt5ParameterFactory()
         if self.extra_parameters is not None:
             for extra_parameter in self.extra_parameters:
                 if (type(extra_parameter) == tuple and
