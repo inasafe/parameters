@@ -1,5 +1,5 @@
 # coding=utf-8
-"""Test class for qt4_parameter_factory."""
+"""Test class for qt5_parameter_factory."""
 
 import unittest
 
@@ -10,7 +10,7 @@ from parameters.float_parameter import FloatParameter
 from parameters.qt_widgets.boolean_parameter_widget import (
     BooleanParameterWidget)
 from parameters.qt_widgets.float_parameter_widget import FloatParameterWidget
-from parameters.qt_widgets.qt4_parameter_factory import Qt4ParameterFactory
+from parameters.qt_widgets.qt5_parameter_factory import Qt5ParameterFactory
 from parameters.qt_widgets.test.custom_parameter.point_parameter import (
     PointParameter)
 from parameters.qt_widgets.test.custom_parameter. \
@@ -22,7 +22,7 @@ __email__ = "info@inasafe.org"
 __revision__ = '$Format:%H$'
 
 
-class TestQt4ParameterFactory(unittest.TestCase):
+class TestQt5ParameterFactory(unittest.TestCase):
     application = QApplication([])
 
     def setUp(self):
@@ -53,15 +53,15 @@ class TestQt4ParameterFactory(unittest.TestCase):
         self.point_parameter.value = (0, 1)
 
     def test_init(self):
-        """Test initialize qt4 parameter factory."""
+        """Test initialize qt5 parameter factory."""
         parameters = [self.boolean_parameter, self.float_parameter]
 
-        qt4_parameter_factory = Qt4ParameterFactory()
+        qt5_parameter_factory = Qt5ParameterFactory()
         widgets = []
         widget_classes = []
 
         for parameter in parameters:
-            widget = qt4_parameter_factory.get_widget(parameter)
+            widget = qt5_parameter_factory.get_widget(parameter)
             widgets.append(widget)
             widget_classes.append(widget.__class__)
 
@@ -71,8 +71,8 @@ class TestQt4ParameterFactory(unittest.TestCase):
 
     def test_custom_parameter(self):
         """Test adding new custom parameter to the factory"""
-        qt4_parameter_factory = Qt4ParameterFactory()
-        qt4_parameter_factory.register_widget(
+        qt5_parameter_factory = Qt5ParameterFactory()
+        qt5_parameter_factory.register_widget(
             PointParameter, PointParameterWidget)
 
         parameters = [
@@ -82,7 +82,7 @@ class TestQt4ParameterFactory(unittest.TestCase):
         widget_classes = []
 
         for parameter in parameters:
-            widget = qt4_parameter_factory.get_widget(parameter)
+            widget = qt5_parameter_factory.get_widget(parameter)
             widgets.append(widget)
             widget_classes.append(widget.__class__)
 
