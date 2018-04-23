@@ -5,7 +5,7 @@ from PyQt5.QtWidgets import QWidget, QScrollArea, QVBoxLayout, QGridLayout, QSiz
 from PyQt5.QtGui import QColor
 
 from parameters.parameter_exceptions import InvalidValidationException
-from parameters.qt_widgets.qt4_parameter_factory import Qt4ParameterFactory
+from parameters.qt_widgets.qt5_parameter_factory import Qt5ParameterFactory
 
 __copyright__ = "Copyright 2014, The InaSAFE Project"
 __license__ = "GPL version 3"
@@ -57,7 +57,7 @@ class ParameterContainer(QWidget, object):
         self.description_label.setWordWrap(True)
         self.scroll_area = QScrollArea()
         self.group_frame = QFrame()
-        self.qt4_parameter_factory = Qt4ParameterFactory()
+        self.qt5_parameter_factory = Qt5ParameterFactory()
         self.main_layout = QGridLayout()
 
 # NOTES(IS) : These functions are commented since the architecture is not
@@ -71,7 +71,7 @@ class ParameterContainer(QWidget, object):
     #     :param parameter_widget:
     #     :type parameter_widget: GenericParameterWidget
     #     """
-    #     self.qt4_parameter_factory.register_widget(
+    #     self.qt5_parameter_factory.register_widget(
     # parameter, parameter_widget)
     #
     # def remove_widget(self, parameter):
@@ -173,12 +173,12 @@ class ParameterContainer(QWidget, object):
 
         self.main_layout.addWidget(self.group_frame)
 
-        self.qt4_parameter_factory = Qt4ParameterFactory()
+        self.5_parameter_factory = Qt5ParameterFactory()
         if self.extra_parameters is not None:
             for extra_parameter in self.extra_parameters:
                 if (type(extra_parameter) == tuple and
                         len(extra_parameter) == 2):
-                    self.qt4_parameter_factory.register_widget(
+                    self.qt5_parameter_factory.register_widget(
                         extra_parameter[0], extra_parameter[1])
 
         color_odd = QColor(220, 220, 220)
@@ -186,7 +186,7 @@ class ParameterContainer(QWidget, object):
 
         i = 0
         for parameter in parameters:
-            parameter_widget = self.qt4_parameter_factory.get_widget(parameter)
+            parameter_widget = self.qt5_parameter_factory.get_widget(parameter)
             if i % 2:
                 color = color_even
             else:
