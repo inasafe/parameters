@@ -47,7 +47,7 @@ class GenericParameterWidget(QWidget, object):
 
         # Tool button for showing and hide detail help
         self.switch_button = QToolButton()
-        self.switch_button.setArrowType(4)  # 2=down arrow, 4=right arrow
+        self.switch_button.setArrowType(Qt.RightArrow)
         # noinspection PyUnresolvedReferences
         self.switch_button.clicked.connect(self.show_hide_help)
         self.switch_button.setToolTip('Click for detail help')
