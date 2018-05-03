@@ -84,3 +84,8 @@ class TestListParameter(TestCase):
         """Test value mutator."""
         self.parameter.value = good_dict
         self.assertEqual(good_dict, self.parameter.value)
+
+    def test_keys(self):
+        """Test keys methods"""
+        self.parameter.value = good_dict
+        self.assertEqual(self.parameter.keys(), good_dict.keys())
