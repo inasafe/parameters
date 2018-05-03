@@ -27,7 +27,7 @@ class PointParameterWidget(GenericParameterWidget):
         self._spin_box_size_policy = QSizePolicy(
             QSizePolicy.Fixed, QSizePolicy.Fixed)
 
-        super(PointParameterWidget, self).__init__(parameter, parent)
+        super().__init__(parameter, parent)
 
         self._input_x = QSpinBox()
         self._input_x.setValue(self._parameter.value[0])

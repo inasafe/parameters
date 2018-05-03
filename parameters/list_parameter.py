@@ -25,7 +25,7 @@ class ListParameter(CollectionParameter):
             will be used when storing parameters in the registry.
         :type guid: str
         """
-        super(ListParameter, self).__init__(guid)
+        super().__init__(guid)
         self.expected_type = list
         self._options_list = None
         self._is_editable = False

@@ -28,7 +28,7 @@ class InputListParameter(CollectionParameter):
             will be used when storing parameters in the registry.
         :type guid: str
         """
-        super(InputListParameter, self).__init__(guid)
+        super().__init__(guid)
         self.expected_type = list
         self._ordering = InputListParameter.NotOrdered
 

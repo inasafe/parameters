@@ -22,7 +22,7 @@ class SelectParameterWidget(GenericParameterWidget):
         :type parameter: ListParameter
 
         """
-        super(SelectParameterWidget, self).__init__(parameter, parent)
+        super().__init__(parameter, parent)
 
         self.input = QComboBox()
 

@@ -30,7 +30,7 @@ class CollectionParameter(GenericParameter, metaclass=abc.ABCMeta):
             will be used when storing parameters in the registry.
         :type guid: str
         """
-        super(CollectionParameter, self).__init__(guid)
+        super().__init__(guid)
         self._minimum_item_count = None
         self._maximum_item_count = None
         self._element_type = None

@@ -23,7 +23,7 @@ class ListParameterWidget(GenericParameterWidget):
         :type parameter: ListParameter
 
         """
-        super(ListParameterWidget, self).__init__(parameter, parent)
+        super().__init__(parameter, parent)
 
         self._input = QListWidget()
 

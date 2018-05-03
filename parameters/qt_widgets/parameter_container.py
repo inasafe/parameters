@@ -35,7 +35,7 @@ class ParameterContainer(QWidget, object):
         :type description_text: str
 
         """
-        QWidget.__init__(self, parent)
+        super().__init__(parent)
         # attributes
         if not parameters:
             self.parameters = []

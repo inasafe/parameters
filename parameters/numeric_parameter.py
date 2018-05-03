@@ -29,7 +29,7 @@ class NumericParameter(GenericParameter):
             will be used when storing parameters in the registry.
         :type guid: str
         """
-        super(NumericParameter, self).__init__(guid)
+        super().__init__(guid)
         self._minimum_allowed_value = None
         self._maximum_allowed_value = None
         self._unit = None

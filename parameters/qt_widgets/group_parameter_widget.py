@@ -23,7 +23,7 @@ class GroupParameterWidget(GenericParameterWidget):
         :type parameter: GroupParameter
 
         """
-        super(GroupParameterWidget, self).__init__(parameter, parent)
+        super().__init__(parameter, parent)
 
         # Get the parameter label and use its value as the checkbox text
         label_item = self.input_layout.itemAt(0)

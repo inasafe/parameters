@@ -25,7 +25,7 @@ class NumericParameterWidget(GenericParameterWidget):
         :type parameter: NumericParameter
 
         """
-        super(NumericParameterWidget, self).__init__(parameter, parent)
+        super().__init__(parameter, parent)
 
         self._input = QWidget()
 

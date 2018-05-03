@@ -25,7 +25,7 @@ class InputListParameterWidget(GenericParameterWidget):
         :type parameter: InputListParameter
 
         """
-        super(InputListParameterWidget, self).__init__(parameter, parent)
+        super().__init__(parameter, parent)
 
         # value cache for self._parameter.value
         # copy the list so the original is unaffected
