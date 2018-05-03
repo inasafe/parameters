@@ -21,7 +21,7 @@ class GenericParameterWidget(QWidget, object):
         :type parameter: GenericParameter
 
         """
-        QWidget.__init__(self, parent)
+        super().__init__(parent)
         self._parameter = parameter
 
         # Create elements

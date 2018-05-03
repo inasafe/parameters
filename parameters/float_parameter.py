@@ -27,7 +27,7 @@ class FloatParameter(NumericParameter):
             will be used when storing parameters in the registry.
         :type guid: str
         """
-        super(FloatParameter, self).__init__(guid)
+        super().__init__(guid)
         self.expected_type = [float, int]  # IS:because int is subset of float
         self._minimum_allowed_value = sys.float_info.min
         self._maximum_allowed_value = sys.float_info.max

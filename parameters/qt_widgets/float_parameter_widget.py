@@ -23,7 +23,7 @@ class FloatParameterWidget(NumericParameterWidget):
         :type parameter: FloatParameter
 
         """
-        super(FloatParameterWidget, self).__init__(parameter, parent)
+        super().__init__(parameter, parent)
 
         self._input = QDoubleSpinBox()
         self._input.setDecimals(self._parameter.precision)

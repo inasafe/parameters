@@ -34,7 +34,7 @@ class DictParameterWidget(GenericParameterWidget):
 
         """
         # pylint: disable=E1002
-        super(DictParameterWidget, self).__init__(parameter, parent)
+        super().__init__(parameter, parent)
         # pylint: enable=E1002
 
         self.input = QTreeWidget()

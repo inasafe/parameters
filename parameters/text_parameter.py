@@ -24,5 +24,5 @@ class TextParameter(GenericParameter):
             will be used when storing parameters in the registry.
         :type guid: str, None
         """
-        super(TextParameter, self).__init__(guid)
+        super().__init__(guid)
         self.expected_type = [str]

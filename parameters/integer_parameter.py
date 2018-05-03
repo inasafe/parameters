@@ -28,7 +28,7 @@ class IntegerParameter(NumericParameter):
             will be used when storing parameters in the registry.
         :type guid: str
         """
-        super(IntegerParameter, self).__init__(guid)
+        super().__init__(guid)
         self.expected_type = int
         self._minimum_allowed_value = - sys.maxsize - 1
         self._maximum_allowed_value = sys.maxsize

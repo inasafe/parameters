@@ -21,5 +21,5 @@ class PointParameter(GenericParameter):
             the registry.
         :type guid: str
         """
-        super(PointParameter, self).__init__(guid)
+        super().__init__(guid)
         self.expected_type = tuple

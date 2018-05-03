@@ -22,5 +22,5 @@ class BooleanParameter(GenericParameter):
             will be used when storing parameters in the registry.
         :type guid: str
         """
-        super(BooleanParameter, self).__init__(guid)
+        super().__init__(guid)
         self.expected_type = bool

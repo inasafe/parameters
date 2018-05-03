@@ -23,7 +23,7 @@ class TextParameterWidget(GenericParameterWidget):
         :type parameter: StringParameter
 
         """
-        super(TextParameterWidget, self).__init__(parameter, parent)
+        super().__init__(parameter, parent)
 
         self._line_edit_input = QTextEdit()
         self._line_edit_input.setSizePolicy(

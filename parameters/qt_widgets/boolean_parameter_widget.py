@@ -22,7 +22,7 @@ class BooleanParameterWidget(GenericParameterWidget):
         :type parameter: BooleanParameter
 
         """
-        super(BooleanParameterWidget, self).__init__(parameter, parent)
+        super().__init__(parameter, parent)
 
         # Get the parameter label and use its value as the checkbox text
         label_item = self.input_layout.itemAt(0)

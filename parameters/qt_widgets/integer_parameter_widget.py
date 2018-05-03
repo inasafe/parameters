@@ -23,7 +23,7 @@ class IntegerParameterWidget(NumericParameterWidget):
         :type parameter: IntegerParameter
 
         """
-        super(IntegerParameterWidget, self).__init__(parameter, parent)
+        super().__init__(parameter, parent)
 
         self._input = QSpinBox()
         self._input.setValue(self._parameter.value)
