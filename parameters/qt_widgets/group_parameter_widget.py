@@ -14,6 +14,7 @@ __revision__ = '$Format:%H$'
 
 class GroupParameterWidget(GenericParameterWidget):
     """Widget class for List parameter."""
+
     def __init__(self, parameter, parent=None):
         """Constructor
 
