@@ -1,8 +1,14 @@
 # coding=utf-8
 """Generic Parameter Widget for this file."""
 
-from PyQt5.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QLabel, QToolButton, QGridLayout, QSizePolicy
-
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import (QWidget,
+                             QHBoxLayout,
+                             QVBoxLayout,
+                             QLabel,
+                             QToolButton,
+                             QGridLayout,
+                             QSizePolicy)
 
 __copyright__ = "Copyright 2014, The InaSAFE Project"
 __license__ = "GPL version 3"
@@ -12,6 +18,7 @@ __revision__ = '$Format:%H$'
 
 class GenericParameterWidget(QWidget, object):
     """Widget class for generic parameter."""
+
     def __init__(self, parameter, parent=None):
         """Constructor
 

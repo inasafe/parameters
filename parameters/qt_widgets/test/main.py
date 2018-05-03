@@ -57,8 +57,8 @@ def main():
             return {
                 'valid': False,
                 'message': (
-                    'Your minimum value (%d) should be less than your maximum '
-                    'value (%d)' % (min_value, max_value))
+                        'Your minimum value (%d) should be less than your maximum '
+                        'value (%d)' % (min_value, max_value))
             }
         print('Valid')
         return {'valid': True, 'message': ''}
@@ -302,6 +302,7 @@ def main():
         :param the_parameter_container: A parameter container
         :type the_parameter_container: ParameterContainer
         """
+
         def show_parameter_value(a_parameter):
             if isinstance(a_parameter, GroupParameter):
                 for param in a_parameter.value:
@@ -341,6 +342,7 @@ def main():
     widget.show()
 
     sys.exit(app.exec_())
+
 
 if __name__ == '__main__':
     main()

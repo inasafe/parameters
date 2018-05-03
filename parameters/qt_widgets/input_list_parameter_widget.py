@@ -2,7 +2,13 @@ from builtins import str
 # coding=utf-8
 
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QListWidget, QAbstractItemView, QLineEdit, QVBoxLayout, QHBoxLayout, QPushButton, QListWidgetItem
+from PyQt5.QtWidgets import (QListWidget,
+                             QAbstractItemView,
+                             QLineEdit,
+                             QVBoxLayout,
+                             QHBoxLayout,
+                             QPushButton,
+                             QListWidgetItem)
 
 from parameters.input_list_parameter import InputListParameter
 from parameters.qt_widgets.generic_parameter_widget import (
@@ -16,6 +22,7 @@ __revision__ = '$Format:%H$'
 
 class InputListParameterWidget(GenericParameterWidget):
     """Widget class for List parameter."""
+
     def __init__(self, parameter, parent=None):
         """Constructor
 
@@ -42,7 +49,7 @@ class InputListParameterWidget(GenericParameterWidget):
                 self._parameter.maximum_item_count)
         else:
             tool_tip = 'Select exactly %d items' % (
-                       self._parameter.maximum_item_count)
+                self._parameter.maximum_item_count)
 
         self.input.setToolTip(tool_tip)
 
