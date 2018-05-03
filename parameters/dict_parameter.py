@@ -2,7 +2,6 @@
 """Dictionary Parameter."""
 from parameters.collection_parameter import CollectionParameter
 
-
 __copyright__ = "Copyright 2014, The InaSAFE Project"
 __license__ = "GPL version 3"
 __email__ = "info@inasafe.org"
@@ -36,7 +35,7 @@ class DictParameter(CollectionParameter):
 
     def keys(self):
         """Helper method to make DictParameter behave like dict"""
-        return list(self._value.keys())
+        return self._value.keys()
 
     @property
     def value(self):
