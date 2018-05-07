@@ -1,10 +1,12 @@
 # coding=utf-8
 
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import (QListWidget,
-                             QAbstractItemView,
-                             QListWidgetItem,
-                             QVBoxLayout)
+from PyQt5.QtWidgets import (
+    QListWidget,
+    QAbstractItemView,
+    QListWidgetItem,
+    QVBoxLayout
+)
 
 from parameters.qt_widgets.generic_parameter_widget import (
     GenericParameterWidget)
@@ -17,6 +19,7 @@ __revision__ = '$Format:%H$'
 
 class ListParameterWidget(GenericParameterWidget):
     """Widget class for List parameter."""
+
     def __init__(self, parameter, parent=None):
         """Constructor
 
