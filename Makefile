@@ -1,14 +1,14 @@
 PROJECT_NAME = PARAMETERS
 BUILD_DIRECTORY = ../build_$(PROJECT_NAME)
 
-# Run pep8 style checking
-#http://pypi.python.org/pypi/pep8
-pep8:
+# Run flake8 style checking
+flake8:
 	@echo
 	@echo "-----------"
-	@echo "PEP8 issues"
+	@echo "Flake8 issues"
 	@echo "-----------"
-	@pep8 --repeat --ignore=E203,E121,E122,E123,E124,E125,E126,E127,E128,E402 . || true
+	@python3 -m flake8 --version
+	@python3 -m flake8 || true
 
 # Run entire test suite
 test_suite:

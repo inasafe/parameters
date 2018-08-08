@@ -4,7 +4,8 @@
 import sys
 from functools import partial
 
-from PyQt5.QtWidgets import QApplication, QWidget, QGridLayout, QPushButton, QMessageBox
+from PyQt5.QtWidgets import (
+    QApplication, QWidget, QGridLayout, QPushButton, QMessageBox)
 
 from parameters.boolean_parameter import BooleanParameter
 from parameters.dict_parameter import DictParameter
@@ -54,11 +55,11 @@ def main():
 
         if min_value > max_value:
             print('Not valid')
+            message = ('Your minimum value (%d) should be less than your '
+                       'maximum value (%d)' % (min_value, max_value))
             return {
                 'valid': False,
-                'message': (
-                        'Your minimum value (%d) should be less than your maximum '
-                        'value (%d)' % (min_value, max_value))
+                'message': message
             }
         print('Valid')
         return {'valid': True, 'message': ''}

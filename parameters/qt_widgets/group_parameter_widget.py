@@ -50,7 +50,8 @@ class GroupParameterWidget(GenericParameterWidget):
         self.main_layout.addLayout(self._group_layout)
 
         # Why are we doing imports here? TS
-        from parameters.qt_widgets.parameter_container import ParameterContainer
+        from parameters.qt_widgets.parameter_container import (
+            ParameterContainer)
 
         self.param_container = ParameterContainer(
             parameters=self._parameter.value)

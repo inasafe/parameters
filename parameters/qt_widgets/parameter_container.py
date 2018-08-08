@@ -11,7 +11,6 @@ from PyQt5.QtWidgets import (
     QFrame,
     QHBoxLayout
 )
-from PyQt5.QtGui import QColor
 
 from parameters.parameter_exceptions import InvalidValidationException
 from parameters.qt_widgets.qt5_parameter_factory import Qt5ParameterFactory
@@ -190,21 +189,9 @@ class ParameterContainer(QWidget, object):
                     self.qt5_parameter_factory.register_widget(
                         extra_parameter[0], extra_parameter[1])
 
-        color_odd = QColor(220, 220, 220)
-        color_even = QColor(192, 192, 192)
-
-        i = 0
         for parameter in parameters:
             parameter_widget = self.qt5_parameter_factory.get_widget(parameter)
-            if i % 2:
-                color = color_even
-            else:
-                color = color_odd
-            i += 1
             parameter_widget.setAutoFillBackground(True)
-            # palette = parameter_widget.palette()
-            # palette.setColor(parameter_widget.backgroundRole(), color)
-            # parameter_widget.setPalette(palette)
             self.vertical_layout.addWidget(parameter_widget)
 
         self.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
